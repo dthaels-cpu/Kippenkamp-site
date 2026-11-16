@@ -227,15 +227,56 @@
   if (kampEl) {
     var kampFotos = (BEELDEN.kamp || []).map(function (f) { return norm(f); }).filter(function (f) { return f.src; });
     if (kampFotos.length) {
-      kampEl.innerHTML = kampFotos.map(function (f, i) {
-        return '<li><button type="button" class="strip-foto" data-lijst="kamp" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + " van " + kampFotos.length + '">' +
-          '<img src="' + esc(f.src) + '" alt="' + esc(f.tekst || "Ons kamp") + '" loading="lazy" decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button>' +
-          (f.tekst ? "<span>" + esc(f.tekst) + "</span>" : "") + "</li>";
-      }).join("");
+      var n = kampFotos.length;
+      kampEl.innerHTML =
+        '<div class="slider" role="region" aria-roledescription="carousel" aria-label="Foto\'s van ons kamp">' +
+        '<div class="slides">' + kampFotos.map(function (f, i) {
+          return '<div class="slide' + (i === 0 ? " actief" : "") + '" role="group" aria-roledescription="dia" aria-label="Foto ' + (i + 1) + " van " + n + '">' +
+            '<button type="button" class="strip-foto" data-lijst="kamp" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + ' groot' + (f.tekst ? ": " + esc(f.tekst) : "") + '">' +
+            '<span class="bg" style="background-image:url(\'' + esc(f.src) + '\')"></span>' +
+            '<img src="' + esc(f.src) + '" alt="' + esc(f.tekst || "Ons kamp") + '"' + (i === 0 ? "" : ' loading="lazy"') + ' decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></div>';
+        }).join("") + "</div>" +
+        (n > 1 ? '<button type="button" class="sl-btn sl-prev" aria-label="Vorige foto">‹</button><button type="button" class="sl-btn sl-next" aria-label="Volgende foto">›</button>' : "") +
+        '</div><p class="sl-tekst" aria-live="polite"></p>' +
+        (n > 1 ? '<div class="sl-dots">' + kampFotos.map(function (f, i) { return '<button type="button" data-i="' + i + '" aria-label="Ga naar foto ' + (i + 1) + '"></button>'; }).join("") + "</div>" : "");
+      var slider = $(".slider", kampEl), slides = $$(".slide", kampEl), dots = $$(".sl-dots button", kampEl), tekstEl = $(".sl-tekst", kampEl);
+      var huidig = 0, pauze = false, timer = null;
+      var ga = function (i) {
+        huidig = (i + n) % n;
+        slides.forEach(function (s, k) { s.classList.toggle("actief", k === huidig); });
+        dots.forEach(function (d, k) { d.setAttribute("aria-current", k === huidig ? "true" : "false"); });
+        tekstEl.textContent = kampFotos[huidig].tekst || "";
+      };
+      ga(0);
+      if (n > 1) {
+        var stel = function () {
+          clearInterval(timer);
+          if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          timer = setInterval(function () {
+            var lbOpen = $("#lightbox") && !$("#lightbox").hidden;
+            if (!pauze && !lbOpen && !document.hidden) ga(huidig + 1);
+          }, 5000);
+        };
+        stel();
+        $(".sl-prev", kampEl).addEventListener("click", function () { ga(huidig - 1); stel(); });
+        $(".sl-next", kampEl).addEventListener("click", function () { ga(huidig + 1); stel(); });
+        dots.forEach(function (d) { d.addEventListener("click", function () { ga(Number(d.getAttribute("data-i"))); stel(); }); });
+        kampEl.addEventListener("mouseenter", function () { pauze = true; });
+        kampEl.addEventListener("mouseleave", function () { pauze = false; });
+        kampEl.addEventListener("focusin", function () { pauze = true; });
+        kampEl.addEventListener("focusout", function () { pauze = false; });
+        var sx = null;
+        slider.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        slider.addEventListener("touchend", function (e) {
+          if (sx === null) return;
+          var dx = e.changedTouches[0].clientX - sx; sx = null;
+          if (Math.abs(dx) > 50) { ga(huidig + (dx < 0 ? 1 : -1)); stel(); }
+        });
+      }
     } else {
-      kampEl.innerHTML = ["kip", "kwartel", "kuiken"].map(function (k) {
+      kampEl.innerHTML = '<ul class="fotostrip kamp">' + ["kip", "kwartel", "kuiken"].map(function (k) {
         return '<li><div class="tegel"><img src="' + PLAATSHOUDER[k] + '" alt="" loading="lazy" width="400" height="300"></div></li>';
-      }).join("");
+      }).join("") + "</ul>";
       var leeg = $("#kamp-leeg"); if (leeg) leeg.hidden = false;
     }
   }

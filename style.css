@@ -322,3 +322,21 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .fotostrip .tegel { aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: var(--cream); opacity: .85; }
 .fotostrip .tegel img { width: 100%; height: 100%; object-fit: cover; }
 .kamp-leeg { margin-top: 14px; color: var(--muted); }
+
+/* Slideshow: Impressie van ons kamp */
+.slider { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--brown-dark); box-shadow: var(--shadow); aspect-ratio: 4 / 3; }
+@media (min-width: 720px) { .slider { aspect-ratio: 16 / 9; max-height: 620px; } }
+.slides, .slide, .slide button { position: absolute; inset: 0; width: 100%; height: 100%; }
+.slide { opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility .6s; }
+.slide.actief { opacity: 1; visibility: visible; }
+.slide button { padding: 0; border: 0; background: transparent; cursor: zoom-in; display: block; }
+.slide .bg { position: absolute; inset: -20px; background-size: cover; background-position: center; filter: blur(22px) brightness(.8); }
+.slide img { position: relative; width: 100%; height: 100%; object-fit: contain; display: block; }
+.sl-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: var(--brown-dark); font-size: 1.9rem; line-height: 1; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.sl-btn:hover { background: #fff; }
+.sl-prev { left: 12px; } .sl-next { right: 12px; }
+.sl-tekst { min-height: 1.6em; margin: 14px 0 6px; text-align: center; color: var(--muted); }
+.sl-dots { display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; }
+.sl-dots button { width: 28px; height: 28px; border: 0; background: transparent; cursor: pointer; position: relative; }
+.sl-dots button::after { content: ""; position: absolute; top: 50%; left: 50%; width: 11px; height: 11px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--line); }
+.sl-dots button[aria-current="true"]::after { background: var(--olive); }

@@ -82,9 +82,12 @@ const BEELDEN = {
     kuikens: "images/kuikens-groep.jpg",
     volwassen: ""
   },
-  kamp: [                         // "Impressie van ons kamp": foto's van waar en hoe de dieren zitten
-    // "images/kamp-1.jpg",
-    // { src: "images/kamp-2.jpg", tekst: "De kippen in de tuin" }
+  kamp: [                         // "Impressie van ons kamp": slideshow met foto's van waar en hoe de dieren zitten
+    { src: "images/kamp-binnen-kwartels-kippen.jpg", tekst: "Kwartels en kippen samen binnen in huis" },
+    { src: "images/kamp-kippen-voeren.jpg", tekst: "Kippen en een konijn krijgen een wortel" },
+    { src: "images/kamp-konijnen-sneeuw.jpg", tekst: "Konijnen en een kip samen in de sneeuw" },
+    { src: "images/kamp-hond-kippen.jpg", tekst: "Onze hond tussen de kippen" },
+    { src: "images/kamp-kuikens-huis.jpg", tekst: "Kuikens groeien op in huis" }
   ],
   categorieFotos: {               // extra foto's die bovenaan staan als je op Aanbod een categorie kiest
     broedeieren: [],              // bv. ["images/eieren-1.jpg", { src: "images/eieren-2.jpg", tekst: "Onze eieren" }]
