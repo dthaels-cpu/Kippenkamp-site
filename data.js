@@ -77,6 +77,16 @@ const BEELDEN = {
     broedeieren: "images/broedeieren-broedmachine.jpg",
     kuikens: "images/kuikens-groep.jpg",
     volwassen: ""
+  },
+  categorieFotos: {               // extra foto's die bovenaan staan als je op Aanbod een categorie kiest
+    broedeieren: [],              // bv. ["images/eieren-1.jpg", { src: "images/eieren-2.jpg", tekst: "Onze eieren" }]
+    kuikens: [
+      "images/kuikens-groep.jpg",
+      "images/kuikens-broedlamp.jpg",
+      "images/kuiken-zwart.jpg",
+      "images/kuiken-zwart-eieren.jpg"
+    ],
+    volwassen: []
   }
 };
 

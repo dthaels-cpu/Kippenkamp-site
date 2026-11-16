@@ -306,3 +306,9 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .cat.keuze .prods { margin-top: auto; }
 .cat.keuze .prod { padding: 10px 0 0; border-bottom: 0; }
 .cat.keuze .more-link { font-size: .9rem; color: var(--olive-dark); }
+
+/* Fotostrook bij een categorie op Aanbod */
+.fotostrip { list-style: none; margin: 0 0 32px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.fotostrip button { display: block; width: 100%; padding: 0; border: 0; border-radius: 12px; overflow: hidden; cursor: zoom-in; background: var(--cream); aspect-ratio: 4 / 3; box-shadow: var(--shadow); }
+.fotostrip img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s; }
+.fotostrip button:hover img { transform: scale(1.04); }

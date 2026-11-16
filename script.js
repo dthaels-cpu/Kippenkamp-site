@@ -231,14 +231,23 @@
       var cat = cats.filter(function (c) { return c.id === id; })[0];
       var items = cat ? rassenMet(cat.type) : PRODUCTEN;
       var groepen = [["kwartel", "Kwartels"], ["kip", "Kippen"]];
-      lijst.innerHTML = items.length
+      var strip = "";
+      var cf = cat && BEELDEN.categorieFotos && BEELDEN.categorieFotos[cat.id];
+      if (cf && cf.length) {
+        strip = '<ul class="fotostrip" aria-label="Foto\'s: ' + esc(cat.titel) + '">' + cf.map(function (f, i) {
+          var n = norm(f);
+          return '<li><button type="button" class="strip-foto" data-cat="' + cat.id + '" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + " van " + cf.length + '">' +
+            '<img src="' + esc(n.src) + '" alt="' + esc(n.tekst) + '" loading="lazy" decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></li>';
+        }).join("") + "</ul>";
+      }
+      lijst.innerHTML = strip + (items.length
         ? groepen.map(function (gr) {
             var deel = items.filter(function (r) { return r.soort === gr[0]; });
             if (!deel.length) return "";
             return '<section class="groep"><h2 class="groep-titel">' + gr[1] + '</h2><div class="grid rassen">' +
               deel.map(function (r) { return cat ? keuzeKaart(r, cat.type) : rasKaart(r, ""); }).join("") + "</div></section>";
           }).join("")
-        : '<p class="empty">Er staat hier nog niets in het aanbod.</p>';
+        : '<p class="empty">Er staat hier nog niets in het aanbod.</p>');
       $$("button", filterEl).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === id ? "true" : "false"); });
     };
     filterEl.innerHTML = '<button type="button" data-id="alles" aria-pressed="true">Alle rassen</button>' +
@@ -566,9 +575,24 @@
       document.body.style.overflow = "hidden";
       $("#lbClose").focus();
     };
+    var openLijst = function (lijstFotos, start, naam) {
+      foto = lijstFotos.map(function (f) { return norm(f); }).filter(function (f) { return f.src; });
+      if (!foto.length) return;
+      pos = Math.min(start, foto.length - 1); titel = naam;
+      $("#lbImg").setAttribute("data-fallback", PLAATSHOUDER.kip);
+      toonFoto();
+      lb.hidden = false;
+      document.body.style.overflow = "hidden";
+      $("#lbClose").focus();
+    };
     var sluitFoto = function () { lb.hidden = true; document.body.style.overflow = ""; };
     var stap = function (d) { pos = (pos + d + foto.length) % foto.length; toonFoto(); };
     document.addEventListener("click", function (e) {
+      var sf = e.target.closest("button.strip-foto");
+      if (sf) {
+        var c = CATEGORIEEN.filter(function (x) { return x.id === sf.getAttribute("data-cat"); })[0];
+        return openLijst(BEELDEN.categorieFotos[c.id], Number(sf.getAttribute("data-i")), c.titel);
+      }
       var k = e.target.closest("button.pic");
       if (k) return openFoto(PRODUCTEN[Number(k.getAttribute("data-ras"))]);
       if (e.target === lb || e.target.id === "lbClose") sluitFoto();
