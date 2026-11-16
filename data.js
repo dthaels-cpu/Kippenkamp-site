@@ -156,7 +156,7 @@ const PRODUCTEN = [
     omschrijving: "Zuiver goud-zwartgezoomd, haan en hennen onverwant. 100% zuivere broedeieren.",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/orpington-goud-zwartgezoomd-kuikens.jpg", tekst: "Orpington goud-zwartgezoomd kuikens" }] },
     volwassen: null
   },
   {
