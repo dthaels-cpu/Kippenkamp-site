@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://website-drab-three-77.vercel.app/sitemap.xml

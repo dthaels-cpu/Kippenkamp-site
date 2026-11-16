@@ -1,81 +1,168 @@
 <!doctype html>
-<html lang="nl">
+<html lang="nl-BE">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Het Kippenkamp | Broedeieren en eendagskuikens</title>
-  <meta name="description" content="Broedeieren en eendagskuikens van kippen en kwartels: Orpington, Ameraucana, Marans, Olijfleggers, Easter eggers, Jumbo kwartels en meer.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐔</text></svg>">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Het Kippenkamp | Broedeieren en kuikens van kippen en kwartels</title>
+<meta name="description" content="Broedeieren, kippenkuikens en kwartels van bijzondere rassen zoals Orpington, Marans, Ameraucana en olijfleggers. Vraag eenvoudig aan, we bevestigen persoonlijk.">
+<link rel="canonical" href="https://website-drab-three-77.vercel.app/">
+<meta name="theme-color" content="#5c6b3b">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:site_name" content="Het Kippenkamp">
+<meta property="og:title" content="Het Kippenkamp | Broedeieren en kuikens van kippen en kwartels">
+<meta property="og:description" content="Broedeieren, kippenkuikens en kwartels van bijzondere rassen zoals Orpington, Marans, Ameraucana en olijfleggers. Vraag eenvoudig aan, we bevestigen persoonlijk.">
+<meta property="og:url" content="https://website-drab-three-77.vercel.app/">
+<meta property="og:image" content="https://website-drab-three-77.vercel.app/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Het Kippenkamp: broedeieren, kuikens en kwartels">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Het Kippenkamp | Broedeieren en kuikens van kippen en kwartels">
+<meta name="twitter:description" content="Broedeieren, kippenkuikens en kwartels van bijzondere rassen zoals Orpington, Marans, Ameraucana en olijfleggers. Vraag eenvoudig aan, we bevestigen persoonlijk.">
+<meta name="twitter:image" content="https://website-drab-three-77.vercel.app/images/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className+=" js"</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Het Kippenkamp","url":"https://website-drab-three-77.vercel.app/","description":"Broedeieren, kippenkuikens en kwartels van bijzondere rassen."}</script>
 </head>
-<body>
-
-<header class="topbar">
-  <a class="brand" href="#top" id="brandName">Het Kippenkamp</a>
-  <nav>
-    <a href="#over-ons">Over ons</a>
-    <a href="#aanbod">Aanbod</a>
-    <a href="#contact" class="btn small">Contact</a>
-  </nav>
-</header>
-
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Kippen &amp; kwartels</p>
-      <h1 id="slogan"></h1>
-      <p class="lead">Mooie rassen, gezonde dieren. Reserveer je broedeieren of eendagskuikens en we spreken af wanneer je ze kan ophalen.</p>
-      <div class="cta">
-        <a href="#aanbod" class="btn">Bekijk het aanbod</a>
-        <a href="#contact" class="btn ghost">Neem contact op</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="over-ons" class="wrap section">
-    <h2>Wie zijn wij</h2>
-    <div id="overOns" class="prose"></div>
-
-    <h2 class="sub">Wat we doen</h2>
-    <div id="watWeDoen" class="grid three"></div>
-  </section>
-
-  <section id="aanbod" class="band">
-    <div class="wrap section">
-      <h2>Ons aanbod</h2>
-      <p class="muted" id="bestelInfo"></p>
-
-      <h3 class="group">Broedeieren</h3>
-      <h4>Kwartels</h4>
-      <div id="broedei-kwartel" class="grid"></div>
-      <h4>Kippen</h4>
-      <div id="broedei-kip" class="grid"></div>
-
-      <h3 class="group">Eendagskuikens</h3>
-      <div id="kuiken-kwartel-wrap">
-        <h4>Kwartels</h4>
-        <div id="kuiken-kwartel" class="grid"></div>
-      </div>
-      <h4>Kippen</h4>
-      <div id="kuiken-kip" class="grid"></div>
-    </div>
-  </section>
-
-  <section id="contact" class="wrap section">
-    <h2>Contact &amp; bestellen</h2>
-    <p>Stuur ons een berichtje met het ras, het aantal en wanneer je ze nodig hebt.</p>
-    <ul class="contact" id="contactList"></ul>
-  </section>
-</main>
-
-<footer>
+<body data-page="home">
+<a class="skip" href="#inhoud">Ga naar de inhoud</a>
+<header class="site-header">
   <div class="wrap">
-    <span id="footName"></span> · <span id="year"></span>
+    <a class="brand" href="index.html"><img src="images/logo-mark.svg" alt="" width="40" height="40"><span data-site="naam">Het Kippenkamp</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hoofdmenu" aria-label="Open menu"><span></span></button>
+    <nav class="main-nav" id="hoofdmenu" aria-label="Hoofdmenu">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="aanbod.html">Aanbod</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="btn" href="aanvragen.html">Aanvragen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="inhoud">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="eyebrow">Kippen &amp; kwartels</p>
+      <h1 data-site="slogan">Met liefde voor kippen en kwartels</h1>
+      <p class="lead" data-site="heroTekst">Bij Het Kippenkamp vind je broedeieren en kuikens van bijzondere kippenrassen en van kwartels. Vraag aan wat je zoekt en we bevestigen persoonlijk wat beschikbaar is.</p>
+      <div class="cta">
+        <a class="btn light" href="aanbod.html">Ontdek ons aanbod</a>
+        <a class="btn ghost-light" href="contact.html">Contacteer ons</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categorie-sectie">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Ons aanbod</p>
+      <h2>Waar kunnen we je mee helpen?</h2>
+    </div>
+    <div id="categorieen" class="grid cats"></div>
+    <noscript><p><a class="btn" href="aanbod.html">Bekijk het volledige aanbod</a></p></noscript>
+  </div>
+</section>
+
+<section class="section band" id="voorstelling">
+  <div class="wrap">
+    <div class="split">
+      <div class="prose">
+        <p class="eyebrow">Over Het Kippenkamp</p>
+        <h2 id="intro-titel">Een kleine kippenhouderij met een grote liefde voor het dier</h2>
+        <div id="intro-tekst" style="margin-top:16px">
+          <p>Wij houden kippen en kwartels met oog voor mooie rassen en hun karakter. Je vindt bij ons broedeieren en kuikens, en je praat rechtstreeks met ons.</p>
+        </div>
+        <p><a class="link-more" href="over-ons.html">Lees meer over ons →</a></p>
+      </div>
+      <figure class="photo-frame"><img data-beeld="intro" data-alt="Kippen van Het Kippenkamp" src="images/placeholder-kip.svg" alt="" loading="lazy" decoding="async" width="800" height="600"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="uitgelicht-sectie">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Uitgelicht</p>
+      <h2>Een selectie van onze dieren</h2>
+      <p>Een greep uit de rassen die je bij ons kan aanvragen. Alle rassen staan op de pagina Aanbod.</p>
+    </div>
+    <div id="uitgelicht" class="grid rassen"></div>
+    <p style="margin-top:28px"><a class="btn ghost" href="aanbod.html">Bekijk alle rassen</a></p>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Waarom bij ons</p>
+      <h2>Zo werken we</h2>
+    </div>
+    <div id="waarom" class="grid why"></div>
+  </div>
+</section>
+
+<section class="section cta-band" id="contact-cta">
+  <div class="wrap">
+    <h2>Benieuwd wat er beschikbaar is?</h2>
+    <p data-site="bestelInfo">Stuur je aanvraag via het formulier, WhatsApp of mail. We bevestigen of het beschikbaar is en spreken samen af wanneer je alles kan ophalen.</p>
+    <div class="cta">
+      <a class="btn light" href="aanvragen.html">Vraag broedeieren of kuikens aan</a>
+      <a class="btn ghost-light" href="contact.html">Stel een vraag</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<a id="wa-float" class="wa-float" hidden rel="noopener" aria-label="Stuur ons een bericht via WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <span>WhatsApp</span>
+</a>
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto's">
+  <button type="button" id="lbClose" class="lb-btn lb-close" aria-label="Sluiten">×</button>
+  <button type="button" id="lbPrev" class="lb-btn lb-prev" aria-label="Vorige foto">‹</button>
+  <figure>
+    <img id="lbImg" alt="">
+    <figcaption><span id="lbCaption"></span> <span id="lbCount" class="muted"></span></figcaption>
+  </figure>
+  <button type="button" id="lbNext" class="lb-btn lb-next" aria-label="Volgende foto">›</button>
+</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><img src="images/logo-mark.svg" alt="" width="40" height="40"><span>Het Kippenkamp</span></a>
+        <p data-site="ondertitel">Broedeieren en eendagskuikens van kippen en kwartels</p>
+      </div>
+      <div>
+        <h2>Pagina's</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aanbod.html">Aanbod</a></li>
+          <li><a href="aanvragen.html">Aanvragen</a></li>
+          <li><a href="over-ons.html">Over ons</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul id="footer-contact"></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Het Kippenkamp</span>
+      <a href="privacy.html">Privacyverklaring</a>
+    </div>
   </div>
 </footer>
-
 <script src="data.js"></script>
 <script src="script.js"></script>
 </body>
