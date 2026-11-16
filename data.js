@@ -75,7 +75,7 @@ const BEELDEN = {
   overOnsDieren: "",              // foto van jullie dieren (pagina Over ons)
   categorie: {                    // beeld per categorie op de homepage (liggend, 4:3)
     broedeieren: "images/broedeieren-broedmachine.jpg",
-    kuikens: "",
+    kuikens: "images/kuikens-groep.jpg",
     volwassen: ""
   }
 };
