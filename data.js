@@ -18,7 +18,7 @@ const SITE = {
   // ---- CONTACTGEGEVENS (vul aan, leeg = wordt niet getoond) ----
   email: "info@hetkippenkamp.be",               // bv. "naam@voorbeeld.be"
   telefoon: "0494598286",            // bv. "+32 470 00 00 00"
-  whatsapp: "0494598286",            // alleen cijfers met landcode, zonder + of 0, bv. "32470000000"
+  whatsapp: "32494598286",           // alleen cijfers met landcode, zonder + of 0, bv. "32470000000"
   plaats: "Wuustwezel",              // bv. "Wuustwezel"
 
   // ---- TEKSTEN ----
