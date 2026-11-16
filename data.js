@@ -130,7 +130,7 @@ const PRODUCTEN = [
     id: "celadon", soort: "kwartel", uitgelicht: false,
     naam: "Celadon",
     omschrijving: "",
-    kenmerken: [], eikleur: "", fotos: [],
+    kenmerken: [], eikleur: "", fotos: [{ src: "images/celadon.jpg", tekst: "Celadon-broedeieren met een kuiken" }],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
