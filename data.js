@@ -9,7 +9,7 @@
 const SITE = {
   naam: "Het Kippenkamp",
   slogan: "Met liefde voor kippen en kwartels",
-  ondertitel: "Broedeieren en eendagskuikens van kippen en kwartels",
+  ondertitel: "Broedeieren, kuikens en volwassen kippen en kwartels",
 
   // Volledig webadres van de website (voor delen en zoekmachines).
   // Verandert dit later naar een eigen domein? Zie README, "Eigen domeinnaam".
@@ -17,12 +17,12 @@ const SITE = {
 
   // ---- CONTACTGEGEVENS (vul aan, leeg = wordt niet getoond) ----
   email: "info@hetkippenkamp.be",               // bv. "naam@voorbeeld.be"
-  telefoon: "0494598286",            // bv. "+32 470 00 00 00"
+  telefoon: "0494 59 82 86",         // bv. "+32 470 00 00 00"
   whatsapp: "32494598286",           // alleen cijfers met landcode, zonder + of 0, bv. "32470000000"
   plaats: "Wuustwezel",              // bv. "Wuustwezel"
 
   // ---- TEKSTEN ----
-  heroTekst: "Bij Het Kippenkamp vind je broedeieren en kuikens van bijzondere kippenrassen en van kwartels. Vraag aan wat je zoekt en we bevestigen persoonlijk wat beschikbaar is.",
+  heroTekst: "Bij Het Kippenkamp vind je broedeieren, kuikens en volwassen kippen en kwartels van bijzondere rassen. Vraag aan wat je zoekt en we bevestigen persoonlijk wat beschikbaar is.",
 
   introTitel: "Een kleine familiale kippenhouderij met een grote liefde voor het dier",
   intro: [
@@ -51,14 +51,15 @@ const SITE = {
   // ---- BESTELLEN EN AFHALEN ----
   bestelInfo: "Stuur je aanvraag via het formulier, WhatsApp of mail. We bevestigen of het beschikbaar is en spreken samen af wanneer je alles kan ophalen.",
   stappen: [
-    { titel: "Vraag aan", tekst: "Kies het ras en het aantal en geef een gewenste afhaaldatum door." },
-    { titel: "Wij bevestigen", tekst: "We laten je weten wat beschikbaar is." },
-    { titel: "Afhalen op afspraak", tekst: "We spreken samen af wanneer je alles komt ophalen." }
+    { titel: "Kies een ras", tekst: "Bekijk onze rassen en kies wat je zoekt: broedeieren, kuikens of volwassen dieren." },
+    { titel: "Vraag aan", tekst: "Geef het aantal en een gewenste afhaaldatum door." },
+    { titel: "Wij bevestigen", tekst: "We laten je weten wat beschikbaar is en spreken samen af wanneer je alles komt ophalen." }
   ],
 
   // Eenheden die bij de prijs getoond worden
   eenheidBroedei: "ei",
-  eenheidKuiken: "kuiken"
+  eenheidKuiken: "kuiken",
+  eenheidVolwassen: "dier"
 };
 
 /* =====================================================
@@ -75,20 +76,19 @@ const BEELDEN = {
   categorie: {                    // beeld per categorie op de homepage (liggend, 4:3)
     broedeieren: "",
     kuikens: "",
-    kwartelbroedeieren: "",
-    kwartels: ""
+    volwassen: ""
   }
 };
 
 /* =====================================================
-   CATEGORIEEN op de homepage en filters op de pagina Aanbod.
-   soort: "kip" of "kwartel"  |  type: "broedei" of "kuiken"
+   CATEGORIEEN: wat je bij ons kan aanvragen.
+   Staan op de homepage en als filter op de pagina Aanbod.
+   type: "broedei", "kuiken" of "volwassen" (zie bij de rassen hieronder)
    ===================================================== */
 const CATEGORIEEN = [
-  { id: "broedeieren", titel: "Broedeieren", tekst: "Broedeieren van kippenrassen, om zelf uit te broeden.", soort: "kip", type: "broedei", plaatshouder: "ei" },
-  { id: "kuikens", titel: "Kippenkuikens", tekst: "Eendagskuikens van dezelfde rassen, op bestelling.", soort: "kip", type: "kuiken", plaatshouder: "kuiken" },
-  { id: "kwartelbroedeieren", titel: "Kwartelbroedeieren", tekst: "Broedeieren van twee soorten kwartels.", soort: "kwartel", type: "broedei", plaatshouder: "ei" },
-  { id: "kwartels", titel: "Kwartels", tekst: "Op zoek naar kwartels zelf? Vraag naar de mogelijkheden.", soort: "kwartel", type: "kuiken", plaatshouder: "kwartel" }
+  { id: "broedeieren", titel: "Broedeieren", tekst: "Broedeieren van onze kippen- en kwartelrassen, om zelf uit te broeden.", type: "broedei", plaatshouder: "ei" },
+  { id: "kuikens", titel: "Kuikens", tekst: "Kuikens van onze kippenrassen, op bestelling.", type: "kuiken", plaatshouder: "kuiken" },
+  { id: "volwassen", titel: "Volwassen kippen en kwartels", tekst: "Op zoek naar volwassen dieren? Vraag naar de mogelijkheden.", type: "volwassen", plaatshouder: "kip" }
 ];
 
 /* -----------------------------------------------------
@@ -103,13 +103,16 @@ const CATEGORIEEN = [
    fotos:        lijst met foto's van het ras, bv. ["images/marans-hen.jpg"]
                  of met bijschrift: [{ src: "images/marans-hen.jpg", tekst: "Onze Marans-hen" }]
 
-   broedei / kuiken (het product):
+   Wat je van dit ras kan aanvragen: broedei, kuiken en volwassen.
+   Elk daarvan heeft:
        prijs:        getal (bv. 2.5) of null  -> null toont "Prijs op aanvraag"
        beschikbaar:  true / false             -> false toont "Momenteel niet beschikbaar"
        status:       eigen tekst zoals "Beschikbaar vanaf maart" (mag leeg)
        opmerking:    extra uitleg zoals "Vanaf 6 stuks" (mag leeg)
        fotos:        extra foto's, enkel bij dit product (mag leeg)
-     Zet het hele blok op null om dat product niet aan te bieden.
+     Zet het hele blok op null om dat product bij dit ras niet aan te bieden.
+     Volwassen dieren aanbieden? Vervang bij het ras  volwassen: null  door
+       volwassen: { prijs: null, beschikbaar: true, status: "", opmerking: "" }
    ----------------------------------------------------- */
 
 const PRODUCTEN = [
@@ -120,7 +123,8 @@ const PRODUCTEN = [
     omschrijving: "Grote kwartels in een mix van kleuren.",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: null
+    kuiken: null,
+    volwassen: null
   },
   {
     id: "ciladon", soort: "kwartel", uitgelicht: false,
@@ -128,25 +132,28 @@ const PRODUCTEN = [
     omschrijving: "",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: null
+    kuiken: null,
+    volwassen: null
   },
 
   // ---------- KIPPEN ----------
   {
     id: "orpington-goud-zwartgezoomd", soort: "kip", uitgelicht: true,
     naam: "Orpington goud-zwartgezoomd",
-    omschrijving: "Rustige, tamme kippen met een gouden verenkleed en zwarte zoom.",
-    kenmerken: ["Rustig", "Tam"], eikleur: "", fotos: [],
-    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" }
-  },
-  {
-    id: "orpington-50-50", soort: "kip", uitgelicht: false,
-    naam: "Orpington 50/50",
-    omschrijving: "Goud-zwartgezoomd of goud-blauwgezoomd. Je ontvangt een mix van beide.",
+    omschrijving: "Zuiver goud-zwartgezoomd, haan en hennen onverwant. 100% zuivere broedeieren.",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" }
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    volwassen: null
+  },
+  {
+    id: "orpington-kleurmix", soort: "kip", uitgelicht: false,
+    naam: "Orpington kleurmix",
+    omschrijving: "Een mix van kleurslagen. De hen is zwart-goudgezoomd, de haan zwart-blauwgezoomd. Haan en hennen zijn onverwant.",
+    kenmerken: [], eikleur: "", fotos: [],
+    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "Welke kleurslag er uit een ei komt en hoeveel van elk, weten we niet vooraf." },
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleurslag al te zien, dus daar weten we het zeker." },
+    volwassen: null
   },
   {
     id: "ameraucana", soort: "kip", uitgelicht: false,
@@ -154,7 +161,8 @@ const PRODUCTEN = [
     omschrijving: "Bekend om hun blauwe eieren.",
     kenmerken: [], eikleur: "Blauw", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" }
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    volwassen: null
   },
   {
     id: "marans-zwart-koper", soort: "kip", uitgelicht: true,
@@ -162,7 +170,8 @@ const PRODUCTEN = [
     omschrijving: "Donkerbruine eieren, een mooie zwarte kip met koperkleurige hals.",
     kenmerken: [], eikleur: "Donkerbruin", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" }
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    volwassen: null
   },
   {
     id: "olijfleggers", soort: "kip", uitgelicht: true,
@@ -170,7 +179,8 @@ const PRODUCTEN = [
     omschrijving: "Leggen eieren in een olijfgroene tint.",
     kenmerken: [], eikleur: "Olijfgroen", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" }
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    volwassen: null
   },
   {
     id: "easter-eggers", soort: "kip", uitgelicht: false,
@@ -178,6 +188,7 @@ const PRODUCTEN = [
     omschrijving: "Kleurrijke kippen die eieren leggen in verschillende tinten.",
     kenmerken: [], eikleur: "Verschillende tinten", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" }
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    volwassen: null
   }
 ];

@@ -7,7 +7,8 @@ Er is **geen build-stap**: elke push naar GitHub wordt door Vercel gewoon online
 | Bestand | Pagina |
 |---|---|
 | `index.html` | Home |
-| `aanbod.html` | Alle rassen, met filter (ook bereikbaar via `aanbod.html#kuikens` enz.) |
+| `aanbod.html` | Alle rassen, met filter (ook via `aanbod.html#kuikens` enz.) |
+| `ras.html` | Detailpagina van één ras (`ras.html?id=ameraucana`): daar kies je broedeieren, kuikens of volwassen dieren |
 | `aanvragen.html` | Aanvraagformulier (product, ras, aantal, afhaaldatum) |
 | `over-ons.html` | Over ons, met plaats voor eigen foto's |
 | `contact.html` | Contactformulier, contactgegevens, uitleg afhalen |
@@ -21,8 +22,12 @@ Er is **geen build-stap**: elke push naar GitHub wordt door Vercel gewoon online
 - **Rassen en prijzen** (`PRODUCTEN`): `prijs: 2.5` (of `null` = "Prijs op aanvraag"), `beschikbaar: false`,
   een eigen `status` ("Beschikbaar vanaf maart") of `opmerking` ("Vanaf 6 stuks").
 - **Nieuw ras**: kopieer een blok in `PRODUCTEN`, geef het een nieuwe `id` en pas aan.
-- **Kwartels zelf aanbieden**: vervang bij een kwartel `kuiken: null` door `kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" }`.
-  De categorie "Kwartels" op de homepage linkt dan automatisch naar die rassen.
+- **Per ras drie mogelijkheden**: `broedei`, `kuiken` en `volwassen`. Zet een blok op `null` om dat bij het ras niet aan te bieden.
+- **Volwassen dieren aanbieden**: vervang bij een ras `volwassen: null` door
+  `volwassen: { prijs: null, beschikbaar: true, status: "", opmerking: "" }`. Het ras toont dan een extra keuze en
+  de categorie "Volwassen kippen en kwartels" op de homepage linkt automatisch naar die rassen.
+- **Kuikens van kwartels**: vervang `kuiken: null` op dezelfde manier.
+- **Categorieën** (`CATEGORIEEN`): de drie ingangen op de homepage en filters op Aanbod.
 
 ## Foto's
 Alle plekken waar een foto komt, staan in `BEELDEN` en `PRODUCTEN` (`data.js`). Zolang een veld leeg is, staat er een tekening.

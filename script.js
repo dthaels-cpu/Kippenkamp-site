@@ -11,6 +11,8 @@
     });
   };
   var page = document.body.getAttribute("data-page");
+  var params = new URLSearchParams(location.search);
+  var TYPEN = ["broedei", "kuiken", "volwassen"];
   var PLAATSHOUDER = {
     kip: "images/placeholder-kip.svg",
     kwartel: "images/placeholder-kwartel.svg",
@@ -97,7 +99,7 @@
     var ci = contactItems(true);
     cg.innerHTML = ci.length
       ? ci.map(function (i) { return "<li><strong>" + i[0] + "</strong>" + i[1] + "</li>"; }).join("")
-      : '<li><span class="muted">Gebruik het formulier hiernaast. We antwoorden persoonlijk.</span></li>';
+      : '<li><span class="muted">Gebruik het formulier. We antwoorden persoonlijk.</span></li>';
   }
   var wf = $("#wa-float");
   if (wf && heeftWA) {
@@ -108,9 +110,15 @@
 
   /* ---------- Rassen: gedeelde onderdelen ---------- */
   function typeLabel(r, type) {
-    return type === "broedei" ? "Broedeieren" : (r.soort === "kip" ? "Eendagskuikens" : "Kwartels");
+    if (type === "broedei") return "Broedeieren";
+    if (type === "kuiken") return "Kuikens";
+    return r.soort === "kip" ? "Volwassen kippen" : "Volwassen kwartels";
   }
-  function eenheid(type) { return type === "broedei" ? SITE.eenheidBroedei : SITE.eenheidKuiken; }
+  function eenheid(type) {
+    if (type === "broedei") return SITE.eenheidBroedei;
+    if (type === "kuiken") return SITE.eenheidKuiken;
+    return SITE.eenheidVolwassen || "stuk";
+  }
   function prijsHtml(item, type) {
     if (item.beschikbaar === false) return '<span class="prijs uit">Momenteel niet beschikbaar</span>';
     if (item.prijs === null || item.prijs === undefined || item.prijs === "") return '<span class="prijs">Prijs op aanvraag</span>';
@@ -125,40 +133,45 @@
   function galerij(r) {
     var uit = [];
     (r.fotos || []).forEach(function (f) { uit.push(norm(f)); });
-    ["broedei", "kuiken"].forEach(function (type) {
+    TYPEN.forEach(function (type) {
       if (r[type] && r[type].fotos) r[type].fotos.forEach(function (f) { uit.push(norm(f, typeLabel(r, type))); });
     });
     return uit.filter(function (f) { return f.src; });
   }
-  function heeftProduct(c) {
-    return PRODUCTEN.filter(function (p) { return p.soort === c.soort && p[c.type]; });
+  function rassenMet(type) {
+    return PRODUCTEN.filter(function (p) { return p[type]; });
   }
-  function rasKaart(r) {
+  function categorieVan(type) {
+    return CATEGORIEEN.filter(function (c) { return c.type === type; })[0];
+  }
+
+  /* Kaart in het rassenoverzicht: foto, naam, korte omschrijving en wat je kan aanvragen.
+     De keuze tussen broedeieren, kuikens en volwassen dieren volgt pas op de rassenpagina. */
+  function rasKaart(r, product) {
     var g = galerij(r);
     var plaats = PLAATSHOUDER[r.soort];
-    var pic = g.length
-      ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(r) + '" aria-label="Bekijk foto\'s van ' + esc(r.naam) + '">' +
-        '<img src="' + esc(g[0].src) + '" alt="' + esc(r.naam) + '" loading="lazy" decoding="async" width="800" height="600" data-fallback="' + plaats + '">' +
-        (g.length > 1 ? '<span class="count">' + g.length + " foto's</span>" : "") + "</button>"
-      : '<div class="pic"><img src="' + plaats + '" alt="" loading="lazy" decoding="async" width="800" height="600"></div>';
-    var chips = (r.kenmerken || []).length
-      ? '<ul class="chips">' + r.kenmerken.map(function (k) { return "<li>" + esc(k) + "</li>"; }).join("") + "</ul>"
-      : "";
-    var rijen = ["broedei", "kuiken"].filter(function (t) { return r[t]; }).map(function (t) {
-      var item = r[t];
-      var knop = item.beschikbaar === false ? "" :
-        '<a class="btn small" href="aanvragen.html?product=' + r.soort + "-" + t + "&amp;ras=" + esc(r.id) +
-        '" aria-label="Vraag ' + esc(typeLabel(r, t).toLowerCase()) + " van " + esc(r.naam) + ' aan">Aanvragen</a>';
-      return '<li class="prod"><div class="info"><span class="label">' + typeLabel(r, t) + "</span>" +
-        prijsHtml(item, t) +
-        (item.status && item.beschikbaar !== false ? '<span class="status">' + esc(item.status) + "</span>" : "") +
-        (item.opmerking ? '<span class="note">' + esc(item.opmerking) + "</span>" : "") +
-        "</div>" + knop + "</li>";
-    }).join("");
-    return '<article class="ras" id="ras-' + esc(r.id) + '">' + pic + '<div class="body"><h3>' + esc(r.naam) + "</h3>" +
+    var href = "ras.html?id=" + encodeURIComponent(r.id) + (product ? "&amp;product=" + product : "");
+    var badges = TYPEN.filter(function (t) { return r[t] && r[t].beschikbaar !== false; })
+      .map(function (t) { return "<li>" + esc(typeLabel(r, t)) + "</li>"; }).join("");
+    return '<article class="cat"><div class="pic"><img src="' + esc(g.length ? g[0].src : plaats) + '" alt="' + (g.length ? esc(r.naam) : "") +
+      '" loading="lazy" decoding="async" width="800" height="600" data-fallback="' + plaats + '"></div>' +
+      '<div class="body"><h3><a class="stretch" href="' + href + '">' + esc(r.naam) + "</a></h3>" +
       (r.omschrijving ? '<p class="desc">' + esc(r.omschrijving) + "</p>" : "") +
       (r.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(r.eikleur) + "</p>" : "") +
-      chips + '<ul class="prods">' + rijen + "</ul></div></article>";
+      (badges ? '<ul class="chips">' + badges + "</ul>" : "") +
+      '<span class="more" aria-hidden="true">Bekijk ras →</span></div></article>';
+  }
+
+  function prodRij(r, t, gekozen) {
+    var item = r[t];
+    var knop = item.beschikbaar === false ? "" :
+      '<a class="btn small" href="aanvragen.html?product=' + t + "&amp;ras=" + esc(r.id) +
+      '" aria-label="Vraag ' + esc(typeLabel(r, t).toLowerCase()) + " van " + esc(r.naam) + ' aan">Aanvragen</a>';
+    return '<li class="prod' + (gekozen ? " gekozen" : "") + '"><div class="info"><span class="label">' + typeLabel(r, t) + "</span>" +
+      prijsHtml(item, t) +
+      (item.status && item.beschikbaar !== false ? '<span class="status">' + esc(item.status) + "</span>" : "") +
+      (item.opmerking ? '<span class="note">' + esc(item.opmerking) + "</span>" : "") +
+      "</div>" + knop + "</li>";
   }
 
   /* ---------- Homepage ---------- */
@@ -171,20 +184,20 @@
     var catEl = $("#categorieen");
     if (catEl) {
       catEl.innerHTML = CATEGORIEEN.map(function (c) {
-        var rassen = heeftProduct(c);
+        var rassen = rassenMet(c.type);
         var href = rassen.length ? "aanbod.html#" + c.id : "contact.html?onderwerp=" + c.id;
         var beeld = (BEELDEN.categorie && BEELDEN.categorie[c.id]) || PLAATSHOUDER[c.plaatshouder];
         return '<article class="cat"><div class="pic"><img src="' + esc(beeld) + '" alt="" loading="lazy" decoding="async" width="800" height="600" data-fallback="' + PLAATSHOUDER[c.plaatshouder] + '"></div>' +
           '<div class="body"><h3><a class="stretch" href="' + href + '">' + esc(c.titel) + "</a></h3>" +
           "<p>" + esc(c.tekst) + "</p>" +
           (rassen.length ? '<p class="names">' + rassen.map(function (p) { return esc(p.naam); }).join(" · ") + "</p>" : "") +
-          '<span class="more" aria-hidden="true">' + (rassen.length ? "Bekijk aanbod" : "Vraag ernaar") + " →</span></div></article>";
+          '<span class="more" aria-hidden="true">' + (rassen.length ? "Bekijk de rassen" : "Vraag ernaar") + " →</span></div></article>";
       }).join("");
     }
     var uitEl = $("#uitgelicht");
     if (uitEl) {
       var uit = PRODUCTEN.filter(function (p) { return p.uitgelicht; });
-      uitEl.innerHTML = uit.map(rasKaart).join("");
+      uitEl.innerHTML = uit.map(function (r) { return rasKaart(r, ""); }).join("");
       if (!uit.length) { var sec = $("#uitgelicht-sectie"); if (sec) sec.hidden = true; }
     }
     var waarom = $("#waarom");
@@ -195,20 +208,20 @@
     }
   }
 
-  /* ---------- Aanbod ---------- */
+  /* ---------- Aanbod: overzicht van de rassen ---------- */
   if (page === "aanbod") {
     var lijst = $("#rassen");
     var filterEl = $("#filters");
-    var cats = CATEGORIEEN.filter(function (c) { return heeftProduct(c).length; });
-    var huidig = "alles";
+    var cats = CATEGORIEEN.filter(function (c) { return rassenMet(c.type).length; });
     var toon = function (id) {
-      huidig = id;
       var cat = cats.filter(function (c) { return c.id === id; })[0];
-      var items = cat ? heeftProduct(cat) : PRODUCTEN;
-      lijst.innerHTML = items.length ? items.map(rasKaart).join("") : '<p class="empty">Er staat hier nog niets in het aanbod.</p>';
+      var items = cat ? rassenMet(cat.type) : PRODUCTEN;
+      lijst.innerHTML = items.length
+        ? items.map(function (r) { return rasKaart(r, cat ? cat.type : ""); }).join("")
+        : '<p class="empty">Er staat hier nog niets in het aanbod.</p>';
       $$("button", filterEl).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === id ? "true" : "false"); });
     };
-    filterEl.innerHTML = '<button type="button" data-id="alles" aria-pressed="true">Alles</button>' +
+    filterEl.innerHTML = '<button type="button" data-id="alles" aria-pressed="true">Alle rassen</button>' +
       cats.map(function (c) { return '<button type="button" data-id="' + c.id + '" aria-pressed="false">' + esc(c.titel) + "</button>"; }).join("");
     filterEl.addEventListener("click", function (e) {
       var b = e.target.closest("button");
@@ -223,6 +236,48 @@
     };
     window.addEventListener("hashchange", vanHash);
     vanHash();
+  }
+
+  /* ---------- Rassenpagina: hier kies je broedeieren, kuikens of volwassen ---------- */
+  if (page === "ras") {
+    var rid = params.get("id");
+    var ras = PRODUCTEN.filter(function (p) { return p.id === rid; })[0];
+    var detail = $("#ras-detail");
+    var introEl2 = $("#ras-intro");
+    if (!ras) {
+      $("#ras-naam").textContent = "Ras niet gevonden";
+      introEl2.hidden = true;
+      detail.innerHTML = '<p>Dit ras staat niet (meer) in ons aanbod.</p><p><a class="btn" href="aanbod.html">Bekijk alle rassen</a></p>';
+    } else {
+      document.title = ras.naam + " | " + SITE.naam;
+      var md = $('meta[name="description"]');
+      if (md) md.setAttribute("content", ras.omschrijving || ("Bekijk wat je van " + ras.naam + " kan aanvragen bij " + SITE.naam + "."));
+      var can = $('link[rel="canonical"]');
+      if (can) can.setAttribute("href", SITE.url + "/ras.html?id=" + encodeURIComponent(ras.id));
+      $("#ras-naam").textContent = ras.naam;
+      if (ras.omschrijving) introEl2.textContent = ras.omschrijving; else introEl2.hidden = true;
+
+      var fotos = galerij(ras);
+      var plaatsR = PLAATSHOUDER[ras.soort];
+      var beeld = fotos.length
+        ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(ras) + '" aria-label="Bekijk foto\'s van ' + esc(ras.naam) + '">' +
+          '<img src="' + esc(fotos[0].src) + '" alt="' + esc(ras.naam) + '" width="800" height="600" decoding="async" data-fallback="' + plaatsR + '">' +
+          (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>"
+        : '<img src="' + plaatsR + '" alt="" width="800" height="600" decoding="async">';
+      var gekozen = params.get("product");
+      var typen = TYPEN.filter(function (t) { return ras[t]; });
+      var chips = (ras.kenmerken || []).length
+        ? '<ul class="chips">' + ras.kenmerken.map(function (k) { return "<li>" + esc(k) + "</li>"; }).join("") + "</ul>"
+        : "";
+      detail.innerHTML = '<div class="split ras-split"><figure class="photo-frame">' + beeld + "</figure><div>" +
+        (ras.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(ras.eikleur) + "</p>" : "") + chips +
+        "<h2>Wat kan je aanvragen?</h2>" +
+        (typen.length
+          ? '<ul class="prods big">' + typen.map(function (t) { return prodRij(ras, t, t === gekozen); }).join("") + "</ul>" +
+            '<p class="notice">We bevestigen altijd eerst of het beschikbaar is.</p>'
+          : '<p>Hier staat nog niets om aan te vragen. <a href="contact.html">Stel ons gerust je vraag.</a></p>') +
+        "</div></div>";
+    }
   }
 
   /* ---------- Over ons ---------- */
@@ -301,6 +356,8 @@
     box.hidden = false;
     box.setAttribute("tabindex", "-1");
     form.reset();
+    var inf = $("#ras-info");
+    if (inf) inf.hidden = true;
     box.scrollIntoView({ behavior: "smooth", block: "center" });
     box.focus();
   }
@@ -320,35 +377,45 @@
     var d = new Date(v + "T00:00:00");
     return isNaN(d) ? v : d.toLocaleDateString("nl-BE", { day: "numeric", month: "long", year: "numeric" });
   }
-  var params = new URLSearchParams(location.search);
 
   /* --- Aanvraagformulier --- */
   var af = $("#aanvraag-form");
   if (af) {
     var prodSel = af.elements.product;
     var rasSel = af.elements.ras;
-    var combos = CATEGORIEEN.filter(function (c) { return heeftProduct(c).length; });
+    var rasInfo = $("#ras-info");
+    var catsMetAanbod = CATEGORIEEN.filter(function (c) { return rassenMet(c.type).length; });
     prodSel.innerHTML = '<option value="">Kies een product</option>' +
-      combos.map(function (c) { return '<option value="' + c.soort + "-" + c.type + '">' + esc(c.titel) + "</option>"; }).join("");
+      catsMetAanbod.map(function (c) { return '<option value="' + c.type + '">' + esc(c.titel) + "</option>"; }).join("");
+    var toonInfo = function () {
+      var r = PRODUCTEN.filter(function (p) { return p.id === rasSel.value; })[0];
+      var t = prodSel.value;
+      var tekst = (r && t && r[t] && r[t].opmerking) || "";
+      rasInfo.textContent = tekst;
+      rasInfo.hidden = !tekst;
+    };
     var vulRassen = function (gekozenRas) {
-      var c = combos.filter(function (x) { return x.soort + "-" + x.type === prodSel.value; })[0];
-      if (!c) {
+      var t = prodSel.value;
+      if (!t) {
         rasSel.innerHTML = '<option value="">Kies eerst een product</option>';
         rasSel.disabled = true;
+        toonInfo();
         return;
       }
       rasSel.disabled = false;
       rasSel.innerHTML = '<option value="">Kies een ras</option>' +
-        heeftProduct(c).filter(function (p) { return p[c.type].beschikbaar !== false; }).map(function (p) {
+        rassenMet(t).filter(function (p) { return p[t].beschikbaar !== false; }).map(function (p) {
           return '<option value="' + esc(p.id) + '">' + esc(p.naam) + "</option>";
         }).join("") + '<option value="advies">Ik twijfel, adviseer mij</option>';
       if (gekozenRas) rasSel.value = gekozenRas;
+      if (!rasSel.value) rasSel.value = "";
+      toonInfo();
     };
     prodSel.addEventListener("change", function () { vulRassen(""); });
-    var pp = params.get("product");
-    if (pp && combos.some(function (c) { return c.soort + "-" + c.type === pp; })) prodSel.value = pp;
+    rasSel.addEventListener("change", toonInfo);
+    var pp = (params.get("product") || "").replace(/^(kip|kwartel)-/, "");
+    if (pp && catsMetAanbod.some(function (c) { return c.type === pp; })) prodSel.value = pp;
     vulRassen(params.get("ras") || "");
-    if (!rasSel.value) rasSel.value = "";
     af.elements.datum.min = vandaag();
 
     var tekstVan = function () {
