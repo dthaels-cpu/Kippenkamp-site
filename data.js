@@ -175,7 +175,7 @@ const PRODUCTEN = [
     omschrijving: "Donkerbruine eieren, een mooie zwarte kip met koperkleurige hals.",
     kenmerken: [], eikleur: "Donkerbruin", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/marans-kuiken.jpg", tekst: "Marans-kuiken" }] },
     volwassen: null
   },
   {
