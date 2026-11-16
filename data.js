@@ -179,7 +179,7 @@ const PRODUCTEN = [
     omschrijving: "Bekend om hun blauwe eieren.",
     kenmerken: [], eikleur: "Blauw", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/ameraucana-kuikens.jpg", tekst: "Ameraucana kuikens" }] },
     volwassen: null
   },
   {
