@@ -222,6 +222,24 @@
     }
   }
 
+  /* ---------- Impressie van ons kamp (homepage en Over ons) ---------- */
+  var kampEl = $("#kamp-fotos");
+  if (kampEl) {
+    var kampFotos = (BEELDEN.kamp || []).map(function (f) { return norm(f); }).filter(function (f) { return f.src; });
+    if (kampFotos.length) {
+      kampEl.innerHTML = kampFotos.map(function (f, i) {
+        return '<li><button type="button" class="strip-foto" data-lijst="kamp" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + " van " + kampFotos.length + '">' +
+          '<img src="' + esc(f.src) + '" alt="' + esc(f.tekst || "Ons kamp") + '" loading="lazy" decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button>' +
+          (f.tekst ? "<span>" + esc(f.tekst) + "</span>" : "") + "</li>";
+      }).join("");
+    } else {
+      kampEl.innerHTML = ["kip", "kwartel", "kuiken"].map(function (k) {
+        return '<li><div class="tegel"><img src="' + PLAATSHOUDER[k] + '" alt="" loading="lazy" width="400" height="300"></div></li>';
+      }).join("");
+      var leeg = $("#kamp-leeg"); if (leeg) leeg.hidden = false;
+    }
+  }
+
   /* ---------- Aanbod: overzicht van de rassen ---------- */
   if (page === "aanbod") {
     var lijst = $("#rassen");
@@ -604,6 +622,7 @@
     var stap = function (d) { pos = (pos + d + foto.length) % foto.length; toonFoto(); };
     document.addEventListener("click", function (e) {
       var sf = e.target.closest("button.strip-foto");
+      if (sf && sf.getAttribute("data-lijst") === "kamp") return openLijst(BEELDEN.kamp, Number(sf.getAttribute("data-i")), "Ons kamp");
       if (sf) {
         var c = CATEGORIEEN.filter(function (x) { return x.id === sf.getAttribute("data-cat"); })[0];
         return openLijst(BEELDEN.categorieFotos[c.id], Number(sf.getAttribute("data-i")), c.titel);

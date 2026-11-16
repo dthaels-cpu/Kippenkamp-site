@@ -81,12 +81,24 @@
         <p class="eyebrow">Over Het Kippenkamp</p>
         <h2 id="intro-titel">Een kleine kippenhouderij met een grote liefde voor het dier</h2>
         <div id="intro-tekst" style="margin-top:16px">
-          <p>Wij houden kippen en kwartels met oog voor mooie rassen en hun karakter. Je vindt bij ons broedeieren en kuikens, en je praat rechtstreeks met ons.</p>
+          <p>Wij zijn een samengesteld gezin met drie kinderen en een hele beestenboel. We houden kippen en kwartels met oog voor mooie rassen en hun karakter.</p>
         </div>
         <p><a class="link-more" href="over-ons.html">Lees meer over ons →</a></p>
       </div>
       <figure class="photo-frame"><img data-beeld="intro" data-alt="Kippen van Het Kippenkamp" src="images/placeholder-kip.svg" alt="" loading="lazy" decoding="async" width="800" height="600"></figure>
     </div>
+  </div>
+</section>
+
+<section class="section" id="kamp-sectie">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Impressie</p>
+      <h2>Impressie van ons kamp</h2>
+      <p>Kijk mee waar onze kippen en kwartels zitten en hoe ze leven.</p>
+    </div>
+    <ul id="kamp-fotos" class="fotostrip kamp"></ul>
+    <p id="kamp-leeg" class="kamp-leeg" hidden>Foto's van ons kamp volgen binnenkort.</p>
   </div>
 </section>
 
@@ -116,6 +128,15 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
   <span>WhatsApp</span>
 </a>
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto's">
+  <button type="button" id="lbClose" class="lb-btn lb-close" aria-label="Sluiten">×</button>
+  <button type="button" id="lbPrev" class="lb-btn lb-prev" aria-label="Vorige foto">‹</button>
+  <figure>
+    <img id="lbImg" alt="">
+    <figcaption><span id="lbCaption"></span> <span id="lbCount" class="muted"></span></figcaption>
+  </figure>
+  <button type="button" id="lbNext" class="lb-btn lb-next" aria-label="Volgende foto">›</button>
+</div>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">

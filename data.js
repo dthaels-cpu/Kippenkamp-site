@@ -26,7 +26,8 @@ const SITE = {
 
   introTitel: "Een kleine familiale kippenhouderij met een grote liefde voor het dier",
   intro: [
-    "Wij houden kippen en kwartels met oog voor mooie rassen en hun karakter. Je vindt bij ons broedeieren en kuikens, en je praat rechtstreeks met ons.",
+    "Wij zijn een samengesteld gezin met drie kinderen en een hele beestenboel. We houden kippen en kwartels met oog voor mooie rassen en hun karakter.",
+    "Onze kuikens groeien binnen in huis op, midden in het gezinsleven. Zo zijn ze niet bang van mensen.",
     "Zoek je een rustige tuinkip, eitjes in bijzondere kleuren of je eerste kwartels? Vertel wat je zoekt, dan helpen we je verder."
   ],
 
@@ -39,12 +40,15 @@ const SITE = {
   ],
 
   // ---- OVER ONS (pagina "Over ons") ----
-  overOnsIntro: "Het Kippenkamp draait om onze passie voor kippen en kwartels.",
+  overOnsIntro: "Een gezin met een passie voor kippen en kwartels, en een hele beestenboel eromheen.",
   overOns: [
     { titel: "Onze passie", tekst: "We houden van kippen en kwartels: van hun karakter, hun kleuren en de eitjes die ze leggen, in bruin, blauw, groen of olijfkleurig." },
-    { titel: "Bijzondere rassen", tekst: "We kiezen voor rassen met een eigen gezicht, zoals Orpington, Marans, Ameraucana en olijfleggers. Het volledige overzicht staat op de pagina Aanbod." },
+    { titel: "Waar de naam vandaan komt", tekst: "Het Kippenkamp komt heel eenvoudig van de Kampweg, de straat waar we wonen. En kippen spreekt voor zich." },
+    { titel: "Een gezin met een beestenboel", tekst: "We zijn een samengesteld gezin met drie kinderen en een hele beestenboel. Naast kippen en kwartels hebben we ook konijnen, vogels en een hond." },
+    { titel: "Dieren door elkaar", tekst: "Sommige van onze konijnen leven samen met kippen, en onze hond vertoeft soms gezellig tussen de kipjes." },
+    { titel: "Kuikens die in huis opgroeien", tekst: "Onze kuikens groeien groot binnen in huis en worden echt betrokken bij het gezinsleven. Zo hebben ze geen schrik van mensen." },
+    { titel: "Bijzondere rassen", tekst: "We kiezen voor rassen met een eigen gezicht, zoals Orpington, Marans, Ameraucana en olijfleggers. Het volledige overzicht staat bij het aanbod." },
     { titel: "Eigen dieren", tekst: "Het aanbod komt van onze eigen dieren. Daarom kunnen we je ook echt iets vertellen over de rassen die je overweegt." },
-    { titel: "Verzorging", tekst: "Goede verzorging van onze dieren vinden we vanzelfsprekend." },
     { titel: "Persoonlijke aanpak", tekst: "Bij een aanvraag krijg je een persoonlijk antwoord van ons, met duidelijke afspraken over beschikbaarheid en afhalen." }
   ],
 
@@ -78,6 +82,10 @@ const BEELDEN = {
     kuikens: "images/kuikens-groep.jpg",
     volwassen: ""
   },
+  kamp: [                         // "Impressie van ons kamp": foto's van waar en hoe de dieren zitten
+    // "images/kamp-1.jpg",
+    // { src: "images/kamp-2.jpg", tekst: "De kippen in de tuin" }
+  ],
   categorieFotos: {               // extra foto's die bovenaan staan als je op Aanbod een categorie kiest
     broedeieren: [],              // bv. ["images/eieren-1.jpg", { src: "images/eieren-2.jpg", tekst: "Onze eieren" }]
     kuikens: [],
