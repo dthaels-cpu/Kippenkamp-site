@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Illustratie van eieren in een nest">
+  <rect width="800" height="600" fill="#efe6d0"/>
+  <circle cx="400" cy="300" r="250" fill="#e6dabc"/>
+  <!-- nest -->
+  <path d="M170 410c40 90 420 120 460 0 0 70-60 130-230 130S160 480 170 410z" fill="#a8825a"/>
+  <g stroke="#7d5b38" stroke-width="7" stroke-linecap="round" fill="none" opacity=".75">
+    <path d="M190 430c120 50 300 50 420 0"/><path d="M200 460c120 40 280 40 400 0"/>
+    <path d="M230 490c100 24 240 24 340 0"/><path d="M175 415c-14-10-26-6-36 6"/>
+    <path d="M625 415c14-10 26-6 36 6"/>
+  </g>
+  <!-- eieren -->
+  <path d="M290 150c50 0 82 80 82 140 0 60-38 108-82 108s-82-48-82-108c0-60 32-140 82-140z" fill="#a0663a"/>
+  <path d="M265 195c-18 28-26 62-24 96" stroke="#c0824f" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M410 120c56 0 92 90 92 158 0 68-42 122-92 122s-92-54-92-122c0-68 36-158 92-158z" fill="#f4ecd8"/>
+  <path d="M378 170c-20 32-30 70-28 108" stroke="#fffaf0" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M530 150c50 0 82 80 82 140 0 60-38 108-82 108s-82-48-82-108c0-60 32-140 82-140z" fill="#8fb0a0"/>
+  <path d="M505 195c-18 28-26 62-24 96" stroke="#b3cfc0" stroke-width="12" stroke-linecap="round" fill="none"/>
+</svg>

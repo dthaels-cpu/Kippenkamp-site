@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Het Kippenkamp">
+  <rect width="64" height="64" rx="16" fill="#5c6b3b"/>
+  <path d="M32 11c10.5 0 16.5 16 16.5 27C48.500 47.500 41.500 54 32 54s-16.500-6.500-16.500-16C15.500 27 21.500 11 32 11z" fill="#f6f0e1"/>
+  <path d="M43 52c8-1.500 10.500-9.500 8.500-16-6 1.500-10.500 7.500-8.500 16z" fill="#5a3d2b"/>
+  <path d="M43.500 51c1.500-5 4-9 7-12" stroke="#f6f0e1" stroke-width="1.500" stroke-linecap="round" fill="none"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Illustratie van een kwartel">
+  <rect width="800" height="600" fill="#efe6d0"/>
+  <circle cx="400" cy="300" r="250" fill="#e6dabc"/>
+  <path d="M0 500c140-30 300-20 420 0s260 20 380-10v110H0z" fill="#8a9a5b"/>
+  <path d="M0 540c180-25 360-10 520 5s200 5 280-10v65H0z" fill="#6f8046"/>
+  <!-- lijf -->
+  <ellipse cx="400" cy="340" rx="170" ry="120" fill="#a47c52"/>
+  <path d="M232 350c-30 6-52-6-66-24 30-6 56-2 76 12z" fill="#7d5b38"/>
+  <path d="M260 360c60 50 180 60 260 10 20-12 36-26 46-42-70 48-200 54-306 32z" fill="#7d5b38" opacity=".5"/>
+  <!-- vlekjes -->
+  <g fill="#4a3322" opacity=".75">
+    <circle cx="310" cy="300" r="7"/><circle cx="350" cy="275" r="6"/><circle cx="400" cy="290" r="7"/>
+    <circle cx="450" cy="275" r="6"/><circle cx="340" cy="335" r="7"/><circle cx="390" cy="345" r="6"/>
+    <circle cx="440" cy="335" r="7"/><circle cx="485" cy="320" r="6"/><circle cx="300" cy="350" r="5"/>
+  </g>
+  <!-- kop -->
+  <circle cx="545" cy="245" r="48" fill="#a47c52"/>
+  <path d="M500 232c28-30 70-28 92 4-30-10-62-10-92-4z" fill="#4a3322"/>
+  <path d="M508 262c26 8 56 6 80-6" stroke="#f1e6cc" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <path d="M586 244l36 10-34 12z" fill="#d9a441"/>
+  <circle cx="560" cy="238" r="6" fill="#2b1a10"/>
+  <circle cx="562" cy="236" r="2" fill="#fff"/>
+  <!-- poten -->
+  <path d="M380 450v42M430 450v42" stroke="#c58a3a" stroke-width="9" stroke-linecap="round"/>
+  <path d="M380 492l-24 8M380 492h20M430 492l-24 8M430 492h20" stroke="#c58a3a" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Illustratie van een kuiken">
+  <rect width="800" height="600" fill="#efe6d0"/>
+  <circle cx="400" cy="300" r="250" fill="#e6dabc"/>
+  <path d="M0 500c140-30 300-20 420 0s260 20 380-10v110H0z" fill="#8a9a5b"/>
+  <path d="M0 540c180-25 360-10 520 5s200 5 280-10v65H0z" fill="#6f8046"/>
+  <!-- poten -->
+  <path d="M360 470v50M440 470v50" stroke="#c58a3a" stroke-width="10" stroke-linecap="round"/>
+  <path d="M360 520l-26 8M360 520h20M360 520l-12 12M440 520l-26 8M440 520h20M440 520l-12 12" stroke="#c58a3a" stroke-width="7" stroke-linecap="round"/>
+  <!-- lijf en kop -->
+  <circle cx="400" cy="340" r="140" fill="#e0bf63"/>
+  <circle cx="470" cy="215" r="82" fill="#e0bf63"/>
+  <ellipse cx="330" cy="340" rx="58" ry="40" transform="rotate(-20 330 340)" fill="#cfa84a"/>
+  <path d="M542 208l56 18-54 20z" fill="#d98a3a"/>
+  <circle cx="492" cy="200" r="9" fill="#2b1a10"/>
+  <circle cx="495" cy="197" r="3" fill="#fff"/>
+  <path d="M455 140c4-20 14-28 26-24-2 14-10 22-26 24z" fill="#cfa84a"/>
+</svg>
