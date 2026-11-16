@@ -87,7 +87,9 @@ const BEELDEN = {
     { src: "images/kamp-kippen-voeren.jpg", tekst: "Kippen en een konijn krijgen een wortel" },
     { src: "images/kamp-konijnen-sneeuw.jpg", tekst: "Konijnen en een kip samen in de sneeuw" },
     { src: "images/kamp-hond-kippen.jpg", tekst: "Onze hond tussen de kippen" },
-    { src: "images/kamp-kuikens-huis.jpg", tekst: "Kuikens groeien op in huis" }
+    { src: "images/kamp-kuikens-huis.jpg", tekst: "Kuikens groeien op in huis" },
+    { src: "images/kamp-hond-kuiken.jpg", tekst: "Onze hond en een kuiken samen op de deken" },
+    { src: "images/kamp-kuiken-knuffel.jpg", tekst: "Een kuiken wordt even vastgehouden" }
   ],
   categorieFotos: {               // extra foto's die bovenaan staan als je op Aanbod een categorie kiest
     broedeieren: [],              // bv. ["images/eieren-1.jpg", { src: "images/eieren-2.jpg", tekst: "Onze eieren" }]
