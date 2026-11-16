@@ -131,7 +131,7 @@ const PRODUCTEN = [
     id: "jumbo-kleurenmix", soort: "kwartel", uitgelicht: true,
     naam: "Jumbo kleurenmix",
     omschrijving: "Grote kwartels in een mix van kleuren.",
-    kenmerken: [], eikleur: "", fotos: [],
+    kenmerken: [], eikleur: "", fotos: [{ src: "images/jumbo-kleurenmix-kuiken.jpg", tekst: "Jumbo kleurenmix: kuiken en broedeieren" }],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
