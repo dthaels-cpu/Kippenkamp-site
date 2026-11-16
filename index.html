@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Het Kippenkamp | Broedeieren en eendagskuikens</title>
+  <meta name="description" content="Broedeieren en eendagskuikens van kippen en kwartels: Orpington, Ameraucana, Marans, Olijfleggers, Easter eggers, Jumbo kwartels en meer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐔</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#top" id="brandName">Het Kippenkamp</a>
+  <nav>
+    <a href="#over-ons">Over ons</a>
+    <a href="#aanbod">Aanbod</a>
+    <a href="#contact" class="btn small">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Kippen &amp; kwartels</p>
+      <h1 id="slogan"></h1>
+      <p class="lead">Mooie rassen, gezonde dieren. Reserveer je broedeieren of eendagskuikens en we spreken af wanneer je ze kan ophalen.</p>
+      <div class="cta">
+        <a href="#aanbod" class="btn">Bekijk het aanbod</a>
+        <a href="#contact" class="btn ghost">Neem contact op</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="over-ons" class="wrap section">
+    <h2>Wie zijn wij</h2>
+    <div id="overOns" class="prose"></div>
+
+    <h2 class="sub">Wat we doen</h2>
+    <div id="watWeDoen" class="grid three"></div>
+  </section>
+
+  <section id="aanbod" class="band">
+    <div class="wrap section">
+      <h2>Ons aanbod</h2>
+      <p class="muted" id="bestelInfo"></p>
+
+      <h3 class="group">Broedeieren</h3>
+      <h4>Kwartels</h4>
+      <div id="broedei-kwartel" class="grid"></div>
+      <h4>Kippen</h4>
+      <div id="broedei-kip" class="grid"></div>
+
+      <h3 class="group">Eendagskuikens</h3>
+      <div id="kuiken-kwartel-wrap">
+        <h4>Kwartels</h4>
+        <div id="kuiken-kwartel" class="grid"></div>
+      </div>
+      <h4>Kippen</h4>
+      <div id="kuiken-kip" class="grid"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap section">
+    <h2>Contact &amp; bestellen</h2>
+    <p>Stuur ons een berichtje met het ras, het aantal en wanneer je ze nodig hebt.</p>
+    <ul class="contact" id="contactList"></ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span id="footName"></span> · <span id="year"></span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
