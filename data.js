@@ -173,7 +173,7 @@ const PRODUCTEN = [
     omschrijving: "Een mix van kleurslagen. De hennen zijn 100% zuiver zwart-goudgezoomd, de haan is zwart-blauwgezoomd. Haan en hennen zijn onverwant.",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "Welke kleurslag er uit een ei komt en hoeveel van elk, weten we niet vooraf." },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleurslag al te zien, dus daar weten we het zeker. Je kiest zelf de kleurslag.", keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] } },
+    kuiken: { fotos: [{ src: "images/orpington-kleurmix-kuiken.jpg", tekst: "Orpington kleurmix kuiken" }], prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleurslag al te zien, dus daar weten we het zeker. Je kiest zelf de kleurslag.", keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] } },
     volwassen: null
   },
   {
