@@ -16,15 +16,15 @@ const SITE = {
   url: "https://website-drab-three-77.vercel.app",
 
   // ---- CONTACTGEGEVENS (vul aan, leeg = wordt niet getoond) ----
-  email: "",               // bv. "naam@voorbeeld.be"
-  telefoon: "",            // bv. "+32 470 00 00 00"
-  whatsapp: "",            // alleen cijfers met landcode, zonder + of 0, bv. "32470000000"
-  plaats: "",              // bv. "Wuustwezel"
+  email: "info@hetkippenkamp.be",               // bv. "naam@voorbeeld.be"
+  telefoon: "0494598286",            // bv. "+32 470 00 00 00"
+  whatsapp: "0494598286",            // alleen cijfers met landcode, zonder + of 0, bv. "32470000000"
+  plaats: "Wuustwezel",              // bv. "Wuustwezel"
 
   // ---- TEKSTEN ----
   heroTekst: "Bij Het Kippenkamp vind je broedeieren en kuikens van bijzondere kippenrassen en van kwartels. Vraag aan wat je zoekt en we bevestigen persoonlijk wat beschikbaar is.",
 
-  introTitel: "Een kleine kippenhouderij met een grote liefde voor het dier",
+  introTitel: "Een kleine familiale kippenhouderij met een grote liefde voor het dier",
   intro: [
     "Wij houden kippen en kwartels met oog voor mooie rassen en hun karakter. Je vindt bij ons broedeieren en kuikens, en je praat rechtstreeks met ons.",
     "Zoek je een rustige tuinkip, eitjes in bijzondere kleuren of je eerste kwartels? Vertel wat je zoekt, dan helpen we je verder."
