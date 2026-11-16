@@ -130,7 +130,13 @@
       ? { src: f, tekst: standaard || "" }
       : { src: f && f.src, tekst: (f && f.tekst) || standaard || "" };
   }
-  function galerij(r) {
+  function galerij(r, type) {
+    /* Met een type (broedei, kuiken, volwassen): foto's van dat product, anders de algemene foto's van het ras. */
+    if (type && r[type]) {
+      var eigen = (r[type].fotos || []).map(function (f) { return norm(f, typeLabel(r, type)); }).filter(function (f) { return f.src; });
+      if (eigen.length) return eigen;
+      return (r.fotos || []).map(function (f) { return norm(f); }).filter(function (f) { return f.src; });
+    }
     var uit = [];
     (r.fotos || []).forEach(function (f) { uit.push(norm(f)); });
     TYPEN.forEach(function (type) {
@@ -164,7 +170,7 @@
 
   /* Kaart in een categorie (bv. Broedeieren): prijs en Aanvragen-knop staan er rechtstreeks op. */
   function keuzeKaart(r, type) {
-    var g = galerij(r);
+    var g = galerij(r, type);
     var plaats = PLAATSHOUDER[r.soort];
     var href = "ras.html?id=" + encodeURIComponent(r.id) + "&amp;product=" + type;
     return '<article class="cat keuze"><a class="pic" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(g.length ? g[0].src : plaats) +
@@ -208,12 +214,6 @@
           '<span class="more" aria-hidden="true">' + (rassen.length ? "Bekijk de rassen" : "Vraag ernaar") + " →</span></div></article>";
       }).join("");
     }
-    var uitEl = $("#uitgelicht");
-    if (uitEl) {
-      var uit = PRODUCTEN.filter(function (p) { return p.uitgelicht; });
-      uitEl.innerHTML = uit.map(function (r) { return rasKaart(r, ""); }).join("");
-      if (!uit.length) { var sec = $("#uitgelicht-sectie"); if (sec) sec.hidden = true; }
-    }
     var waarom = $("#waarom");
     if (waarom) {
       waarom.innerHTML = SITE.waarom.map(function (w) {
@@ -226,10 +226,18 @@
   if (page === "aanbod") {
     var lijst = $("#rassen");
     var filterEl = $("#filters");
-    var cats = CATEGORIEEN.filter(function (c) { return rassenMet(c.type).length; });
+    var cats = CATEGORIEEN;
+    var markeerMenu = function (id) {
+      $$(".main-nav a").forEach(function (a) {
+        var h = a.getAttribute("href") || "";
+        if (h.indexOf("aanbod.html#") === -1) return;
+        if (h.split("#")[1] === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      });
+    };
     var toon = function (id) {
       var cat = cats.filter(function (c) { return c.id === id; })[0];
       var items = cat ? rassenMet(cat.type) : PRODUCTEN;
+      markeerMenu(cat ? cat.id : "");
       var groepen = [["kwartel", "Kwartels"], ["kip", "Kippen"]];
       var strip = "";
       var cf = cat && BEELDEN.categorieFotos && BEELDEN.categorieFotos[cat.id];
@@ -239,6 +247,12 @@
           return '<li><button type="button" class="strip-foto" data-cat="' + cat.id + '" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + " van " + cf.length + '">' +
             '<img src="' + esc(n.src) + '" alt="' + esc(n.tekst) + '" loading="lazy" decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></li>';
         }).join("") + "</ul>";
+      }
+      if (cat && !items.length) {
+        lijst.innerHTML = '<div class="leeg-cat"><h2>' + esc(cat.titel) + "</h2><p>" + esc(cat.tekst) +
+          '</p><p><a class="btn" href="contact.html?onderwerp=' + cat.id + '">Vraag naar de mogelijkheden</a></p></div>';
+        $$("button", filterEl).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === id ? "true" : "false"); });
+        return;
       }
       lijst.innerHTML = strip + (items.length
         ? groepen.map(function (gr) {
@@ -286,14 +300,15 @@
       $("#ras-naam").textContent = ras.naam;
       if (ras.omschrijving) introEl2.textContent = ras.omschrijving; else introEl2.hidden = true;
 
-      var fotos = galerij(ras);
+      var gekozen = params.get("product");
+      var gekozenType = TYPEN.indexOf(gekozen) >= 0 && ras[gekozen] ? gekozen : "";
+      var fotos = galerij(ras, gekozenType);
       var plaatsR = PLAATSHOUDER[ras.soort];
       var beeld = fotos.length
-        ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(ras) + '" aria-label="Bekijk foto\'s van ' + esc(ras.naam) + '">' +
+        ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(ras) + '" data-type="' + gekozenType + '" aria-label="Bekijk foto\'s van ' + esc(ras.naam) + '">' +
           '<img src="' + esc(fotos[0].src) + '" alt="' + esc(ras.naam) + '" width="800" height="600" decoding="async" data-fallback="' + plaatsR + '">' +
           (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>"
         : '<img src="' + plaatsR + '" alt="" width="800" height="600" decoding="async">';
-      var gekozen = params.get("product");
       var typen = TYPEN.filter(function (t) { return ras[t]; });
       var chips = (ras.kenmerken || []).length
         ? '<ul class="chips">' + ras.kenmerken.map(function (k) { return "<li>" + esc(k) + "</li>"; }).join("") + "</ul>"
@@ -565,8 +580,8 @@
       $("#lbCount").textContent = foto.length > 1 ? pos + 1 + " / " + foto.length : "";
       lb.classList.toggle("single", foto.length < 2);
     };
-    var openFoto = function (r) {
-      foto = galerij(r);
+    var openFoto = function (r, type) {
+      foto = galerij(r, type);
       if (!foto.length) return;
       pos = 0; titel = r.naam;
       $("#lbImg").setAttribute("data-fallback", PLAATSHOUDER[r.soort]);
@@ -594,7 +609,7 @@
         return openLijst(BEELDEN.categorieFotos[c.id], Number(sf.getAttribute("data-i")), c.titel);
       }
       var k = e.target.closest("button.pic");
-      if (k) return openFoto(PRODUCTEN[Number(k.getAttribute("data-ras"))]);
+      if (k) return openFoto(PRODUCTEN[Number(k.getAttribute("data-ras"))], k.getAttribute("data-type") || "");
       if (e.target === lb || e.target.id === "lbClose") sluitFoto();
       if (e.target.id === "lbPrev") stap(-1);
       if (e.target.id === "lbNext") stap(1);

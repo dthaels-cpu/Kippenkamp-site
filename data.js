@@ -80,12 +80,7 @@ const BEELDEN = {
   },
   categorieFotos: {               // extra foto's die bovenaan staan als je op Aanbod een categorie kiest
     broedeieren: [],              // bv. ["images/eieren-1.jpg", { src: "images/eieren-2.jpg", tekst: "Onze eieren" }]
-    kuikens: [
-      "images/kuikens-groep.jpg",
-      "images/kuikens-broedlamp.jpg",
-      "images/kuiken-zwart.jpg",
-      "images/kuiken-zwart-eieren.jpg"
-    ],
+    kuikens: [],
     volwassen: []
   }
 };
@@ -140,8 +135,8 @@ const PRODUCTEN = [
     id: "celadon", soort: "kwartel", uitgelicht: false,
     naam: "Celadon",
     omschrijving: "",
-    kenmerken: [], eikleur: "", fotos: [{ src: "images/celadon.jpg", tekst: "Celadon-broedeieren met een kuiken" }],
-    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
+    kenmerken: [], eikleur: "", fotos: [],
+    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/celadon.jpg", tekst: "Celadon-broedeieren met een kuiken" }] },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
   },
