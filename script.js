@@ -162,6 +162,20 @@
       '<span class="more" aria-hidden="true">Bekijk ras →</span></div></article>';
   }
 
+  /* Kaart in een categorie (bv. Broedeieren): prijs en Aanvragen-knop staan er rechtstreeks op. */
+  function keuzeKaart(r, type) {
+    var g = galerij(r);
+    var plaats = PLAATSHOUDER[r.soort];
+    var href = "ras.html?id=" + encodeURIComponent(r.id) + "&amp;product=" + type;
+    return '<article class="cat keuze"><a class="pic" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(g.length ? g[0].src : plaats) +
+      '" alt="" loading="lazy" decoding="async" width="800" height="600" data-fallback="' + plaats + '"></a>' +
+      '<div class="body"><h3><a href="' + href + '">' + esc(r.naam) + "</a></h3>" +
+      (r.omschrijving ? '<p class="desc">' + esc(r.omschrijving) + "</p>" : "") +
+      (r.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(r.eikleur) + "</p>" : "") +
+      '<ul class="prods">' + prodRij(r, type, false) + "</ul>" +
+      '<a class="more-link" href="' + href + '">Meer over dit ras</a></div></article>';
+  }
+
   function prodRij(r, t, gekozen) {
     var item = r[t];
     var knop = item.beschikbaar === false ? "" :
@@ -216,8 +230,14 @@
     var toon = function (id) {
       var cat = cats.filter(function (c) { return c.id === id; })[0];
       var items = cat ? rassenMet(cat.type) : PRODUCTEN;
+      var groepen = [["kwartel", "Kwartels"], ["kip", "Kippen"]];
       lijst.innerHTML = items.length
-        ? items.map(function (r) { return rasKaart(r, cat ? cat.type : ""); }).join("")
+        ? groepen.map(function (gr) {
+            var deel = items.filter(function (r) { return r.soort === gr[0]; });
+            if (!deel.length) return "";
+            return '<section class="groep"><h2 class="groep-titel">' + gr[1] + '</h2><div class="grid rassen">' +
+              deel.map(function (r) { return cat ? keuzeKaart(r, cat.type) : rasKaart(r, ""); }).join("") + "</div></section>";
+          }).join("")
         : '<p class="empty">Er staat hier nog niets in het aanbod.</p>';
       $$("button", filterEl).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === id ? "true" : "false"); });
     };
@@ -240,7 +260,7 @@
 
   /* ---------- Rassenpagina: hier kies je broedeieren, kuikens of volwassen ---------- */
   if (page === "ras") {
-    var rid = params.get("id");
+    var rid = (params.get("id") || "").replace(/^ciladon$/, "celadon");
     var ras = PRODUCTEN.filter(function (p) { return p.id === rid; })[0];
     var detail = $("#ras-detail");
     var introEl2 = $("#ras-intro");
@@ -415,7 +435,7 @@
     rasSel.addEventListener("change", toonInfo);
     var pp = (params.get("product") || "").replace(/^(kip|kwartel)-/, "");
     if (pp && catsMetAanbod.some(function (c) { return c.type === pp; })) prodSel.value = pp;
-    vulRassen(params.get("ras") || "");
+    vulRassen((params.get("ras") || "").replace(/^ciladon$/, "celadon"));
     af.elements.datum.min = vandaag();
 
     var tekstVan = function () {

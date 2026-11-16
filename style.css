@@ -296,3 +296,13 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .prods.big .prod:last-child { border-bottom: 1px solid var(--line); padding-bottom: 16px; }
 .prods.big .prod.gekozen { border-color: var(--olive); background: var(--cream); box-shadow: 0 0 0 2px rgba(92, 107, 59, .25); }
 .ras-info { background: var(--cream); border-left: 4px solid var(--olive); border-radius: 8px; padding: 10px 14px; margin: -4px 0 18px; font-size: .95rem; }
+
+/* Groepen (Kwartels / Kippen) en kaarten met directe keuze */
+.groep { margin-bottom: 44px; }
+.groep-titel { font-size: 1.6rem; margin: 0 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--tan); }
+.cat.keuze .pic { display: block; }
+.cat.keuze h3 a { text-decoration: none; color: inherit; }
+.cat.keuze h3 a:hover { text-decoration: underline; }
+.cat.keuze .prods { margin-top: auto; }
+.cat.keuze .prod { padding: 10px 0 0; border-bottom: 0; }
+.cat.keuze .more-link { font-size: .9rem; color: var(--olive-dark); }

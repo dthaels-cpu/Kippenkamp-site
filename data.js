@@ -87,7 +87,7 @@ const BEELDEN = {
    ===================================================== */
 const CATEGORIEEN = [
   { id: "broedeieren", titel: "Broedeieren", tekst: "Broedeieren van onze kippen- en kwartelrassen, om zelf uit te broeden.", type: "broedei", plaatshouder: "ei" },
-  { id: "kuikens", titel: "Kuikens", tekst: "Kuikens van onze kippenrassen, op bestelling.", type: "kuiken", plaatshouder: "kuiken" },
+  { id: "kuikens", titel: "Kuikens", tekst: "Kuikens van onze kippen- en kwartelrassen, op bestelling.", type: "kuiken", plaatshouder: "kuiken" },
   { id: "volwassen", titel: "Volwassen kippen en kwartels", tekst: "Op zoek naar volwassen dieren? Vraag naar de mogelijkheden.", type: "volwassen", plaatshouder: "kip" }
 ];
 
@@ -123,16 +123,16 @@ const PRODUCTEN = [
     omschrijving: "Grote kwartels in een mix van kleuren.",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: null,
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
   },
   {
-    id: "ciladon", soort: "kwartel", uitgelicht: false,
-    naam: "Ciladon",
+    id: "celadon", soort: "kwartel", uitgelicht: false,
+    naam: "Celadon",
     omschrijving: "",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: null,
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
   },
 
