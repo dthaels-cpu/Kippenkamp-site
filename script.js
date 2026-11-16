@@ -459,6 +459,7 @@
     box.hidden = false;
     box.setAttribute("tabindex", "-1");
     form.reset();
+    if (form.elements.product) form.elements.product.dispatchEvent(new Event("change"));
     var inf = $("#ras-info");
     if (inf) inf.hidden = true;
     box.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -469,16 +470,6 @@
     if (!b) return;
     if (aan) { b.setAttribute("data-label", b.textContent); b.textContent = "Bezig met verzenden…"; b.disabled = true; }
     else { b.textContent = b.getAttribute("data-label") || b.textContent; b.disabled = false; }
-  }
-  function vandaag() {
-    var d = new Date();
-    d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-    return d.toISOString().slice(0, 10);
-  }
-  function lang(v) {
-    if (!v) return "";
-    var d = new Date(v + "T00:00:00");
-    return isNaN(d) ? v : d.toLocaleDateString("nl-BE", { day: "numeric", month: "long", year: "numeric" });
   }
 
   /* --- Aanvraagformulier --- */
@@ -496,6 +487,22 @@
       var tekst = (r && t && r[t] && r[t].opmerking) || "";
       rasInfo.textContent = tekst;
       rasInfo.hidden = !tekst;
+      var kz = (r && t && r[t] && r[t].keuze) || null;
+      var kzVeld = $("#keuze-veld"), kzSel = af.elements.keuze;
+      if (kz && kz.opties && kz.opties.length) {
+        var vorig = kzSel.value;
+        $("#keuze-label").textContent = kz.label || "Keuze";
+        kzSel.innerHTML = '<option value="">Kies een ' + esc((kz.label || "optie").toLowerCase()) + "</option>" +
+          kz.opties.map(function (o) { return '<option value="' + esc(o) + '">' + esc(o) + "</option>"; }).join("");
+        if (kz.opties.indexOf(vorig) >= 0) kzSel.value = vorig;
+        kzSel.required = true;
+        kzVeld.hidden = false;
+      } else {
+        kzSel.innerHTML = "";
+        kzSel.required = false;
+        zetFout(kzSel, "");
+        kzVeld.hidden = true;
+      }
     };
     var vulRassen = function (gekozenRas) {
       var t = prodSel.value;
@@ -519,7 +526,6 @@
     var pp = (params.get("product") || "").replace(/^(kip|kwartel)-/, "");
     if (pp && catsMetAanbod.some(function (c) { return c.type === pp; })) prodSel.value = pp;
     vulRassen((params.get("ras") || "").replace(/^ciladon$/, "celadon"));
-    af.elements.datum.min = vandaag();
 
     var tekstVan = function () {
       var rasNaam = rasSel.value === "advies" ? "Ik twijfel, graag advies" : (rasSel.selectedOptions[0] && rasSel.value ? rasSel.selectedOptions[0].text : "");
@@ -527,7 +533,7 @@
       if (prodSel.value) regels.push("Product: " + prodSel.selectedOptions[0].text);
       if (rasNaam) regels.push("Ras: " + rasNaam);
       if (af.elements.aantal.value) regels.push("Aantal: " + af.elements.aantal.value);
-      if (af.elements.datum.value) regels.push("Gewenste afhaaldatum: " + lang(af.elements.datum.value));
+      if (af.elements.keuze.value) regels.push(($("#keuze-label").textContent || "Keuze") + ": " + af.elements.keuze.value);
       if (af.elements.bericht.value.trim()) regels.push("", af.elements.bericht.value.trim());
       regels.push("", "Groeten" + (af.elements.naam.value.trim() ? ",\n" + af.elements.naam.value.trim() : ""));
       var contact = [];
@@ -557,6 +563,7 @@
       var ok = valideer(af, {
         product: function (el) { return el.value ? "" : "Kies een product."; },
         ras: function (el) { return el.value ? "" : "Kies een ras."; },
+        keuze: function (el) { return $("#keuze-veld").hidden || el.value ? "" : "Maak een keuze."; },
         aantal: function (el) { var n = Number(el.value); return n >= 1 && n <= 1000 && Math.floor(n) === n ? "" : "Vul een aantal in van 1 of meer."; },
         naam: function (el) { return el.value.trim() ? "" : "Vul je naam in."; },
         email: function (el) { return EMAIL_RE.test(el.value.trim()) ? "" : "Vul een geldig e-mailadres in."; },
@@ -568,7 +575,8 @@
         product: prodSel.selectedOptions[0].text,
         ras: rasSel.value === "advies" ? "Ik twijfel, graag advies" : rasSel.selectedOptions[0].text,
         aantal: Number(af.elements.aantal.value),
-        datum: af.elements.datum.value,
+        keuzeLabel: af.elements.keuze.value ? ($("#keuze-label").textContent || "Keuze") : "",
+        keuze: af.elements.keuze.value,
         naam: af.elements.naam.value.trim(),
         email: af.elements.email.value.trim(),
         telefoon: af.elements.telefoon.value.trim(),

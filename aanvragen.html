@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Broedeieren of kuikens aanvragen | Het Kippenkamp</title>
-<meta name="description" content="Vraag broedeieren, kuikens of volwassen kippen en kwartels aan. Kies product en ras, geef het aantal en je gewenste afhaaldatum door. We bevestigen persoonlijk.">
+<meta name="description" content="Vraag broedeieren, kuikens of volwassen kippen en kwartels aan. Kies product en ras, geef het aantal door. We bevestigen persoonlijk.">
 <link rel="canonical" href="https://website-drab-three-77.vercel.app/aanvragen.html">
 <meta name="theme-color" content="#5c6b3b">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="nl_BE">
 <meta property="og:site_name" content="Het Kippenkamp">
 <meta property="og:title" content="Broedeieren of kuikens aanvragen | Het Kippenkamp">
-<meta property="og:description" content="Vraag broedeieren, kuikens of volwassen kippen en kwartels aan. Kies product en ras, geef het aantal en je gewenste afhaaldatum door. We bevestigen persoonlijk.">
+<meta property="og:description" content="Vraag broedeieren, kuikens of volwassen kippen en kwartels aan. Kies product en ras, geef het aantal door. We bevestigen persoonlijk.">
 <meta property="og:url" content="https://website-drab-three-77.vercel.app/aanvragen.html">
 <meta property="og:image" content="https://website-drab-three-77.vercel.app/images/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Het Kippenkamp: broedeieren, kuikens en kwartels">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Broedeieren of kuikens aanvragen | Het Kippenkamp">
-<meta name="twitter:description" content="Vraag broedeieren, kuikens of volwassen kippen en kwartels aan. Kies product en ras, geef het aantal en je gewenste afhaaldatum door. We bevestigen persoonlijk.">
+<meta name="twitter:description" content="Vraag broedeieren, kuikens of volwassen kippen en kwartels aan. Kies product en ras, geef het aantal door. We bevestigen persoonlijk.">
 <meta name="twitter:image" content="https://website-drab-three-77.vercel.app/images/og-image.png">
 <link rel="icon" href="favicon-64.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -52,7 +52,7 @@
 <section class="page-hero">
   <div class="wrap">
     <h1>Aanvragen</h1>
-    <p>Kies het product en het ras, geef het aantal en je gewenste afhaaldatum door. We bevestigen of het beschikbaar is.</p>
+    <p>Kies het product en het ras, geef het aantal door. We bevestigen of het beschikbaar is.</p>
   </div>
 </section>
 
@@ -74,17 +74,15 @@
         </div>
       </div>
       <p id="ras-info" class="ras-info" hidden></p>
-      <div class="row">
-        <div class="field">
-          <label for="aantal">Aantal</label>
-          <input id="aantal" name="aantal" type="number" min="1" max="1000" step="1" inputmode="numeric" required>
-          <span class="err" aria-live="polite"></span>
-        </div>
-        <div class="field">
-          <label for="datum">Gewenste afhaaldatum</label>
-          <input id="datum" name="datum" type="date">
-          <span class="hint">Mag bij benadering. We spreken het exacte moment samen af.</span>
-        </div>
+      <div class="field" id="keuze-veld" hidden>
+        <label for="keuze" id="keuze-label">Kleurslag</label>
+        <select id="keuze" name="keuze"></select>
+        <span class="err" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="aantal">Aantal</label>
+        <input id="aantal" name="aantal" type="number" min="1" max="1000" step="1" inputmode="numeric" required>
+        <span class="err" aria-live="polite"></span>
       </div>
       <div class="field">
         <label for="naam">Naam</label>

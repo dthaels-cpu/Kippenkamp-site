@@ -56,7 +56,7 @@ const SITE = {
   bestelInfo: "Stuur je aanvraag via het formulier, WhatsApp of mail. We bevestigen of het beschikbaar is en spreken samen af wanneer je alles kan ophalen.",
   stappen: [
     { titel: "Kies een ras", tekst: "Bekijk onze rassen en kies wat je zoekt: broedeieren, kuikens of volwassen dieren." },
-    { titel: "Vraag aan", tekst: "Geef het aantal en een gewenste afhaaldatum door." },
+    { titel: "Vraag aan", tekst: "Geef het aantal door." },
     { titel: "Wij bevestigen", tekst: "We laten je weten wat beschikbaar is en spreken samen af wanneer je alles komt ophalen." }
   ],
 
@@ -128,6 +128,8 @@ const CATEGORIEEN = [
        beschikbaar:  true / false             -> false toont "Momenteel niet beschikbaar"
        status:       eigen tekst zoals "Beschikbaar vanaf maart" (mag leeg)
        opmerking:    extra uitleg zoals "Vanaf 6 stuks" (mag leeg)
+       keuze:        extra keuzevak in het aanvraagformulier, bv.
+                     keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] }
        fotos:        extra foto's, enkel bij dit product (mag leeg)
      Zet het hele blok op null om dat product bij dit ras niet aan te bieden.
      Volwassen dieren aanbieden? Vervang bij het ras  volwassen: null  door
@@ -168,10 +170,10 @@ const PRODUCTEN = [
   {
     id: "orpington-kleurmix", soort: "kip", uitgelicht: false,
     naam: "Orpington kleurmix",
-    omschrijving: "Een mix van kleurslagen. De hen is zwart-goudgezoomd, de haan zwart-blauwgezoomd. Haan en hennen zijn onverwant.",
+    omschrijving: "Een mix van kleurslagen. De hennen zijn 100% zuiver zwart-goudgezoomd, de haan is zwart-blauwgezoomd. Haan en hennen zijn onverwant.",
     kenmerken: [], eikleur: "", fotos: [],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "Welke kleurslag er uit een ei komt en hoeveel van elk, weten we niet vooraf." },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleurslag al te zien, dus daar weten we het zeker." },
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleurslag al te zien, dus daar weten we het zeker. Je kiest zelf de kleurslag.", keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] } },
     volwassen: null
   },
   {

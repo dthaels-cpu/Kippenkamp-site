@@ -17,7 +17,6 @@
 
 const MAX = { naam: 100, email: 200, telefoon: 40, bericht: 3000, product: 80, ras: 100 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const DATUM_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 // Eenvoudige beperking per IP (werkt per serverinstantie, genoeg tegen misbruik in het klein)
 const recent = new Map();
@@ -38,13 +37,6 @@ function schoon(v, max) {
 }
 function eenRegel(v, max) {
   return schoon(v, max).replace(/[\r\n]+/g, " ");
-}
-function langeDatum(iso) {
-  try {
-    return new Date(iso + "T00:00:00").toLocaleDateString("nl-BE", { day: "numeric", month: "long", year: "numeric" });
-  } catch (e) {
-    return iso;
-  }
 }
 
 module.exports = async function handler(req, res) {
@@ -75,7 +67,8 @@ module.exports = async function handler(req, res) {
     product: eenRegel(body.product, MAX.product),
     ras: eenRegel(body.ras, MAX.ras),
     aantal: Number(body.aantal),
-    datum: schoon(body.datum, 10)
+    keuzeLabel: eenRegel(body.keuzeLabel, 40),
+    keuze: eenRegel(body.keuze, 80)
   };
 
   const velden = [];
@@ -85,7 +78,6 @@ module.exports = async function handler(req, res) {
     if (!d.product) velden.push("product");
     if (!d.ras) velden.push("ras");
     if (!(Number.isInteger(d.aantal) && d.aantal >= 1 && d.aantal <= 1000)) velden.push("aantal");
-    if (d.datum && !DATUM_RE.test(d.datum)) velden.push("datum");
   } else if (d.bericht.length < 5) {
     velden.push("bericht");
   }
@@ -112,7 +104,7 @@ module.exports = async function handler(req, res) {
       "Product: " + d.product,
       "Ras: " + d.ras,
       "Aantal: " + d.aantal,
-      "Gewenste afhaaldatum: " + (d.datum ? langeDatum(d.datum) : "niet opgegeven"),
+      ...(d.keuze ? [(d.keuzeLabel || "Keuze") + ": " + d.keuze] : []),
       "",
       "Naam: " + d.naam,
       "E-mail: " + d.email,
