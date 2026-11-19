@@ -394,7 +394,8 @@
       var beeld = metSlider ? '<div id="ras-slider" class="ras-slider"></div>' : fotos.length
         ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(ras) + '" data-type="' + gekozenType + '" aria-label="Bekijk foto\'s van ' + esc(ras.naam) + '">' +
           '<img src="' + esc(fotos[0].src) + '" alt="' + esc(ras.naam) + '" width="800" height="600" decoding="async" data-fallback="' + plaatsR + '">' +
-          (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>"
+          (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>" +
+          (fotos[0].bijschrift ? '<figcaption class="foto-bijschrift">' + esc(fotos[0].bijschrift) + "</figcaption>" : "")
         : '<img src="' + plaatsR + '" alt="" width="800" height="600" decoding="async">';
       var typen = TYPEN.filter(function (t) { return ras[t]; });
       var chips = (ras.kenmerken || []).length

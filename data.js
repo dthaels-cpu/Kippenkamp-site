@@ -281,8 +281,7 @@ const PRODUCTEN = [
       { src: "images/marans-tony-1.jpg", tekst: "Tony, onze Marans zwart koper haan" },
       { src: "images/marans-tony-2.jpg", tekst: "Tony, onze Marans-haan, van opzij" },
       { src: "images/marans-tony-3.jpg", tekst: "Tony aan het scharrelen" },
-      { src: "images/marans-kuikens-eieren.jpg", tekst: "Marans-kuikens bij donkerbruine Marans-eieren" },
-      { src: "images/marans-eieren-f2-kuikens.jpg", tekst: "Kuikens bij twee eieren, links het ei van een F2 hen", bijschrift: "Het ei links is van een F2 hen." }
+      { src: "images/marans-kuikens-eieren.jpg", tekst: "Marans-kuikens bij donkerbruine Marans-eieren" }
     ],
     uitleg: [
       "Bij Het Kippenkamp mogen de Marans natuurlijk niet ontbreken! Onze Maransgroep bestaat uit prachtige zwart-koperen dieren. En de grote man van de groep? Dat is Tony! Met zijn diepzwarte veren, prachtige groene glans en warme koperkleurige hals is hij een echte verschijning in het kippenhok.",
@@ -310,7 +309,7 @@ const PRODUCTEN = [
     id: "olijfleggers", soort: "kip", uitgelicht: true,
     naam: "Olijfleggers",
     omschrijving: "Leggen eieren in een olijfgroene tint. Keuze uit F1 of F2.",
-    kenmerken: ["Olijfgroene eieren", "F1 of F2", "Opvallend in de eierdoos"], eikleur: "Olijfgroen (F1: helder tot mosgroen, F2: diep donkergroen of donkerbruin)", fotos: [],
+    kenmerken: ["Olijfgroene eieren", "F1 of F2", "Opvallend in de eierdoos"], eikleur: "Olijfgroen (F1: helder tot mosgroen, F2: diep donkergroen of donkerbruin)", fotos: [{ src: "images/olijfleggers-f2-ei.jpg", tekst: "Kuikens bij twee eieren, links het ei van een F2 hen", bijschrift: "Het ei links is van een F2 hen." }],
     uitleg: [
       "Olijfleggers ontstaan door een Marans-haan te kruisen met een blauwe eierlegger. Het resultaat is een kip met olijfgroene eieren, een kleur die je niet vaak ziet. Je kan bij ons kiezen tussen F1 en F2, zowel bij broedeieren als bij kuikens.",
       "F1 maken we zo: Marans-haan × raszuivere blauwe eierlegger. Alle hennen leggen olijfgroene eieren, van helder tot medium mosgroen. Dit is de zekerste keuze.",
