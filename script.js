@@ -94,6 +94,16 @@
       ? fi.map(function (i) { return "<li>" + i[1] + "</li>"; }).join("")
       : '<li><a href="contact.html">Neem contact op via het formulier</a></li>';
   }
+  var SOCIAAL = [["facebook", "Facebook"], ["instagram", "Instagram"], ["tiktok", "TikTok"], ["youtube", "YouTube"]];
+  var socLinks = SOCIAAL.filter(function (k) { return SITE.social && SITE.social[k[0]]; }).map(function (k) {
+    return '<a href="' + esc(SITE.social[k[0]]) + '" target="_blank" rel="noopener">' + k[1] + "</a>";
+  });
+  if (socLinks.length) {
+    var fcol = fc && fc.parentNode;
+    if (fcol) fcol.insertAdjacentHTML("beforeend", '<h2 class="volg-titel">Volg ons</h2><p class="volg">' + socLinks.join(" · ") + "</p>");
+    var cgl = $("#contact-gegevens");
+    if (cgl) cgl.insertAdjacentHTML("beforeend", "<li><strong>Volg ons</strong>" + socLinks.join(" · ") + "</li>");
+  }
   var cg = $("#contact-gegevens");
   if (cg) {
     var ci = contactItems(true);
@@ -237,7 +247,7 @@
             '<img src="' + esc(f.src) + '" alt="' + esc(f.tekst || "Ons kamp") + '"' + (i === 0 ? "" : ' loading="lazy"') + ' decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></div>';
         }).join("") + "</div>" +
         (n > 1 ? '<button type="button" class="sl-btn sl-prev" aria-label="Vorige foto">‹</button><button type="button" class="sl-btn sl-next" aria-label="Volgende foto">›</button>' : "") +
-        '</div><p class="sl-tekst" aria-live="polite"></p>' +
+        '</div><p class="sl-tekst" aria-live="polite" hidden></p>' +
         (n > 1 ? '<div class="sl-dots">' + kampFotos.map(function (f, i) { return '<button type="button" data-i="' + i + '" aria-label="Ga naar foto ' + (i + 1) + '"></button>'; }).join("") + "</div>" : "");
       var slider = $(".slider", kampEl), slides = $$(".slide", kampEl), dots = $$(".sl-dots button", kampEl), tekstEl = $(".sl-tekst", kampEl);
       var huidig = 0, pauze = false, timer = null;
@@ -245,7 +255,7 @@
         huidig = (i + n) % n;
         slides.forEach(function (s, k) { s.classList.toggle("actief", k === huidig); });
         dots.forEach(function (d, k) { d.setAttribute("aria-current", k === huidig ? "true" : "false"); });
-        tekstEl.textContent = kampFotos[huidig].tekst || "";
+        tekstEl.textContent = "";
       };
       ga(0);
       if (n > 1) {
@@ -685,7 +695,7 @@
     var stap = function (d) { pos = (pos + d + foto.length) % foto.length; toonFoto(); };
     document.addEventListener("click", function (e) {
       var sf = e.target.closest("button.strip-foto");
-      if (sf && sf.getAttribute("data-lijst") === "kamp") return openLijst(BEELDEN.kamp, Number(sf.getAttribute("data-i")), "Ons kamp");
+      if (sf && sf.getAttribute("data-lijst") === "kamp") return openLijst((BEELDEN.kamp || []).map(function (k) { return { src: norm(k).src, tekst: "" }; }), Number(sf.getAttribute("data-i")), "Ons kamp");
       if (sf) {
         var c = CATEGORIEEN.filter(function (x) { return x.id === sf.getAttribute("data-cat"); })[0];
         return openLijst(BEELDEN.categorieFotos[c.id], Number(sf.getAttribute("data-i")), c.titel);

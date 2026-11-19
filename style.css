@@ -356,3 +356,5 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .prod-card .note { margin: 4px 0 8px; color: var(--muted); font-size: .92rem; }
 .prod-card .btn { margin-top: auto; align-self: flex-start; }
 .ras-aanvragen .notice { margin-top: 18px; color: var(--muted); }
+.volg-titel { margin-top: 22px; }
+.volg a { margin-right: 4px; }
