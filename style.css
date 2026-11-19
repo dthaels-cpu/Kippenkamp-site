@@ -358,3 +358,17 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .ras-aanvragen .notice { margin-top: 18px; color: var(--muted); }
 .volg-titel { margin-top: 22px; }
 .volg a { margin-right: 4px; }
+
+.ras-detail ul.karakter { margin: 0 0 12px; padding-left: 20px; max-width: 62ch; }
+.ras-detail ul.karakter li { margin-bottom: 6px; }
+.ras-detail h3 { margin: 18px 0 6px; font-size: 1.2rem; }
+.afsluiter { font-style: italic; }
+.kleurslagen { margin-top: 36px; }
+.kleurslagen h2 { font-size: 1.6rem; margin: 0 0 6px; }
+.kleurslagen details { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); margin-top: 12px; box-shadow: var(--shadow); }
+.kleurslagen summary { cursor: pointer; padding: 16px 20px; font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.kleurslagen summary::-webkit-details-marker { display: none; }
+.kleurslagen summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: var(--olive); }
+.kleurslagen details[open] summary::after { content: "–"; }
+.kleurslagen details > div { padding: 0 20px 8px; max-width: 70ch; }
+.liefde { max-width: 70ch; }

@@ -352,7 +352,7 @@
 
   /* ---------- Rassenpagina: hier kies je broedeieren, kuikens of volwassen ---------- */
   if (page === "ras") {
-    var rid = (params.get("id") || "").replace(/^ciladon$/, "celadon");
+    var rid = (function (v) { return RAS_ALIAS[v] || v; })(params.get("id") || "");
     var ras = PRODUCTEN.filter(function (p) { return p.id === rid; })[0];
     var detail = $("#ras-detail");
     var introEl2 = $("#ras-intro");
@@ -383,6 +383,17 @@
         ? '<ul class="chips">' + ras.kenmerken.map(function (k) { return "<li>" + esc(k) + "</li>"; }).join("") + "</ul>"
         : "";
       var uitleg = (ras.uitleg || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
+      var k = ras.karakter;
+      var karakter = k ? "<h3>" + esc(k.titel) + "</h3><p>" + esc(k.intro) + '</p><ul class="karakter">' +
+        k.punten.map(function (pt) { return "<li><strong>" + esc(pt[0]) + ":</strong> " + esc(pt[1]) + "</li>"; }).join("") + "</ul>" +
+        (k.slot ? "<p>" + esc(k.slot) + "</p>" : "") : "";
+      var afsl = ras.afsluiter ? '<p class="afsluiter">' + esc(ras.afsluiter) + "</p>" : "";
+      var kleurslagen = (ras.kleurslagen || []).length
+        ? '<div class="kleurslagen"><h2>Kleurslagen</h2><p class="muted">Klik op een kleurslag voor meer uitleg.</p>' +
+          ras.kleurslagen.map(function (k2) {
+            return "<details><summary>" + esc(k2.naam) + "</summary><div>" + k2.tekst.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") + "</div></details>";
+          }).join("") + "</div>"
+        : "";
       var kaarten = typen.map(function (t) {
         var item = ras[t];
         var knop = item.beschikbaar === false
@@ -396,8 +407,8 @@
       detail.innerHTML = '<div class="split ras-split"><figure class="photo-frame">' + beeld + "</figure><div>" +
         "<h2>Over dit ras</h2>" +
         (uitleg || (ras.omschrijving ? "<p>" + esc(ras.omschrijving) + "</p>" : "")) +
-        (ras.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(ras.eikleur) + "</p>" : "") + chips +
-        "</div></div>" +
+        karakter + afsl + (ras.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(ras.eikleur) + "</p>" : "") + chips +
+        "</div></div>" + kleurslagen +
         '<div class="ras-aanvragen"><h2>Wat wil je aanvragen?</h2>' +
         (typen.length
           ? '<ul class="prod-cards">' + kaarten + "</ul>" +
@@ -549,7 +560,7 @@
     rasSel.addEventListener("change", toonInfo);
     var pp = (params.get("product") || "").replace(/^(kip|kwartel)-/, "");
     if (pp && catsMetAanbod.some(function (c) { return c.type === pp; })) prodSel.value = pp;
-    vulRassen((params.get("ras") || "").replace(/^ciladon$/, "celadon"));
+    vulRassen((function (v) { return RAS_ALIAS[v] || v; })(params.get("ras") || ""));
 
     var tekstVan = function () {
       var rasNaam = rasSel.value === "advies" ? "Ik twijfel, graag advies" : (rasSel.selectedOptions[0] && rasSel.value ? rasSel.selectedOptions[0].text : "");

@@ -26,7 +26,7 @@ Er is **geen build-stap**: elke push naar GitHub wordt door Vercel gewoon online
 - **Volwassen dieren aanbieden**: vervang bij een ras `volwassen: null` door
   `volwassen: { prijs: null, beschikbaar: true, status: "", opmerking: "" }`. Het ras toont dan een extra keuze en
   de categorie "Volwassen kippen en kwartels" op de homepage linkt automatisch naar die rassen.
-- **Extra keuzevak bij een product** (bv. kleurslag bij Orpington kleurmix kuikens): `keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] }` in het blok `broedei`, `kuiken` of `volwassen`.
+- **Extra keuzevak bij een product** (bv. kleurslag bij Orpington): `keuze: { label: "Kleurslag", opties: ["Zwart goudgezoomd", "Blauw en goud (fokproject)"] }` in het blok `broedei`, `kuiken` of `volwassen`.
 - **Kuikens van kwartels**: vervang `kuiken: null` op dezelfde manier.
 - **Categorieën** (`CATEGORIEEN`): de drie ingangen op de homepage en filters op Aanbod.
 

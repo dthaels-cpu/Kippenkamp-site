@@ -53,6 +53,7 @@ const SITE = {
     { titel: "Kuikens die in huis opgroeien", tekst: "Onze kuikens groeien groot binnen in huis en worden echt betrokken bij het gezinsleven. Zo hebben ze geen schrik van mensen." },
     { titel: "Bijzondere rassen", tekst: "We kiezen voor rassen met een eigen gezicht, zoals Orpington, Marans, Ameraucana en olijfleggers. Het volledige overzicht staat bij het aanbod." },
     { titel: "Eigen dieren", tekst: "Het aanbod komt van onze eigen dieren. Daarom kunnen we je ook echt iets vertellen over de rassen die je overweegt." },
+    { titel: "Net begonnen, altijd aan het bijleren", tekst: "We zijn net gestart en leren elke dag bij. Heb je een suggestie, een tip of een opmerking? Die is meer dan welkom." },
     { titel: "Persoonlijke aanpak", tekst: "Bij een aanvraag krijg je een persoonlijk antwoord van ons, met duidelijke afspraken over beschikbaarheid en afhalen." }
   ],
 
@@ -108,10 +109,13 @@ const BEELDEN = {
    Staan op de homepage en als filter op de pagina Aanbod.
    type: "broedei", "kuiken" of "volwassen" (zie bij de rassen hieronder)
    ===================================================== */
+// Oude links (en oude rasnamen) die naar een ander ras doorverwijzen
+const RAS_ALIAS = { ciladon: "celadon", "orpington-goud-zwartgezoomd": "orpington", "orpington-kleurmix": "orpington" };
+
 const CATEGORIEEN = [
-  { id: "broedeieren", titel: "Broedeieren", tekst: "Broedeieren van onze kippen- en kwartelrassen, om zelf uit te broeden.", type: "broedei", plaatshouder: "ei" },
-  { id: "kuikens", titel: "Kuikens", tekst: "Kuikens van onze kippen- en kwartelrassen, op bestelling.", type: "kuiken", plaatshouder: "kuiken" },
-  { id: "volwassen", titel: "Volwassen kippen en kwartels", tekst: "Op zoek naar volwassen dieren? Vraag naar de mogelijkheden.", type: "volwassen", plaatshouder: "kip" }
+  { id: "broedeieren", titel: "Broedeieren", tekst: "Voor wie graag zelf de broedmachine laat draaien en het hele avontuur van ei tot kuiken wil beleven.", type: "broedei", plaatshouder: "ei" },
+  { id: "kuikens", titel: "Kuikens", tekst: "Kleine bolletjes dons die uitgroeien tot prachtige, imposante Orpingtons.", type: "kuiken", plaatshouder: "kuiken" },
+  { id: "volwassen", titel: "Volwassen kippen en kwartels", tekst: "Voor wie liever meteen een paar mooie dieren aan zijn of haar toom toevoegt.", type: "volwassen", plaatshouder: "kip" }
 ];
 
 /* -----------------------------------------------------
@@ -135,7 +139,7 @@ const CATEGORIEEN = [
        status:       eigen tekst zoals "Beschikbaar vanaf maart" (mag leeg)
        opmerking:    extra uitleg zoals "Vanaf 6 stuks" (mag leeg)
        keuze:        extra keuzevak in het aanvraagformulier, bv.
-                     keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] }
+                     keuze: { label: "Kleurslag", opties: ["Zwart goudgezoomd", "Blauw en goud (fokproject)"] }
        fotos:        extra foto's, enkel bij dit product (mag leeg)
      Zet het hele blok op null om dat product bij dit ras niet aan te bieden.
      Volwassen dieren aanbieden? Vervang bij het ras  volwassen: null  door
@@ -173,29 +177,47 @@ const PRODUCTEN = [
 
   // ---------- KIPPEN ----------
   {
-    id: "orpington-goud-zwartgezoomd", soort: "kip", uitgelicht: true,
-    naam: "Orpington goud-zwartgezoomd",
-    omschrijving: "Zuiver goud-zwartgezoomd, haan en hennen onverwant. 100% zuivere broedeieren.",
-    kenmerken: ["Rustig en tam", "Zachte, volle veren", "Lichtbruine eieren"], eikleur: "Lichtbruin", fotos: [],
+    id: "orpington", soort: "kip", uitgelicht: true,
+    naam: "Orpington",
+    omschrijving: "Een kip met karakter, formaat en een gouden randje 🐓",
+    kenmerken: ["Rustig en vriendelijk", "Zachte, volle veren", "Lichtbruine eieren"], eikleur: "Lichtbruin", fotos: [],
     uitleg: [
-      "De Orpington is een grote, rustige kip met een zachte, volle bevedering. Orpingtons staan bekend als tam en vriendelijk, en passen daardoor goed in een gezin.",
-      "Ze leggen lichtbruine eieren. Deze lijn is zuiver goud-zwartgezoomd, met haan en hennen die onverwant zijn."
+      "De Orpington is dé ultieme knuffelkip voor in de achtertuin: een grote, zachtaardige, heerlijk fluffy kip met een indrukwekkende verschijning en een karakter om verliefd op te worden.",
+      "Met hun ronde, volle bouw en overvloedige, zachte bevedering zijn het echte blikvangers. Ze staan bekend om hun rustige, vriendelijke karakter en hun ontspannen manier van scharrelen. Een beetje de labrador onder de kippen!",
+      "Bij Het Kippenkamp hebben we een bijzondere liefde voor de Orpington, en dan vooral voor de prachtige combinatie van goud met zwart of blauw."
     ],
-    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/orpington-goud-zwartgezoomd-kuikens.jpg", tekst: "Orpington goud-zwartgezoomd kuikens" }] },
-    volwassen: null
-  },
-  {
-    id: "orpington-kleurmix", soort: "kip", uitgelicht: false,
-    naam: "Orpington kleurmix",
-    omschrijving: "Een mix van kleurslagen. De hennen zijn 100% zuiver zwart-goudgezoomd, de haan is zwart-blauwgezoomd. Haan en hennen zijn onverwant.",
-    kenmerken: ["Rustig en tam", "Mix van kleurslagen", "Lichtbruine eieren"], eikleur: "Lichtbruin", fotos: [],
-    uitleg: [
-      "Dezelfde rustige, tamme Orpington, maar dan in een mix van kleurslagen. De hennen zijn 100% zuiver zwart-goudgezoomd en de haan is zwart-blauwgezoomd.",
-      "Uit een broedei komt een verrassing: welke kleurslag en hoeveel van elk weten we niet vooraf. Bij kuikens zie je de kleur al, dan kies je zelf."
+    karakter: {
+      titel: "Het karakter",
+      intro: "Orpingtons zijn niet alleen mooi om te zien, maar ook bijzonder aangename tuinbewoners.",
+      punten: [
+        ["Rustig en vriendelijk", "het zijn doorgaans zachtaardige kippen die graag op hun gemak rondscharrelen."],
+        ["Makkelijk tam te maken", "met wat lekkers uit de hand winnen ze vaak snel vertrouwen. Sommige dieren laten zich zelfs graag aaien of oppakken."],
+        ["Grote, rustige verschijning", "door hun forse bouw en volle bevedering hebben ze een heel eigen uitstraling."],
+        ["Gezellige tuinbewoners", "ze houden ervan om rustig rond te scharrelen en hun omgeving te ontdekken."]
+      ],
+      slot: "Zoals bij ieder ras blijft het karakter natuurlijk afhankelijk van het individuele dier en de manier waarop het wordt grootgebracht."
+    },
+    afsluiter: "Een Orpington is misschien gewoon een kip… tot je er eentje hebt. Dan begrijp je meteen waarom je er nooit genoeg van hebt! ❤️",
+    kleurslagen: [
+      { naam: "Zwart goudgezoomd", tekst: [
+        "De zwart goudgezoomde Orpington is een echte klassieker. De warme goudkleurige veren met hun contrasterende zwarte zoom zorgen voor een prachtig geschubd patroon.",
+        "Wanneer het zonlicht op hun verenkleed valt, komt de tekening helemaal tot leven. Een stijlvolle, warme kleurslag die bij ons een bijzonder plekje heeft."
+      ] },
+      { naam: "Blauw en goud: een bijzonder fokproject", tekst: [
+        "Ook de combinatie van blauw en goud heeft onze interesse gewekt. Daarom starten we met een kleine experimentele fokgroep.",
+        "Hiervoor zetten we een jonge blauwgekleurde haan, afkomstig uit goudgezoomde ouderdieren, in bij onze zwart goudgezoomde hennen.",
+        "De combinatie van de blauwgrijze kleur met warme goudtinten biedt interessante mogelijkheden. We zijn vooral benieuwd naar de kleuren, tekeningen en eigenschappen die uit deze kruising zullen voortkomen.",
+        "Dit is voor ons een nieuw fokproject waarin we stap voor stap willen ontdekken welke mogelijkheden er zijn. Daarbij blijven het typische Orpington-type, een goede bouw, volle bevedering en een mooie tekening belangrijke aandachtspunten."
+      ] }
     ],
-    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "Welke kleurslag er uit een ei komt en hoeveel van elk, weten we niet vooraf." },
-    kuiken: { fotos: [{ src: "images/orpington-kleurmix-kuiken.jpg", tekst: "Orpington kleurmix kuiken" }], prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleurslag al te zien, dus daar weten we het zeker. Je kiest zelf de kleurslag.", keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] } },
+    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "Kies je kleurslag. Bij het fokproject blauw en goud weten we vooraf niet welke kleuren er uit de eieren komen.", keuze: { label: "Kleurslag", opties: ["Zwart goudgezoomd", "Blauw en goud (fokproject)"] } },
+    kuiken: {
+      prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleur al te zien. Geef je voorkeur door, dan bevestigen we wat er beschikbaar is.", keuze: { label: "Kleurslag", opties: ["Zwart goudgezoomd", "Blauw en goud (fokproject)"] },
+      fotos: [
+        { src: "images/orpington-goud-zwartgezoomd-kuikens.jpg", tekst: "Orpington zwart goudgezoomd kuikens" },
+        { src: "images/orpington-kleurmix-kuiken.jpg", tekst: "Orpington kuiken" }
+      ]
+    },
     volwassen: null
   },
   {
