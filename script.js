@@ -163,7 +163,14 @@
 
   /* Kaart in het rassenoverzicht: foto, naam, korte omschrijving en wat je kan aanvragen.
      De keuze tussen broedeieren, kuikens en volwassen dieren volgt pas op de rassenpagina. */
+  function kleurslagAantal(r) {
+    if ((r.kleurslagen || []).length) return r.kleurslagen.length;
+    var m = 0;
+    TYPEN.forEach(function (t) { var k = r[t] && r[t].keuze; if (k && /kleurslag/i.test(k.label || "")) m = Math.max(m, (k.opties || []).length); });
+    return m;
+  }
   function rasKaart(r, product) {
+    var ks = kleurslagAantal(r);
     var g = galerij(r);
     var plaats = PLAATSHOUDER[r.soort];
     var href = "ras.html?id=" + encodeURIComponent(r.id) + (product ? "&amp;product=" + product : "");
@@ -174,6 +181,7 @@
       '<div class="body"><h3><a class="stretch" href="' + href + '">' + esc(r.naam) + "</a></h3>" +
       (r.omschrijving ? '<p class="desc">' + esc(r.omschrijving) + "</p>" : "") +
       (r.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(r.eikleur) + "</p>" : "") +
+      (ks > 1 ? '<p class="kleurslag-tag"><span>' + ks + " kleurslagen</span></p>" : "") +
       (badges ? '<ul class="chips">' + badges + "</ul>" : "") +
       '<span class="more" aria-hidden="true">Bekijk ras →</span></div></article>';
   }
