@@ -231,13 +231,14 @@ const PRODUCTEN = [
     id: "ameraucana", soort: "kip", uitgelicht: false,
     naam: "Ameraucana",
     omschrijving: "Bekend om hun blauwe eieren.",
-    kenmerken: ["Blauwe eieren", "Baardje en bakkebaarden"], eikleur: "Blauw", fotos: [],
+    kenmerken: ["Blauwe eieren", "Baardje en bakkebaarden", "Kleurslagen: zwart en ermine"], eikleur: "Blauw", fotos: [],
     uitleg: [
       "De Ameraucana is bekend om haar blauwe eieren. Je herkent haar ook aan het kleine baardje en de bakkebaardjes rond de kop.",
-      "Een bijzondere kip die in elke tuin opvalt, en in de eierdoos al helemaal."
+      "Een bijzondere kip die in elke tuin opvalt, en in de eierdoos al helemaal.",
+      "Bij ons hebben we Ameraucana's in de kleurslagen zwart en ermine."
     ],
-    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/ameraucana-kuikens.jpg", tekst: "Ameraucana kuikens" }] },
+    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", keuze: { label: "Kleurslag", opties: ["Zwart", "Ermine"] } },
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", keuze: { label: "Kleurslag", opties: ["Zwart", "Ermine"] }, fotos: [{ src: "images/ameraucana-kuikens.jpg", tekst: "Ameraucana kuikens" }] },
     volwassen: null
   },
   {
