@@ -114,7 +114,7 @@ const RAS_ALIAS = { ciladon: "celadon", "orpington-goud-zwartgezoomd": "orpingto
 
 const CATEGORIEEN = [
   { id: "broedeieren", titel: "Broedeieren", tekst: "Voor wie graag zelf de broedmachine laat draaien en het hele avontuur van ei tot kuiken wil beleven.", type: "broedei", plaatshouder: "ei" },
-  { id: "kuikens", titel: "Kuikens", tekst: "Kleine bolletjes dons die uitgroeien tot prachtige, imposante Orpingtons.", type: "kuiken", plaatshouder: "kuiken" },
+  { id: "kuikens", titel: "Kuikens", tekst: "Kleine bolletjes dons die uitgroeien tot prachtige, imposante kippen.", type: "kuiken", plaatshouder: "kuiken" },
   { id: "volwassen", titel: "Volwassen kippen en kwartels", tekst: "Voor wie liever meteen een paar mooie dieren aan zijn of haar toom toevoegt.", type: "volwassen", plaatshouder: "kip" }
 ];
 
