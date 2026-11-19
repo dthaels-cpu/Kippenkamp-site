@@ -255,7 +255,10 @@ const PRODUCTEN = [
       { src: "images/ameraucana-1.jpg", tekst: "Ameraucana's in de kleurslagen ermine en zwart" },
       { src: "images/ameraucana-2.jpg", tekst: "Twee Ameraucana ermine jonge dieren in het stro" },
       { src: "images/ameraucana-3.jpg", tekst: "Ameraucana ermine met zichtbare wangen" },
-      { src: "images/ameraucana-4.jpg", tekst: "Ameraucana ermine jong dier" }
+      { src: "images/ameraucana-4.jpg", tekst: "Ameraucana ermine jong dier" },
+      { src: "images/ameraucana-5.jpg", tekst: "Ameraucana's: een ermine en een zwarte hen" },
+      { src: "images/ameraucana-6.jpg", tekst: "Ameraucana ermine hen op onderzoek" },
+      { src: "images/ameraucana-7.jpg", tekst: "Ameraucana's in de kleurslagen ermine en zwart, scharrelend in de tuin" }
     ],
     uitleg: [
       "Bij Het Kippenkamp zijn we stiekem een beetje verliefd op de Ameraucana! Dit bijzondere ras komt oorspronkelijk uit Amerika en verovert ook hier steeds meer harten. Met hun volle baardjes, wangen en levendige, nieuwsgierige uitstraling zijn het echte blikvangers in de ren.",
