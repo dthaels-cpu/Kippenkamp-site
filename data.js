@@ -89,6 +89,7 @@ const BEELDEN = {
   },
   eieren: [                       // "Onze eieren": slideshow op de homepage met de eikleuren die we hebben
     { src: "images/eieren-kleuren-gras.jpg", tekst: "Eieren in verschillende kleuren in het gras" },
+    { src: "images/eieren-mand.jpg", tekst: "Een mand vol kip- en kwarteleieren in alle kleuren" },
     { src: "images/eieren-kleurenrij.jpg", tekst: "Eierschalen in een rij, van bruin tot olijfgroen en blauwgroen" },
     { src: "images/eieren-schaal.jpg", tekst: "Onze eierschaal vol kleuren" },
     { src: "images/eieren-gespikkeld.jpg", tekst: "Een gespikkeld ei" },
