@@ -266,7 +266,7 @@ const PRODUCTEN = [
     afsluiter: "Onze Tony en zijn dames: een beetje koper in het kippenhok, een beetje chocolade in het nest en vooral heel veel plezier in wat we doen! ❤️",
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/marans-kuiken.jpg", tekst: "Marans-kuiken" }] },
-    volwassen: null
+    volwassen: { prijs: null, beschikbaar: true, status: "", opmerking: "Jonge en volwassen dieren, bv. om zelf een Maransgroep op te bouwen." }
   },
   {
     id: "olijfleggers", soort: "kip", uitgelicht: true,

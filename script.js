@@ -122,7 +122,7 @@
   function typeLabel(r, type) {
     if (type === "broedei") return "Broedeieren";
     if (type === "kuiken") return "Kuikens";
-    return r.soort === "kip" ? "Volwassen kippen" : "Volwassen kwartels";
+    return r.soort === "kip" ? "Jonge en volwassen kippen" : "Jonge en volwassen kwartels";
   }
   function eenheid(type) {
     if (type === "broedei") return SITE.eenheidBroedei;
