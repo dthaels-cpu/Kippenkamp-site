@@ -279,7 +279,8 @@ const PRODUCTEN = [
     fotos: [
       { src: "images/marans-tony-1.jpg", tekst: "Tony, onze Marans zwart koper haan" },
       { src: "images/marans-tony-2.jpg", tekst: "Tony, onze Marans-haan, van opzij" },
-      { src: "images/marans-tony-3.jpg", tekst: "Tony aan het scharrelen" }
+      { src: "images/marans-tony-3.jpg", tekst: "Tony aan het scharrelen" },
+      { src: "images/marans-kuikens-eieren.jpg", tekst: "Marans-kuikens bij donkerbruine Marans-eieren" }
     ],
     uitleg: [
       "Bij Het Kippenkamp mogen de Marans natuurlijk niet ontbreken! Onze Maransgroep bestaat uit prachtige zwart-koperen dieren. En de grote man van de groep? Dat is Tony! Met zijn diepzwarte veren, prachtige groene glans en warme koperkleurige hals is hij een echte verschijning in het kippenhok.",
