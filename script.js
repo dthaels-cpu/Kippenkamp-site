@@ -260,7 +260,7 @@
         huidig = (i + n) % n;
         slides.forEach(function (s, k) { s.classList.toggle("actief", k === huidig); });
         dots.forEach(function (d, k) { d.setAttribute("aria-current", k === huidig ? "true" : "false"); });
-        tekstEl.textContent = "";   // geen onderschriften onder de foto's
+        tekstEl.textContent = kampFotos[huidig].bijschrift || "";   // onderschrift alleen als een foto een eigen "bijschrift" heeft
         tekstEl.hidden = !tekstEl.textContent;
       };
       ga(0);
@@ -394,7 +394,8 @@
       var beeld = metSlider ? '<div id="ras-slider" class="ras-slider"></div>' : fotos.length
         ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(ras) + '" data-type="' + gekozenType + '" aria-label="Bekijk foto\'s van ' + esc(ras.naam) + '">' +
           '<img src="' + esc(fotos[0].src) + '" alt="' + esc(ras.naam) + '" width="800" height="600" decoding="async" data-fallback="' + plaatsR + '">' +
-          (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>"
+          (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>" +
+          (fotos[0].bijschrift ? '<figcaption class="foto-bijschrift">' + esc(fotos[0].bijschrift) + "</figcaption>" : "")
         : '<img src="' + plaatsR + '" alt="" width="800" height="600" decoding="async">';
       var typen = TYPEN.filter(function (t) { return ras[t]; });
       var chips = (ras.kenmerken || []).length
@@ -700,7 +701,7 @@
       var f = foto[pos];
       $("#lbImg").src = f.src;
       $("#lbImg").alt = titel;
-      $("#lbCaption").textContent = titel;
+      $("#lbCaption").textContent = titel + (f.bijschrift ? " · " + f.bijschrift : "");
       $("#lbCount").textContent = foto.length > 1 ? pos + 1 + " / " + foto.length : "";
       lb.classList.toggle("single", foto.length < 2);
     };
@@ -728,7 +729,7 @@
     var stap = function (d) { pos = (pos + d + foto.length) % foto.length; toonFoto(); };
     document.addEventListener("click", function (e) {
       var sf = e.target.closest("button.strip-foto");
-      if (sf && sf.getAttribute("data-lijst") === "ras") return openLijst(rasSliderFotos.map(function (k) { return { src: k.src, tekst: k.bijschrift || "" }; }), Number(sf.getAttribute("data-i")), rasSliderNaam);
+      if (sf && sf.getAttribute("data-lijst") === "ras") return openLijst(rasSliderFotos.map(function (k) { return { src: k.src, tekst: "", bijschrift: k.bijschrift || "" }; }), Number(sf.getAttribute("data-i")), rasSliderNaam);
       if (sf && sf.getAttribute("data-lijst") === "kamp") return openLijst((BEELDEN.kamp || []).map(function (k) { return { src: norm(k).src, tekst: "" }; }), Number(sf.getAttribute("data-i")), "Ons kamp");
       if (sf) {
         var c = CATEGORIEEN.filter(function (x) { return x.id === sf.getAttribute("data-cat"); })[0];

@@ -145,7 +145,8 @@ const CATEGORIEEN = [
    uitleg:       lijst met korte alinea's over het ras, op de rassenpagina
    kenmerken:    korte labels, bv. ["Rustig en tam"]
    fotos:        lijst met foto's van het ras, bv. ["images/marans-hen.jpg"]
-                 of met bijschrift: [{ src: "images/marans-hen.jpg", tekst: "Onze Marans-hen" }]
+                 onderschrift (alleen als je het zelf wil): [{ src: "images/marans-hen.jpg", bijschrift: "Onze Marans-hen" }]
+                 "tekst" is enkel de alt-tekst en wordt nergens als onderschrift getoond.
 
    Wat je van dit ras kan aanvragen: broedei, kuiken en volwassen.
    Elk daarvan heeft:
