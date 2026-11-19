@@ -150,11 +150,11 @@ const PRODUCTEN = [
   // ---------- KWARTELS ----------
   {
     id: "jumbo-kleurenmix", soort: "kwartel", uitgelicht: true,
-    naam: "Jumbo kleurenmix",
+    naam: "Japanse jumbo kleurenmix",
     omschrijving: "Grote kwartels in een mix van kleuren.",
-    kenmerken: ["Grotere kwartel", "Verschillende kleuren", "Gevlekte eitjes"], eikleur: "Licht met bruine vlekjes", fotos: [{ src: "images/jumbo-kleurenmix-kuiken.jpg", tekst: "Jumbo kleurenmix: kuiken en broedeieren" }],
+    kenmerken: ["Grotere kwartel", "Verschillende kleuren", "Gevlekte eitjes"], eikleur: "Licht met bruine vlekjes", fotos: [{ src: "images/japanse-jumbo-kleurenmix.jpg", tekst: "Japanse jumbo kleurenmix kwartels" }, { src: "images/jumbo-kleurenmix-kuiken.jpg", tekst: "Jumbo kleurenmix: kuiken en broedeieren" }],
     uitleg: [
-      "Jumbo-kwartels zijn wat groter en steviger dan gewone kwartels. In onze mix zitten verschillende kleuren, dus geen twee kwartels zien er precies hetzelfde uit.",
+      "Japanse jumbo-kwartels zijn wat groter en steviger dan gewone kwartels. In onze mix zitten verschillende kleuren, dus geen twee kwartels zien er precies hetzelfde uit.",
       "Ze leggen kleine eitjes met bruine vlekjes. Kwartels blijven klein en nemen weinig ruimte in, een mooie manier om met dieren te beginnen."
     ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
