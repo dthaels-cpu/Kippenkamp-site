@@ -392,7 +392,7 @@
         : "";
       var uitleg = (ras.uitleg || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
       var k = ras.karakter;
-      var karakter = k ? "<h3>" + esc(k.titel) + "</h3><p>" + esc(k.intro) + '</p><ul class="karakter">' +
+      var karakter = k ? "<h3>" + esc(k.titel) + "</h3>" + (k.intro ? "<p>" + esc(k.intro) + "</p>" : "") + '<ul class="karakter">' +
         k.punten.map(function (pt) { return "<li><strong>" + esc(pt[0]) + ":</strong> " + esc(pt[1]) + "</li>"; }).join("") + "</ul>" +
         (k.slot ? "<p>" + esc(k.slot) + "</p>" : "") : "";
       var afsl = ras.afsluiter ? '<p class="afsluiter">' + esc(ras.afsluiter) + "</p>" : "";

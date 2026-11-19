@@ -244,12 +244,26 @@ const PRODUCTEN = [
   {
     id: "marans-zwart-koper", soort: "kip", uitgelicht: true,
     naam: "Marans (zwart koper)",
-    omschrijving: "Donkerbruine eieren, een mooie zwarte kip met koperkleurige hals.",
+    omschrijving: "Maak kennis met onze Marans: Tony en zijn dames! 🐓",
     kenmerken: ["Donkerbruine eieren", "Zwart met koperen hals"], eikleur: "Donkerbruin", fotos: [],
     uitleg: [
-      "De Marans komt uit Frankrijk en is wereldberoemd om haar donkere, chocoladebruine eieren. Zwart koper verwijst naar de zwarte veren met een koperkleurige glans in de hals.",
-      "Een stevige kip met veel uitstraling."
+      "Bij Het Kippenkamp mogen de Marans natuurlijk niet ontbreken! Onze Maransgroep bestaat uit prachtige zwart-koperen dieren. En de grote man van de groep? Dat is Tony! Met zijn diepzwarte veren, prachtige groene glans en warme koperkleurige hals is hij een echte verschijning in het kippenhok.",
+      "Tony is bovendien niet zomaar een haan. Hij gaat een belangrijke rol spelen in verschillende van onze fokprojecten. Naast zijn eigen Maransgroep wordt hij namelijk ook de vader van de broedeieren en kuikens voor onze F1- en F2-olijfleggers. Zo draagt hij straks niet alleen bij aan onze raszuivere Maransgeneraties, maar ook aan nieuwe generaties kippen die prachtige olijfgroene eieren gaan leggen.",
+      "We hebben bij Het Kippenkamp een zwak voor de allerdonkerste Marans-eieren. Onze haan Tony en enkele van zijn dames zijn zelf uit bijzonder donkere eieren gekomen. Met deze dieren willen we verder bouwen aan onze eigen fokgroep. Ons doel? Zo donker mogelijke eieren! We hopen generatie na generatie die prachtige diepe kleur te behouden en waar mogelijk nog te verbeteren.",
+      "Natuurlijk kijken we daarbij ook naar gezonde, sterke dieren, een mooie bouw en de typische uitstraling van de zwart-koperen Marans.",
+      "We zijn zelf minstens zo benieuwd naar de toekomstige generaties als onze bezoekers. Want iedere keer dat er zo'n donker chocoladebruin eitje in het nest ligt, blijft dat toch een klein geluksmomentje! Wie weet liggen er binnenkort wel broedeieren van Tony en zijn dames in jouw broedmachine!"
     ],
+    karakter: {
+      titel: "Bij Het Kippenkamp kan je terecht voor",
+      intro: "",
+      punten: [
+        ["Broedeieren", "voor wie zelf aan de slag wil met deze bijzondere donkerbruine eieren."],
+        ["Kuikens", "kleine Maransjes die nog moeten uitgroeien tot hun prachtige volwassen verschijning."],
+        ["Jonge en volwassen dieren", "voor wie graag zelf een Maransgroep wil opbouwen."]
+      ],
+      slot: "We kweken op kleine schaal en met veel plezier. Het beschikbare aanbod is afhankelijk van het seizoen en onze eigen fokselectie."
+    },
+    afsluiter: "Onze Tony en zijn dames: een beetje koper in het kippenhok, een beetje chocolade in het nest en vooral heel veel plezier in wat we doen! ❤️",
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/marans-kuiken.jpg", tekst: "Marans-kuiken" }] },
     volwassen: null
