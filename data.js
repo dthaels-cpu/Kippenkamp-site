@@ -288,6 +288,10 @@ const PRODUCTEN = [
       { src: "images/marans-tony-1.jpg", tekst: "Tony, onze Marans zwart koper haan" },
       { src: "images/marans-tony-2.jpg", tekst: "Tony, onze Marans-haan, van opzij" },
       { src: "images/marans-tony-3.jpg", tekst: "Tony aan het scharrelen" },
+      { src: "images/marans-4.jpg", tekst: "Tony met zijn dames in de ren" },
+      { src: "images/marans-5.jpg", tekst: "Tony zoekt voer tussen de blaadjes" },
+      { src: "images/marans-6.jpg", tekst: "Marans hen in de sneeuw" },
+      { src: "images/marans-7.jpg", tekst: "Marans en andere kippen in de sneeuw" },
       { src: "images/marans-kuikens-eieren.jpg", tekst: "Marans-kuikens bij donkerbruine Marans-eieren" }
     ],
     uitleg: [
