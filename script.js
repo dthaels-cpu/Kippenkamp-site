@@ -260,7 +260,7 @@
         huidig = (i + n) % n;
         slides.forEach(function (s, k) { s.classList.toggle("actief", k === huidig); });
         dots.forEach(function (d, k) { d.setAttribute("aria-current", k === huidig ? "true" : "false"); });
-        tekstEl.textContent = kampFotos[huidig].bijschrift || "";   // alleen zichtbaar als een foto een eigen bijschrift heeft
+        tekstEl.textContent = "";   // geen onderschriften onder de foto's
         tekstEl.hidden = !tekstEl.textContent;
       };
       ga(0);
@@ -390,12 +390,11 @@
       var fotos = galerij(ras, gekozenType);
       var plaatsR = PLAATSHOUDER[ras.soort];
       var alle = galerij(ras);
-      var metSlider = !gekozenType && alle.length > 1;
+      var metSlider = fotos.length > 1;
       var beeld = metSlider ? '<div id="ras-slider" class="ras-slider"></div>' : fotos.length
         ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(ras) + '" data-type="' + gekozenType + '" aria-label="Bekijk foto\'s van ' + esc(ras.naam) + '">' +
           '<img src="' + esc(fotos[0].src) + '" alt="' + esc(ras.naam) + '" width="800" height="600" decoding="async" data-fallback="' + plaatsR + '">' +
-          (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>" +
-          (fotos[0].bijschrift ? '<figcaption class="foto-bijschrift">' + esc(fotos[0].bijschrift) + "</figcaption>" : "")
+          (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>"
         : '<img src="' + plaatsR + '" alt="" width="800" height="600" decoding="async">';
       var typen = TYPEN.filter(function (t) { return ras[t]; });
       var chips = (ras.kenmerken || []).length
@@ -435,8 +434,8 @@
           : '<p>Hier staat nog niets om aan te vragen. <a href="contact.html">Stel ons gerust je vraag.</a></p>') +
         "</div>";
       if (metSlider) {
-        rasSliderFotos = alle; rasSliderNaam = ras.naam;
-        bouwSlider($("#ras-slider"), alle, "Foto's van " + ras.naam, "ras");
+        rasSliderFotos = fotos; rasSliderNaam = ras.naam;
+        bouwSlider($("#ras-slider"), fotos, "Foto's van " + ras.naam, "ras");
       }
     }
   }
@@ -701,7 +700,7 @@
       var f = foto[pos];
       $("#lbImg").src = f.src;
       $("#lbImg").alt = titel;
-      $("#lbCaption").textContent = titel + (f.tekst ? " · " + f.tekst : "");
+      $("#lbCaption").textContent = titel;
       $("#lbCount").textContent = foto.length > 1 ? pos + 1 + " / " + foto.length : "";
       lb.classList.toggle("single", foto.length < 2);
     };
