@@ -305,7 +305,8 @@
     };
     var toon = function (id) {
       var cat = cats.filter(function (c) { return c.id === id; })[0];
-      var items = cat ? rassenMet(cat.type) : PRODUCTEN;
+      var metType = cat && cat.type === "volwassen"; // Broedeieren en Kuikens tonen allebei alle rassen; kiezen doe je op de rassenpagina
+      var items = metType ? rassenMet(cat.type) : PRODUCTEN;
       markeerMenu(cat ? cat.id : "");
       var groepen = [["kwartel", "Kwartels"], ["kip", "Kippen"]];
       var strip = "";
@@ -317,7 +318,7 @@
             '<img src="' + esc(n.src) + '" alt="' + esc(n.tekst) + '" loading="lazy" decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></li>';
         }).join("") + "</ul>";
       }
-      if (cat && !items.length) {
+      if (metType && !items.length) {
         lijst.innerHTML = '<div class="leeg-cat"><h2>' + esc(cat.titel) + "</h2><p>" + esc(cat.tekst) +
           '</p><p><a class="btn" href="contact.html?onderwerp=' + cat.id + '">Vraag naar de mogelijkheden</a></p></div>';
         $$("button", filterEl).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === id ? "true" : "false"); });
@@ -328,20 +329,12 @@
             var deel = items.filter(function (r) { return r.soort === gr[0]; });
             if (!deel.length) return "";
             return '<section class="groep"><h2 class="groep-titel">' + gr[1] + '</h2><div class="grid rassen">' +
-              deel.map(function (r) { return cat ? keuzeKaart(r, cat.type) : rasKaart(r, ""); }).join("") + "</div></section>";
+              deel.map(function (r) { return metType ? keuzeKaart(r, cat.type) : rasKaart(r, ""); }).join("") + "</div></section>";
           }).join("")
         : '<p class="empty">Er staat hier nog niets in het aanbod.</p>');
       $$("button", filterEl).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === id ? "true" : "false"); });
     };
-    filterEl.innerHTML = '<button type="button" data-id="alles" aria-pressed="true">Alle rassen</button>' +
-      cats.map(function (c) { return '<button type="button" data-id="' + c.id + '" aria-pressed="false">' + esc(c.titel) + "</button>"; }).join("");
-    filterEl.addEventListener("click", function (e) {
-      var b = e.target.closest("button");
-      if (!b) return;
-      var id = b.getAttribute("data-id");
-      toon(id);
-      history.replaceState(null, "", id === "alles" ? location.pathname : "#" + id);
-    });
+    filterEl.hidden = true; // geen keuze meer bovenaan: de klant kiest op de rassenpagina
     var vanHash = function () {
       var h = location.hash.replace("#", "");
       toon(cats.some(function (c) { return c.id === h; }) ? h : "alles");
