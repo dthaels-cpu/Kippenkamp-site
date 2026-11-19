@@ -373,3 +373,4 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .kleurslagen details > div { padding: 0 20px 8px; max-width: 70ch; }
 .liefde { max-width: 70ch; }
 .ras-slider { min-width: 0; } .ras-slider .slider { aspect-ratio: 4 / 3; }
+.aanbod-intro { max-width: 70ch; margin: 0 0 28px; } .aanbod-intro h2 { margin-bottom: 10px; } .visie { max-width: 70ch; }
