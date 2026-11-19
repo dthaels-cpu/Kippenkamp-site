@@ -175,14 +175,14 @@ const PRODUCTEN = [
   },
   {
     id: "celadon", soort: "kwartel", uitgelicht: false,
-    naam: "Celadon",
+    naam: "Japanse celadon",
     omschrijving: "Kwartels met eitjes in een zacht blauwgroen tintje.",
     kenmerken: ["Blauwgroene eitjes", "Kleine kwartel"], eikleur: "Blauwgroen", fotos: [],
     uitleg: [
-      "Celadon-kwartels zijn bekend om hun eitjes in een zacht blauwgroen tintje. Dat is bijzonder, want de meeste kwartels leggen bruin gevlekte eitjes.",
+      "Japanse celadon-kwartels zijn bekend om hun eitjes in een zacht blauwgroen tintje. Dat is bijzonder, want de meeste kwartels leggen bruin gevlekte eitjes.",
       "Net als andere kwartels blijven ze klein en nemen ze weinig ruimte in."
     ],
-    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/celadon.jpg", tekst: "Celadon-broedeieren met een kuiken" }] },
+    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/celadon.jpg", tekst: "Japanse celadon-broedeieren met een kuiken" }] },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
   },
