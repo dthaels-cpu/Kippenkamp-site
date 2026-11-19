@@ -230,16 +230,29 @@ const PRODUCTEN = [
   {
     id: "ameraucana", soort: "kip", uitgelicht: false,
     naam: "Ameraucana",
-    omschrijving: "Bekend om hun blauwe eieren.",
-    kenmerken: ["Blauwe eieren", "Baardje en bakkebaarden", "Kleurslagen: zwart en ermine"], eikleur: "Blauw", fotos: [],
+    omschrijving: "Maak kennis met onze Ameraucana's: Amerikaanse charme en bijzondere eikleuren! 🐓",
+    kenmerken: ["Groene tot blauwgroene eieren", "Baardje en bakkebaarden", "Kleurslagen: zwart en ermine"], eikleur: "Helder groen tot blauwgroen", fotos: [],
     uitleg: [
-      "De Ameraucana is bekend om haar blauwe eieren. Je herkent haar ook aan het kleine baardje en de bakkebaardjes rond de kop.",
-      "Een bijzondere kip die in elke tuin opvalt, en in de eierdoos al helemaal.",
-      "Bij ons hebben we Ameraucana's in de kleurslagen zwart en ermine."
+      "Bij Het Kippenkamp zijn we stiekem een beetje verliefd op de Ameraucana! Dit bijzondere ras komt oorspronkelijk uit Amerika en verovert ook hier steeds meer harten. Met hun volle baardjes, wangen en levendige, nieuwsgierige uitstraling zijn het echte blikvangers in de ren.",
+      "Niet te verwarren met de Araucana! De namen lijken sterk op elkaar, maar de Ameraucana en de Araucana zijn toch echt twee verschillende rassen. Waar de Araucana oorspronkelijk uit Zuid-Amerika komt en vaak staartloos is of oorpluimen heeft, heeft de Amerikaanse Ameraucana altijd een mooie volle staart, een karakteristieke baard en bakkebaarden, en geen oorpluimen. Een stuk robuuster en met een geheel eigen charme!",
+      "Verrassing in het legnest 🥚✨ Wat maakt de Ameraucana nu zo onweerstaanbaar? Natuurlijk die prachtige, gekleurde eieren! Bij onze groep ligt het accent op heldere groene tot blauwgroene tinten, elke keer weer een klein cadeautje als je het legnest opentrekt.",
+      "Binnen onze eigen Ameraucana-groep werken wij gericht met de sprekende kleurslagen Ermine (wit met zwarte tekening) en Zwart. En net als bij onze andere rassen kijken we daarbij altijd naar gezonde, sterke dieren met een fijne bouw en een prettig, rustig karakter.",
+      "Bovendien vormen onze Ameraucana's een belangrijke schakel voor onze toekomstige F1-olijfleggers én Easter Eggers!"
     ],
-    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", keuze: { label: "Kleurslag", opties: ["Zwart", "Ermine"] } },
-    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", keuze: { label: "Kleurslag", opties: ["Zwart", "Ermine"] }, fotos: [{ src: "images/ameraucana-kuikens.jpg", tekst: "Ameraucana kuikens" }] },
-    volwassen: null
+    karakter: {
+      titel: "Bij Het Kippenkamp kan je (afhankelijk van het seizoen en onze eigen fokselectie) terecht voor",
+      intro: "",
+      punten: [
+        ["Broedeieren", "voor wie zelf deze bijzondere Amerikaanse kleurleggers wil uitbroeden."],
+        ["Kuikens", "donzige bolletjes met vaak al direct die schattige wangen!"],
+        ["Jonge en volwassen dieren", "voor wie graag een eigen toompje wil starten."]
+      ],
+      slot: "Wil jij zelf kennismaken met dit bijzondere Amerikaanse ras en die prachtige groene eitjes in je eierdoosje? Neem gerust contact met ons op."
+    },
+    afsluiter: "Onze Ameraucana's: Amerikaanse roots, volle baardjes, prachtige kleurslagen én elke dag een vleugje kleur in het nest! ❤️",
+    broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", keuze: { label: "Kleurslag", opties: ["Zwart", "Ermine (wit met zwarte tekening)"] } },
+    kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", keuze: { label: "Kleurslag", opties: ["Zwart", "Ermine (wit met zwarte tekening)"] }, fotos: [{ src: "images/ameraucana-kuikens.jpg", tekst: "Ameraucana kuikens" }] },
+    volwassen: { prijs: null, beschikbaar: true, status: "", opmerking: "Jonge en volwassen dieren, bv. om een eigen toompje te starten." }
   },
   {
     id: "marans-zwart-koper", soort: "kip", uitgelicht: true,
