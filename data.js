@@ -87,6 +87,11 @@ const BEELDEN = {
     kuikens: "images/kuikens-groep.jpg",
     volwassen: ""
   },
+  eieren: [                       // "Onze eieren": slideshow op de homepage met de eikleuren die we hebben
+    { src: "images/eieren-kleuren-gras.jpg", tekst: "Eieren in verschillende kleuren in het gras" },
+    { src: "images/eieren-schaal.jpg", tekst: "Onze eierschaal vol kleuren" },
+    { src: "images/eieren-gespikkeld.jpg", tekst: "Een gespikkeld ei" }
+  ],
   kamp: [                         // "Impressie van ons kamp": slideshow met foto's van waar en hoe de dieren zitten
     { src: "images/kamp-binnen-kwartels-kippen.jpg", tekst: "Kwartels en kippen samen binnen in huis" },
     { src: "images/kamp-kippen-voeren.jpg", tekst: "Kippen en een konijn krijgen een wortel" },

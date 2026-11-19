@@ -290,6 +290,18 @@
       }
   }
 
+  /* ---------- Onze eieren (homepage) ---------- */
+  (function () {
+    var fEl = $("#eieren-fotos"), lijst = $("#eieren-lijst");
+    if (!fEl || !lijst) return;
+    var fotos = (BEELDEN.eieren || []).map(norm);
+    if (fotos.length) { rasSliderFotos = fotos; rasSliderNaam = "Onze eieren"; bouwSlider(fEl, fotos, "Foto's van onze eieren", "ras"); }
+    else fEl.hidden = true;
+    lijst.innerHTML = PRODUCTEN.filter(function (r) { return r.eikleur; }).map(function (r) {
+      return '<li><a href="ras.html?id=' + esc(r.id) + '"><strong>' + esc(r.naam) + "</strong></a><span>" + esc(r.eikleur) + "</span></li>";
+    }).join("");
+  })();
+
   /* ---------- Impressie van ons kamp (homepage en Over ons) ---------- */
   var kampEl = $("#kamp-fotos");
   if (kampEl) {
