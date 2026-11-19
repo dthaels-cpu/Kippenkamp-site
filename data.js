@@ -228,21 +228,23 @@ const PRODUCTEN = [
     id: "olijfleggers", soort: "kip", uitgelicht: true,
     naam: "Olijfleggers",
     omschrijving: "Leggen eieren in een olijfgroene tint. Keuze uit F1 of F2.",
-    kenmerken: ["Olijfgroene eieren", "F1 of F2", "Opvallend in de eierdoos"], eikleur: "Olijfgroen (F1: helder tot mosgroen, F2: diep donkergroen)", fotos: [],
+    kenmerken: ["Olijfgroene eieren", "F1 of F2", "Opvallend in de eierdoos"], eikleur: "Olijfgroen (F1: helder tot mosgroen, F2: diep donkergroen of donkerbruin)", fotos: [],
     uitleg: [
       "Olijfleggers ontstaan door een Marans-haan (2026) te kruisen met een blauwe eierlegger. Het resultaat is een kip met olijfgroene eieren, een kleur die je niet vaak ziet. Je kan bij ons kiezen tussen F1 en F2, zowel bij broedeieren als bij kuikens.",
-      "F1: Marans-haan × raszuivere blauwe eierlegger. Alle hennen leggen olijfgroene eieren, van helder tot medium mosgroen. Dit is de zekerste keuze.",
-      "F2: Marans-haan × F1-olijflegger-hen, voor een extra diepe kleur. Het nest splitst zich ongeveer in twee: de ene helft zijn donkere olijfleggers met de diepste mos- tot legergroene eieren (vaak met spikkels). De andere helft legt diep chocoladebruine eieren (75% Marans-bloed), want die hennen hebben het blauwe eigen niet geërfd. Bij F2 weet je dus niet vooraf welke je krijgt."
+      "F1 maken we zo: Marans-haan × raszuivere blauwe eierlegger. Alle hennen leggen olijfgroene eieren, van helder tot medium mosgroen. Dit is de zekerste keuze.",
+      "F2 maken we zo: Marans-haan × F1-olijflegger-hen, voor een extra diepe kleur. Elk kuiken heeft 50% kans om een donkere olijflegger te worden en 50% kans om een donkerbruine legger te worden.",
+      "Donkere olijfleggers (50% kans): deze hennen krijgen het blauwe eigen én een extra dikke laag donkerbruin Marans-pigment. Ze leggen de allerdonkerste, diep mosgroene tot legergroene eieren, vaak met spikkels.",
+      "Donkerbruine leggers (50% kans): deze hennen missen het blauwe eigen en leggen mooie, diep chocoladebruine eieren (75% Marans-bloed). Bij F2 weet je dus niet vooraf welke je krijgt."
     ],
     broedei: {
       prijs: null, beschikbaar: true, status: "",
-      opmerking: "F1: alle hennen leggen olijfgroen. F2: ongeveer de helft legt donkergroen, de andere helft donkerbruin.",
-      keuze: { label: "Generatie", opties: ["F1 (alle hennen olijfgroen)", "F2 (extra donker, ongeveer de helft groen en de helft donkerbruin)"] }
+      opmerking: "F1: Marans-haan × blauwe eierlegger, alle hennen olijfgroen. F2: Marans-haan × F1-olijflegger-hen, 50% kans op donker olijflegger en 50% kans op donkerbruine legger.",
+      keuze: { label: "Generatie", opties: ["F1 (alle hennen olijfgroen)", "F2 (50% kans donker olijflegger, 50% kans donkerbruine legger)"] }
     },
     kuiken: {
       prijs: null, beschikbaar: true, status: "",
-      opmerking: "F1: alle hennen leggen olijfgroen. F2: ongeveer de helft legt donkergroen, de andere helft donkerbruin.",
-      keuze: { label: "Generatie", opties: ["F1 (alle hennen olijfgroen)", "F2 (extra donker, ongeveer de helft groen en de helft donkerbruin)"] }
+      opmerking: "F1: Marans-haan × blauwe eierlegger, alle hennen olijfgroen. F2: Marans-haan × F1-olijflegger-hen, 50% kans op donker olijflegger en 50% kans op donkerbruine legger.",
+      keuze: { label: "Generatie", opties: ["F1 (alle hennen olijfgroen)", "F2 (50% kans donker olijflegger, 50% kans donkerbruine legger)"] }
     },
     volwassen: null
   },
