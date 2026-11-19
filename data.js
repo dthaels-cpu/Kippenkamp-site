@@ -265,7 +265,12 @@ const PRODUCTEN = [
     id: "marans-zwart-koper", soort: "kip", uitgelicht: true,
     naam: "Marans (zwart koper)",
     omschrijving: "Maak kennis met onze Marans: Tony en zijn dames! 🐓",
-    kenmerken: ["Donkerbruine eieren", "Zwart met koperen hals"], eikleur: "Donkerbruin", fotos: [],
+    kenmerken: ["Donkerbruine eieren", "Zwart met koperen hals"], eikleur: "Donkerbruin",
+    fotos: [
+      { src: "images/marans-tony-1.jpg", tekst: "Tony, onze Marans zwart koper haan" },
+      { src: "images/marans-tony-2.jpg", tekst: "Tony, onze Marans-haan, van opzij" },
+      { src: "images/marans-tony-3.jpg", tekst: "Tony aan het scharrelen" }
+    ],
     uitleg: [
       "Bij Het Kippenkamp mogen de Marans natuurlijk niet ontbreken! Onze Maransgroep bestaat uit prachtige zwart-koperen dieren. En de grote man van de groep? Dat is Tony! Met zijn diepzwarte veren, prachtige groene glans en warme koperkleurige hals is hij een echte verschijning in het kippenhok.",
       "Tony is bovendien niet zomaar een haan. Hij gaat een belangrijke rol spelen in verschillende van onze fokprojecten. Naast zijn eigen Maransgroep wordt hij namelijk ook de vader van de broedeieren en kuikens voor onze F1- en F2-olijfleggers. Zo draagt hij straks niet alleen bij aan onze raszuivere Maransgeneraties, maar ook aan nieuwe generaties kippen die prachtige olijfgroene eieren gaan leggen.",
