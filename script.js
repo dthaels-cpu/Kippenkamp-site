@@ -138,7 +138,7 @@
   function norm(f, standaard) {
     return typeof f === "string"
       ? { src: f, tekst: standaard || "" }
-      : { src: f && f.src, tekst: (f && f.tekst) || standaard || "" };
+      : { src: f && f.src, tekst: (f && f.tekst) || standaard || "", bijschrift: (f && f.bijschrift) || "" };
   }
   function galerij(r, type) {
     /* Met een type (broedei, kuiken, volwassen): foto's van dat product, anders de algemene foto's van het ras. */
@@ -260,7 +260,8 @@
         huidig = (i + n) % n;
         slides.forEach(function (s, k) { s.classList.toggle("actief", k === huidig); });
         dots.forEach(function (d, k) { d.setAttribute("aria-current", k === huidig ? "true" : "false"); });
-        tekstEl.textContent = "";
+        tekstEl.textContent = kampFotos[huidig].bijschrift || "";   // alleen zichtbaar als een foto een eigen bijschrift heeft
+        tekstEl.hidden = !tekstEl.textContent;
       };
       ga(0);
       if (n > 1) {
@@ -727,7 +728,7 @@
     var stap = function (d) { pos = (pos + d + foto.length) % foto.length; toonFoto(); };
     document.addEventListener("click", function (e) {
       var sf = e.target.closest("button.strip-foto");
-      if (sf && sf.getAttribute("data-lijst") === "ras") return openLijst(rasSliderFotos.map(function (k) { return { src: k.src, tekst: "" }; }), Number(sf.getAttribute("data-i")), rasSliderNaam);
+      if (sf && sf.getAttribute("data-lijst") === "ras") return openLijst(rasSliderFotos.map(function (k) { return { src: k.src, tekst: k.bijschrift || "" }; }), Number(sf.getAttribute("data-i")), rasSliderNaam);
       if (sf && sf.getAttribute("data-lijst") === "kamp") return openLijst((BEELDEN.kamp || []).map(function (k) { return { src: norm(k).src, tekst: "" }; }), Number(sf.getAttribute("data-i")), "Ons kamp");
       if (sf) {
         var c = CATEGORIEEN.filter(function (x) { return x.id === sf.getAttribute("data-cat"); })[0];
