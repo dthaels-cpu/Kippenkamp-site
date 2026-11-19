@@ -180,7 +180,14 @@ const PRODUCTEN = [
     id: "orpington", soort: "kip", uitgelicht: true,
     naam: "Orpington",
     omschrijving: "Een kip met karakter, formaat en een gouden randje 🐓",
-    kenmerken: ["Rustig en vriendelijk", "Zachte, volle veren", "Lichtbruine eieren"], eikleur: "Lichtbruin", fotos: [],
+    kenmerken: ["Rustig en vriendelijk", "Zachte, volle veren", "Lichtbruine eieren"], eikleur: "Lichtbruin",
+    fotos: [
+      { src: "images/orpington-zwart-goudgezoomd-1.jpg", tekst: "Orpington zwart goudgezoomd hen" },
+      { src: "images/orpington-zwart-goudgezoomd-2.jpg", tekst: "Twee Orpington zwart goudgezoomd hennen" },
+      { src: "images/orpington-zwart-goudgezoomd-3.jpg", tekst: "Orpington zwart goudgezoomd hennen op de grond" },
+      { src: "images/orpington-zwart-goudgezoomd-4.jpg", tekst: "Orpington zwart goudgezoomd haan en hennen, met onze hond op de achtergrond" },
+      { src: "images/orpington-zwart-goudgezoomd-5.jpg", tekst: "Orpington zwart goudgezoomd haan" }
+    ],
     uitleg: [
       "De Orpington is dé ultieme knuffelkip voor in de achtertuin: een grote, zachtaardige, heerlijk fluffy kip met een indrukwekkende verschijning en een karakter om verliefd op te worden.",
       "Met hun ronde, volle bouw en overvloedige, zachte bevedering zijn het echte blikvangers. Ze staan bekend om hun rustige, vriendelijke karakter en hun ontspannen manier van scharrelen. Een beetje de labrador onder de kippen!",

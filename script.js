@@ -232,17 +232,14 @@
     }
   }
 
-  /* ---------- Impressie van ons kamp (homepage en Over ons) ---------- */
-  var kampEl = $("#kamp-fotos");
-  if (kampEl) {
-    var kampFotos = (BEELDEN.kamp || []).map(function (f) { return norm(f); }).filter(function (f) { return f.src; });
-    if (kampFotos.length) {
+  var rasSliderFotos = [], rasSliderNaam = "";
+  function bouwSlider(kampEl, kampFotos, label, lijstId) {
       var n = kampFotos.length;
       kampEl.innerHTML =
-        '<div class="slider" role="region" aria-roledescription="carousel" aria-label="Foto\'s van ons kamp">' +
+        '<div class="slider" role="region" aria-roledescription="carousel" aria-label="' + esc(label) + '">' +
         '<div class="slides">' + kampFotos.map(function (f, i) {
           return '<div class="slide' + (i === 0 ? " actief" : "") + '" role="group" aria-roledescription="dia" aria-label="Foto ' + (i + 1) + " van " + n + '">' +
-            '<button type="button" class="strip-foto" data-lijst="kamp" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + ' groot' + (f.tekst ? ": " + esc(f.tekst) : "") + '">' +
+            '<button type="button" class="strip-foto" data-lijst="' + lijstId + '" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + ' groot' + (f.tekst ? ": " + esc(f.tekst) : "") + '">' +
             '<span class="bg" style="background-image:url(\'' + esc(f.src) + '\')"></span>' +
             '<img src="' + esc(f.src) + '" alt="' + esc(f.tekst || "Ons kamp") + '"' + (i === 0 ? "" : ' loading="lazy"') + ' decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></div>';
         }).join("") + "</div>" +
@@ -283,6 +280,14 @@
           if (Math.abs(dx) > 50) { ga(huidig + (dx < 0 ? 1 : -1)); stel(); }
         });
       }
+  }
+
+  /* ---------- Impressie van ons kamp (homepage en Over ons) ---------- */
+  var kampEl = $("#kamp-fotos");
+  if (kampEl) {
+    var kampFotos = (BEELDEN.kamp || []).map(function (f) { return norm(f); }).filter(function (f) { return f.src; });
+    if (kampFotos.length) {
+      bouwSlider(kampEl, kampFotos, "Foto's van ons kamp", "kamp");
     } else {
       kampEl.innerHTML = '<ul class="fotostrip kamp">' + ["kip", "kwartel", "kuiken"].map(function (k) {
         return '<li><div class="tegel"><img src="' + PLAATSHOUDER[k] + '" alt="" loading="lazy" width="400" height="300"></div></li>';
@@ -366,7 +371,9 @@
       var gekozenType = TYPEN.indexOf(gekozen) >= 0 && ras[gekozen] ? gekozen : "";
       var fotos = galerij(ras, gekozenType);
       var plaatsR = PLAATSHOUDER[ras.soort];
-      var beeld = fotos.length
+      var alle = galerij(ras);
+      var metSlider = !gekozenType && alle.length > 1;
+      var beeld = metSlider ? '<div id="ras-slider" class="ras-slider"></div>' : fotos.length
         ? '<button type="button" class="pic" data-ras="' + PRODUCTEN.indexOf(ras) + '" data-type="' + gekozenType + '" aria-label="Bekijk foto\'s van ' + esc(ras.naam) + '">' +
           '<img src="' + esc(fotos[0].src) + '" alt="' + esc(ras.naam) + '" width="800" height="600" decoding="async" data-fallback="' + plaatsR + '">' +
           (fotos.length > 1 ? '<span class="count">' + fotos.length + " foto's</span>" : "") + "</button>"
@@ -397,7 +404,7 @@
           (item.status && item.beschikbaar !== false ? '<span class="status">' + esc(item.status) + "</span>" : "") +
           (item.opmerking ? '<p class="note">' + esc(item.opmerking) + "</p>" : "") + knop + "</li>";
       }).join("");
-      detail.innerHTML = '<div class="split ras-split"><figure class="photo-frame">' + beeld + "</figure><div>" +
+      detail.innerHTML = '<div class="split ras-split">' + (metSlider ? beeld : '<figure class="photo-frame">' + beeld + "</figure>") + "<div>" +
         "<h2>Over dit ras</h2>" +
         (uitleg || (ras.omschrijving ? "<p>" + esc(ras.omschrijving) + "</p>" : "")) +
         karakter + afsl + (ras.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(ras.eikleur) + "</p>" : "") + chips +
@@ -408,6 +415,10 @@
             '<p class="notice">We bevestigen altijd eerst persoonlijk of het beschikbaar is. Heb je een vraag of twijfel je? <a href="contact.html">Stuur ons gerust een berichtje.</a></p>'
           : '<p>Hier staat nog niets om aan te vragen. <a href="contact.html">Stel ons gerust je vraag.</a></p>') +
         "</div>";
+      if (metSlider) {
+        rasSliderFotos = alle; rasSliderNaam = ras.naam;
+        bouwSlider($("#ras-slider"), alle, "Foto's van " + ras.naam, "ras");
+      }
     }
   }
 
@@ -699,6 +710,7 @@
     var stap = function (d) { pos = (pos + d + foto.length) % foto.length; toonFoto(); };
     document.addEventListener("click", function (e) {
       var sf = e.target.closest("button.strip-foto");
+      if (sf && sf.getAttribute("data-lijst") === "ras") return openLijst(rasSliderFotos.map(function (k) { return { src: k.src, tekst: "" }; }), Number(sf.getAttribute("data-i")), rasSliderNaam);
       if (sf && sf.getAttribute("data-lijst") === "kamp") return openLijst((BEELDEN.kamp || []).map(function (k) { return { src: norm(k).src, tekst: "" }; }), Number(sf.getAttribute("data-i")), "Ons kamp");
       if (sf) {
         var c = CATEGORIEEN.filter(function (x) { return x.id === sf.getAttribute("data-cat"); })[0];
