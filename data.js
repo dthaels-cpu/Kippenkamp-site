@@ -230,7 +230,7 @@ const PRODUCTEN = [
     omschrijving: "Leggen eieren in een olijfgroene tint. Keuze uit F1 of F2.",
     kenmerken: ["Olijfgroene eieren", "F1 of F2", "Opvallend in de eierdoos"], eikleur: "Olijfgroen (F1: helder tot mosgroen, F2: diep donkergroen of donkerbruin)", fotos: [],
     uitleg: [
-      "Olijfleggers ontstaan door een Marans-haan (2026) te kruisen met een blauwe eierlegger. Het resultaat is een kip met olijfgroene eieren, een kleur die je niet vaak ziet. Je kan bij ons kiezen tussen F1 en F2, zowel bij broedeieren als bij kuikens.",
+      "Olijfleggers ontstaan door een Marans-haan te kruisen met een blauwe eierlegger. Het resultaat is een kip met olijfgroene eieren, een kleur die je niet vaak ziet. Je kan bij ons kiezen tussen F1 en F2, zowel bij broedeieren als bij kuikens.",
       "F1 maken we zo: Marans-haan × raszuivere blauwe eierlegger. Alle hennen leggen olijfgroene eieren, van helder tot medium mosgroen. Dit is de zekerste keuze.",
       "F2 maken we zo: Marans-haan × F1-olijflegger-hen, voor een extra diepe kleur. Elk kuiken heeft 50% kans om een donkere olijflegger te worden en 50% kans om een donkerbruine legger te worden.",
       "Donkere olijfleggers (50% kans): deze hennen krijgen het blauwe eigen én een extra dikke laag donkerbruin Marans-pigment. Ze leggen de allerdonkerste, diep mosgroene tot legergroene eieren, vaak met spikkels.",
