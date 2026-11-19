@@ -296,6 +296,7 @@ const PRODUCTEN = [
       { src: "images/marans-5.jpg", tekst: "Tony zoekt voer tussen de blaadjes" },
       { src: "images/marans-6.jpg", tekst: "Marans hen in de sneeuw" },
       { src: "images/marans-7.jpg", tekst: "Marans en andere kippen in de sneeuw" },
+      { src: "images/marans-8.jpg", tekst: "Marans zwart koper hen" },
       { src: "images/marans-kuikens-eieren.jpg", tekst: "Marans-kuikens bij donkerbruine Marans-eieren" }
     ],
     uitleg: [
