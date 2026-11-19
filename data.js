@@ -92,7 +92,8 @@ const BEELDEN = {
     { src: "images/eieren-kleurenrij.jpg", tekst: "Eierschalen in een rij, van bruin tot olijfgroen en blauwgroen" },
     { src: "images/eieren-schaal.jpg", tekst: "Onze eierschaal vol kleuren" },
     { src: "images/eieren-gespikkeld.jpg", tekst: "Een gespikkeld ei" },
-    { src: "images/eieren-in-handen.jpg", tekst: "Eieren in verschillende kleuren in twee handen" }
+    { src: "images/eieren-in-handen.jpg", tekst: "Eieren in verschillende kleuren in twee handen" },
+    { src: "images/eieren-donkerbruin.jpg", tekst: "Een diep donkerbruin ei in een hand" }
   ],
   kamp: [                         // "Impressie van ons kamp": slideshow met foto's van waar en hoe de dieren zitten
     { src: "images/kamp-binnen-kwartels-kippen.jpg", tekst: "Kwartels en kippen samen binnen in huis" },
