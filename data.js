@@ -232,7 +232,13 @@ const PRODUCTEN = [
     id: "ameraucana", soort: "kip", uitgelicht: false,
     naam: "Ameraucana",
     omschrijving: "Maak kennis met onze Ameraucana's: Amerikaanse charme en bijzondere eikleuren! 🐓",
-    kenmerken: ["Groene tot blauwgroene eieren", "Baardje en bakkebaarden", "Kleurslagen: zwart en ermine"], eikleur: "Helder groen tot blauwgroen", fotos: [],
+    kenmerken: ["Groene tot blauwgroene eieren", "Baardje en bakkebaarden", "Kleurslagen: zwart en ermine"], eikleur: "Helder groen tot blauwgroen",
+    fotos: [
+      { src: "images/ameraucana-1.jpg", tekst: "Ameraucana's in de kleurslagen ermine en zwart" },
+      { src: "images/ameraucana-2.jpg", tekst: "Twee Ameraucana ermine jonge dieren in het stro" },
+      { src: "images/ameraucana-3.jpg", tekst: "Ameraucana ermine met zichtbare wangen" },
+      { src: "images/ameraucana-4.jpg", tekst: "Ameraucana ermine jong dier" }
+    ],
     uitleg: [
       "Bij Het Kippenkamp zijn we stiekem een beetje verliefd op de Ameraucana! Dit bijzondere ras komt oorspronkelijk uit Amerika en verovert ook hier steeds meer harten. Met hun volle baardjes, wangen en levendige, nieuwsgierige uitstraling zijn het echte blikvangers in de ren.",
       "Niet te verwarren met de Araucana! De namen lijken sterk op elkaar, maar de Ameraucana en de Araucana zijn toch echt twee verschillende rassen. Waar de Araucana oorspronkelijk uit Zuid-Amerika komt en vaak staartloos is of oorpluimen heeft, heeft de Amerikaanse Ameraucana altijd een mooie volle staart, een karakteristieke baard en bakkebaarden, en geen oorpluimen. Een stuk robuuster en met een geheel eigen charme!",
