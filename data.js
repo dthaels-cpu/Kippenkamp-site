@@ -78,7 +78,7 @@ const SITE = {
    hero: "images/hero.jpg"
    ===================================================== */
 const BEELDEN = {
-  hero: "",                       // groot beeld bovenaan de homepage (liggend, min. 1600 px breed)
+  hero: "images/hero.jpg",                     // groot beeld bovenaan de homepage (liggend, min. 1600 px breed)
   intro: "",                      // foto naast de voorstelling op de homepage
   overOnsDavidDanielle: "",       // foto van David en Danielle (pagina Over ons)
   overOnsDieren: "",              // foto van jullie dieren (pagina Over ons)

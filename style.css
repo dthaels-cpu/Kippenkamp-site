@@ -385,3 +385,10 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .eieren-lijst a:hover { text-decoration: underline; }
 .eieren-slider { max-width: 760px; margin: 0 auto; } .eieren-noot { text-align: center; margin-top: 12px; }
 .foto-bijschrift { margin: 10px 4px 0; text-align: center; color: var(--muted); }
+
+/* Hoofdfoto op mobiel: foto bovenaan zichtbaar, tekst eronder */
+@media (max-width: 700px) {
+  .hero.has-photo { background-color: #2f3a1c; background-size: 100% auto; background-position: top center; }
+  .hero.has-photo::before { background: linear-gradient(180deg, rgba(47,58,28,0) 0, rgba(47,58,28,0) 45vw, #2f3a1c 72vw); }
+  .hero.has-photo .wrap { padding-top: 62vw; padding-bottom: 48px; }
+}
