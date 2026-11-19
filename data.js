@@ -22,27 +22,28 @@ const SITE = {
   plaats: "Wuustwezel",              // bv. "Wuustwezel"
 
   // ---- TEKSTEN ----
-  heroTekst: "Bij Het Kippenkamp vind je broedeieren, kuikens en volwassen kippen en kwartels van bijzondere rassen. Vraag aan wat je zoekt en we bevestigen persoonlijk wat beschikbaar is.",
+  heroTekst: "Bij ons thuis lopen kippen, kwartels, konijnen en een hond gezellig door elkaar. Onze kuikens groeien op in huis, midden in het gezin. Zoek je broedeieren, kuikens of volwassen dieren? Vertel het ons, we denken graag met je mee.",
 
-  introTitel: "Een kleine familiale kippenhouderij met een grote liefde voor het dier",
+  introTitel: "Een gezin met een hart voor kippen, kwartels en alles wat erbij rondloopt",
   intro: [
-    "Wij zijn een samengesteld gezin met drie kinderen en een hele beestenboel. We houden kippen en kwartels met oog voor mooie rassen en hun karakter.",
-    "Onze kuikens groeien binnen in huis op, midden in het gezinsleven. Zo zijn ze niet bang van mensen.",
-    "Zoek je een rustige tuinkip, eitjes in bijzondere kleuren of je eerste kwartels? Vertel wat je zoekt, dan helpen we je verder."
+    "Wij zijn een samengesteld gezin met drie kinderen en een hele beestenboel. Het Kippenkamp is geen kwekerij op grote schaal: bij ons telt het geluk van de dieren en de tevredenheid van onze klanten, niet het aantal.",
+    "Onze kuikens groeien binnen in huis op, midden in het gezinsleven. Zo zijn ze niet bang van mensen en komen ze als echte huisdieren bij je terecht.",
+    "Zoek je een rustige tuinkip, eitjes in bijzondere kleuren of je eerste kwartels? Vertel wat je zoekt, dan helpen we je graag verder."
   ],
 
   // "Waarom bij ons" op de homepage (icoon: ster, bericht, vink of kalender)
   waarom: [
-    { icoon: "ster", titel: "Bijzondere rassen", tekst: "Van Orpington en Marans tot olijfleggers, Easter eggers en twee soorten kwartels." },
-    { icoon: "bericht", titel: "Persoonlijk contact", tekst: "Je spreekt rechtstreeks met ons. Geen tussenpersoon, geen standaardantwoorden." },
-    { icoon: "vink", titel: "Duidelijk over beschikbaarheid", tekst: "We bevestigen eerst wat beschikbaar is, voor je iets moet beslissen." },
-    { icoon: "kalender", titel: "Afhalen op afspraak", tekst: "We spreken samen af wanneer je je broedeieren of kuikens komt ophalen." }
+    { icoon: "ster", titel: "Het geluk van onze dieren", tekst: "Onze dieren staan voorop. Ze leven samen met ons gezin, tussen de konijnen, de hond en de kinderen." },
+    { icoon: "kalender", titel: "Thuis opgegroeid", tekst: "Onze kuikens groeien op in huis en zijn gewend aan mensen. Ze hebben geen schrik van jou." },
+    { icoon: "bericht", titel: "Persoonlijk contact", tekst: "Je praat rechtstreeks met ons, geen tussenpersoon. We nemen de tijd om al je vragen te beantwoorden." },
+    { icoon: "vink", titel: "Tevreden klanten", tekst: "We zijn pas blij als jij dat bent. We zeggen eerlijk wat beschikbaar is, zonder grote beloftes." }
   ],
 
   // ---- OVER ONS (pagina "Over ons") ----
   overOnsIntro: "Een gezin met een passie voor kippen en kwartels, en een hele beestenboel eromheen.",
   overOns: [
     { titel: "Onze passie", tekst: "We houden van kippen en kwartels: van hun karakter, hun kleuren en de eitjes die ze leggen, in bruin, blauw, groen of olijfkleurig." },
+    { titel: "Geen massabedrijf", tekst: "Bij ons telt het geluk van de dieren en de tevredenheid van onze klanten, niet het aantal. We houden het klein, zodat elk dier de aandacht krijgt die het verdient." },
     { titel: "Waar de naam vandaan komt", tekst: "Het Kippenkamp komt heel eenvoudig van de Kampweg, de straat waar we wonen. En kippen spreekt voor zich." },
     { titel: "Een gezin met een beestenboel", tekst: "We zijn een samengesteld gezin met drie kinderen en een hele beestenboel. Naast kippen en kwartels hebben we ook konijnen, vogels en een hond." },
     { titel: "Dieren door elkaar", tekst: "Sommige van onze konijnen leven samen met kippen, en onze hond vertoeft soms gezellig tussen de kipjes." },
@@ -53,7 +54,7 @@ const SITE = {
   ],
 
   // ---- BESTELLEN EN AFHALEN ----
-  bestelInfo: "Stuur je aanvraag via het formulier, WhatsApp of mail. We bevestigen of het beschikbaar is en spreken samen af wanneer je alles kan ophalen.",
+  bestelInfo: "Stuur je aanvraag via het formulier, WhatsApp of mail. We bevestigen persoonlijk of het beschikbaar is en spreken samen af wanneer je het bij ons komt ophalen.",
   stappen: [
     { titel: "Kies een ras", tekst: "Bekijk onze rassen en kies wat je zoekt: broedeieren, kuikens of volwassen dieren." },
     { titel: "Vraag aan", tekst: "Geef het aantal door." },
@@ -119,6 +120,8 @@ const CATEGORIEEN = [
    omschrijving: korte tekst (mag leeg)
    kenmerken:    lijst met korte kenmerken, bv. ["Rustig", "Tam"] (mag leeg)
    eikleur:      bv. "Donkerbruin" (mag leeg)
+   uitleg:       lijst met korte alinea's over het ras, op de rassenpagina
+   kenmerken:    korte labels, bv. ["Rustig en tam"]
    fotos:        lijst met foto's van het ras, bv. ["images/marans-hen.jpg"]
                  of met bijschrift: [{ src: "images/marans-hen.jpg", tekst: "Onze Marans-hen" }]
 
@@ -142,7 +145,11 @@ const PRODUCTEN = [
     id: "jumbo-kleurenmix", soort: "kwartel", uitgelicht: true,
     naam: "Jumbo kleurenmix",
     omschrijving: "Grote kwartels in een mix van kleuren.",
-    kenmerken: [], eikleur: "", fotos: [{ src: "images/jumbo-kleurenmix-kuiken.jpg", tekst: "Jumbo kleurenmix: kuiken en broedeieren" }],
+    kenmerken: ["Grotere kwartel", "Verschillende kleuren", "Gevlekte eitjes"], eikleur: "Licht met bruine vlekjes", fotos: [{ src: "images/jumbo-kleurenmix-kuiken.jpg", tekst: "Jumbo kleurenmix: kuiken en broedeieren" }],
+    uitleg: [
+      "Jumbo-kwartels zijn wat groter en steviger dan gewone kwartels. In onze mix zitten verschillende kleuren, dus geen twee kwartels zien er precies hetzelfde uit.",
+      "Ze leggen kleine eitjes met bruine vlekjes. Kwartels blijven klein en nemen weinig ruimte in, een mooie manier om met dieren te beginnen."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
@@ -150,8 +157,12 @@ const PRODUCTEN = [
   {
     id: "celadon", soort: "kwartel", uitgelicht: false,
     naam: "Celadon",
-    omschrijving: "",
-    kenmerken: [], eikleur: "", fotos: [],
+    omschrijving: "Kwartels met eitjes in een zacht blauwgroen tintje.",
+    kenmerken: ["Blauwgroene eitjes", "Kleine kwartel"], eikleur: "Blauwgroen", fotos: [],
+    uitleg: [
+      "Celadon-kwartels zijn bekend om hun eitjes in een zacht blauwgroen tintje. Dat is bijzonder, want de meeste kwartels leggen bruin gevlekte eitjes.",
+      "Net als andere kwartels blijven ze klein en nemen ze weinig ruimte in."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/celadon.jpg", tekst: "Celadon-broedeieren met een kuiken" }] },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
@@ -162,7 +173,11 @@ const PRODUCTEN = [
     id: "orpington-goud-zwartgezoomd", soort: "kip", uitgelicht: true,
     naam: "Orpington goud-zwartgezoomd",
     omschrijving: "Zuiver goud-zwartgezoomd, haan en hennen onverwant. 100% zuivere broedeieren.",
-    kenmerken: [], eikleur: "", fotos: [],
+    kenmerken: ["Rustig en tam", "Zachte, volle veren", "Lichtbruine eieren"], eikleur: "Lichtbruin", fotos: [],
+    uitleg: [
+      "De Orpington is een grote, rustige kip met een zachte, volle bevedering. Orpingtons staan bekend als tam en vriendelijk, en passen daardoor goed in een gezin.",
+      "Ze leggen lichtbruine eieren. Deze lijn is zuiver goud-zwartgezoomd, met haan en hennen die onverwant zijn."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/orpington-goud-zwartgezoomd-kuikens.jpg", tekst: "Orpington goud-zwartgezoomd kuikens" }] },
     volwassen: null
@@ -171,7 +186,11 @@ const PRODUCTEN = [
     id: "orpington-kleurmix", soort: "kip", uitgelicht: false,
     naam: "Orpington kleurmix",
     omschrijving: "Een mix van kleurslagen. De hennen zijn 100% zuiver zwart-goudgezoomd, de haan is zwart-blauwgezoomd. Haan en hennen zijn onverwant.",
-    kenmerken: [], eikleur: "", fotos: [],
+    kenmerken: ["Rustig en tam", "Mix van kleurslagen", "Lichtbruine eieren"], eikleur: "Lichtbruin", fotos: [],
+    uitleg: [
+      "Dezelfde rustige, tamme Orpington, maar dan in een mix van kleurslagen. De hennen zijn 100% zuiver zwart-goudgezoomd en de haan is zwart-blauwgezoomd.",
+      "Uit een broedei komt een verrassing: welke kleurslag en hoeveel van elk weten we niet vooraf. Bij kuikens zie je de kleur al, dan kies je zelf."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "Welke kleurslag er uit een ei komt en hoeveel van elk, weten we niet vooraf." },
     kuiken: { fotos: [{ src: "images/orpington-kleurmix-kuiken.jpg", tekst: "Orpington kleurmix kuiken" }], prijs: null, beschikbaar: true, status: "", opmerking: "Bij kuikens is de kleurslag al te zien, dus daar weten we het zeker. Je kiest zelf de kleurslag.", keuze: { label: "Kleurslag", opties: ["zwart-goudgezoomd", "zwart-blauwgezoomd"] } },
     volwassen: null
@@ -180,7 +199,11 @@ const PRODUCTEN = [
     id: "ameraucana", soort: "kip", uitgelicht: false,
     naam: "Ameraucana",
     omschrijving: "Bekend om hun blauwe eieren.",
-    kenmerken: [], eikleur: "Blauw", fotos: [],
+    kenmerken: ["Blauwe eieren", "Baardje en bakkebaarden"], eikleur: "Blauw", fotos: [],
+    uitleg: [
+      "De Ameraucana is bekend om haar blauwe eieren. Je herkent haar ook aan het kleine baardje en de bakkebaardjes rond de kop.",
+      "Een bijzondere kip die in elke tuin opvalt, en in de eierdoos al helemaal."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/ameraucana-kuikens.jpg", tekst: "Ameraucana kuikens" }] },
     volwassen: null
@@ -189,7 +212,11 @@ const PRODUCTEN = [
     id: "marans-zwart-koper", soort: "kip", uitgelicht: true,
     naam: "Marans (zwart koper)",
     omschrijving: "Donkerbruine eieren, een mooie zwarte kip met koperkleurige hals.",
-    kenmerken: [], eikleur: "Donkerbruin", fotos: [],
+    kenmerken: ["Donkerbruine eieren", "Zwart met koperen hals"], eikleur: "Donkerbruin", fotos: [],
+    uitleg: [
+      "De Marans komt uit Frankrijk en is wereldberoemd om haar donkere, chocoladebruine eieren. Zwart koper verwijst naar de zwarte veren met een koperkleurige glans in de hals.",
+      "Een stevige kip met veel uitstraling."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/marans-kuiken.jpg", tekst: "Marans-kuiken" }] },
     volwassen: null
@@ -198,7 +225,11 @@ const PRODUCTEN = [
     id: "olijfleggers", soort: "kip", uitgelicht: true,
     naam: "Olijfleggers",
     omschrijving: "Leggen eieren in een olijfgroene tint.",
-    kenmerken: [], eikleur: "Olijfgroen", fotos: [],
+    kenmerken: ["Olijfgroene eieren", "Opvallend in de eierdoos"], eikleur: "Olijfgroen", fotos: [],
+    uitleg: [
+      "Olijfleggers leggen eieren in een olijfgroene tint, een kleur die je niet vaak ziet. De precieze tint kan van kip tot kip wat verschillen, van zacht groen tot dieper olijf.",
+      "Een leuke keuze als je eens iets anders in de eierdoos wil."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null
@@ -207,7 +238,11 @@ const PRODUCTEN = [
     id: "easter-eggers", soort: "kip", uitgelicht: false,
     naam: "Easter eggers",
     omschrijving: "Kleurrijke kippen die eieren leggen in verschillende tinten.",
-    kenmerken: [], eikleur: "Verschillende tinten", fotos: [],
+    kenmerken: ["Gekleurde eieren", "Elke kip anders"], eikleur: "Verschillende tinten", fotos: [],
+    uitleg: [
+      "Easter eggers zijn geen vast ras, maar kippen die gekleurde eieren leggen, meestal in blauw of groen en soms in andere tinten. Elke kip legt haar eigen kleur en ziet er net iets anders uit.",
+      "Daardoor is elke Easter egger uniek."
+    ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null

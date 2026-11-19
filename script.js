@@ -372,14 +372,28 @@
       var chips = (ras.kenmerken || []).length
         ? '<ul class="chips">' + ras.kenmerken.map(function (k) { return "<li>" + esc(k) + "</li>"; }).join("") + "</ul>"
         : "";
+      var uitleg = (ras.uitleg || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
+      var kaarten = typen.map(function (t) {
+        var item = ras[t];
+        var knop = item.beschikbaar === false
+          ? '<span class="status uit">Momenteel niet beschikbaar</span>'
+          : '<a class="btn" href="aanvragen.html?product=' + t + "&amp;ras=" + esc(ras.id) + '" aria-label="Vraag ' + esc(typeLabel(ras, t).toLowerCase()) + " van " + esc(ras.naam) + ' aan">' + esc(typeLabel(ras, t)) + " aanvragen</a>";
+        return '<li class="prod-card' + (t === gekozenType ? " gekozen" : "") + '"><h3>' + esc(typeLabel(ras, t)) + "</h3>" +
+          prijsHtml(item, t) +
+          (item.status && item.beschikbaar !== false ? '<span class="status">' + esc(item.status) + "</span>" : "") +
+          (item.opmerking ? '<p class="note">' + esc(item.opmerking) + "</p>" : "") + knop + "</li>";
+      }).join("");
       detail.innerHTML = '<div class="split ras-split"><figure class="photo-frame">' + beeld + "</figure><div>" +
+        "<h2>Over dit ras</h2>" +
+        (uitleg || (ras.omschrijving ? "<p>" + esc(ras.omschrijving) + "</p>" : "")) +
         (ras.eikleur ? '<p class="egg"><strong>Eikleur:</strong> ' + esc(ras.eikleur) + "</p>" : "") + chips +
-        "<h2>Wat kan je aanvragen?</h2>" +
+        "</div></div>" +
+        '<div class="ras-aanvragen"><h2>Wat wil je aanvragen?</h2>' +
         (typen.length
-          ? '<ul class="prods big">' + typen.map(function (t) { return prodRij(ras, t, t === gekozen); }).join("") + "</ul>" +
-            '<p class="notice">We bevestigen altijd eerst of het beschikbaar is.</p>'
+          ? '<ul class="prod-cards">' + kaarten + "</ul>" +
+            '<p class="notice">We bevestigen altijd eerst persoonlijk of het beschikbaar is. Heb je een vraag of twijfel je? <a href="contact.html">Stuur ons gerust een berichtje.</a></p>'
           : '<p>Hier staat nog niets om aan te vragen. <a href="contact.html">Stel ons gerust je vraag.</a></p>') +
-        "</div></div>";
+        "</div>";
     }
   }
 

@@ -340,3 +340,19 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .sl-dots button { width: 28px; height: 28px; border: 0; background: transparent; cursor: pointer; position: relative; }
 .sl-dots button::after { content: ""; position: absolute; top: 50%; left: 50%; width: 11px; height: 11px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--line); }
 .sl-dots button[aria-current="true"]::after { background: var(--olive); }
+
+/* Rassenpagina: uitleg en duidelijke keuze */
+.ras-detail .ras-split > div > p { margin: 0 0 12px; max-width: 62ch; }
+.ras-aanvragen { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+.ras-aanvragen h2 { font-size: 1.6rem; margin: 0 0 16px; }
+.prod-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.prod-card { display: flex; flex-direction: column; gap: 6px; padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.prod-card.gekozen { border-color: var(--olive); box-shadow: 0 0 0 2px rgba(92, 107, 59, .25); }
+.prod-card h3 { margin: 0; font-size: 1.3rem; }
+.prod-card .prijs { color: var(--text); }
+.prod-card .prijs.uit { color: var(--muted); }
+.prod-card .status { color: var(--olive-dark); font-weight: 600; font-size: .92rem; }
+.prod-card .status.uit { color: var(--muted); }
+.prod-card .note { margin: 4px 0 8px; color: var(--muted); font-size: .92rem; }
+.prod-card .btn { margin-top: auto; align-self: flex-start; }
+.ras-aanvragen .notice { margin-top: 18px; color: var(--muted); }
