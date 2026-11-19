@@ -199,7 +199,8 @@ const PRODUCTEN = [
       { src: "images/orpington-zwart-goudgezoomd-3.jpg", tekst: "Orpington zwart goudgezoomd hennen op de grond" },
       { src: "images/orpington-zwart-goudgezoomd-4.jpg", tekst: "Orpington zwart goudgezoomd haan en hennen, met onze hond op de achtergrond" },
       { src: "images/orpington-zwart-goudgezoomd-5.jpg", tekst: "Orpington zwart goudgezoomd haan" },
-      { src: "images/orpington-zwart-goudgezoomd-6.jpg", tekst: "Orpington zwart goudgezoomd hen tussen het groen" }
+      { src: "images/orpington-zwart-goudgezoomd-6.jpg", tekst: "Orpington zwart goudgezoomd hen tussen het groen" },
+      { src: "images/orpington-zwart-goudgezoomd-7.jpg", tekst: "Orpington zwart goudgezoomd haan en hennen in de sneeuw" }
     ],
     uitleg: [
       "De Orpington is dé ultieme knuffelkip voor in de achtertuin: een grote, zachtaardige, heerlijk fluffy kip met een indrukwekkende verschijning en een karakter om verliefd op te worden.",
