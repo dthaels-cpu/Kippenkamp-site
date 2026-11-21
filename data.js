@@ -52,6 +52,7 @@ const SITE = {
     { titel: "Bijzondere rassen", tekst: "We kiezen voor rassen met een eigen gezicht, zoals Orpington, Marans, Ameraucana en olijfleggers. Het volledige overzicht staat bij het aanbod." },
     { titel: "Eigen dieren", tekst: "Het aanbod komt van onze eigen dieren. Daarom kunnen we je ook echt iets vertellen over de rassen die je overweegt." },
     { titel: "Net begonnen, altijd aan het bijleren", tekst: "We zijn net gestart en leren elke dag bij. Heb je een suggestie, een tip of een opmerking? Die is meer dan welkom." },
+    { titel: "Persoonlijk contact", tekst: "Je praat rechtstreeks met ons, geen tussenpersoon. We nemen de tijd om al je vragen te beantwoorden." },
     { titel: "Persoonlijke aanpak", tekst: "Bij een aanvraag krijg je een persoonlijk antwoord van ons, met duidelijke afspraken over beschikbaarheid en afhalen." }
   ],
 
