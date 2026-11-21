@@ -352,6 +352,8 @@ const PRODUCTEN = [
     kenmerken: ["Donkere hennen", "Verrassende eikleuren", "Broedeieren met Ermine Ameraucana-haan"], eikleur: "Roze met bloom, olijfgroen en chocoladebruin; met onze haan ook mintgroen en pastelgroen", fotos: [{ src: "images/eieren-kleurenrij.jpg", tekst: "Eierschalen van onze Easter Eggers in een rij, van bruin tot olijfgroen en blauwgroen" }],
     uitleg: [
       "Bij Het Kippenkamp houden we wel van een beetje spanning in het legnest! Onze Easter Eggers hebben zelf een stoere, donkere uitstraling, van diepzwart tot dieren die qua bouw en kleur op een Marans lijken, maar zorgen juist in het eierdoosje voor allerlei verrassingen.",
+      "## Wat is een Easter Egger eigenlijk? 🌈",
+      "Voor wie de naam nog niet kent: een Easter Egger is geen officieel erkend standaardras met één vast uiterlijk, maar een verzamelnaam voor kleurleggende kruisingen die het gen voor blauwe of groene eieren meedragen (vaak met Ameraucana- of Araucana-bloed). Juist omdat ze niet aan één vaste rasstandaard vastzitten, zijn het vaak sterke, vitale kippen met een vriendelijk karakter en een unieke uitstraling, en bovenal dé kippen voor wie elke dag een vrolijk 'paasei' in het nest wil vinden!",
       "## Bijzondere herkomst, bijzonder ei ✨",
       "Het mooie aan onze groep is dat de hennen zelf uit heel verschillende eieren zijn gekomen en nu stuk voor stuk hun eigen unieke tinten leggen:",
       "• Onze zwarte hen uit een roos ei legt zelf een roos ei met bloom, dat zachte, fluwelige laagje over de schaal dat het ei een heel bijzondere uitstraling geeft.\n• Onze zwarte hen uit een bruin ei trakteert ons op prachtige olijfgroene eieren.\n• Onze Marans-achtige hennen uit olijfgroene en bruine eieren leggen rijke, diepe chocoladebruine eieren.",
