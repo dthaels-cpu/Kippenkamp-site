@@ -481,9 +481,9 @@
   }
 
   /* ---------- Over ons ---------- */
-  if (page === "over-ons") {
+  if (page === "visie" || page === "over-ons") {
     var oo = $("#overons-lijst");
-    if (oo) oo.innerHTML = SITE.overOns.map(function (o) { return "<article><h3>" + esc(o.titel) + "</h3><p>" + esc(o.tekst) + "</p></article>"; }).join("");
+    if (oo) oo.innerHTML = SITE.overOns.map(function (o) { return "<li><strong>" + esc(o.titel) + ":</strong> " + esc(o.tekst) + "</li>"; }).join("");
   }
 
   /* ---------- Stappen en voorstelling (op meerdere pagina's) ---------- */
