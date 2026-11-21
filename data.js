@@ -25,11 +25,11 @@ const SITE = {
   plaats: "Wuustwezel",              // bv. "Wuustwezel"
 
   // ---- TEKSTEN ----
-  heroTekst: "Bij ons thuis lopen kippen, kwartels, konijnen en een hond gezellig door elkaar. Onze kuikens groeien op in huis, midden in het gezin. Zoek je broedeieren, kuikens of volwassen dieren? Vertel het ons, we denken graag met je mee.",
+  heroTekst: "Bij ons thuis lopen kippen, kwartels, konijnen en een hond gezellig door elkaar. Onze kuikens groeien op in huis, midden in het gezin. Bij ons vind je broedeieren, kuikens en volwassen dieren van bijzondere rassen. Kies hieronder het ras dat je aanspreekt.",
 
   introTitel: "Een gezin met een hart voor kippen, kwartels en alles wat erbij rondloopt",
   intro: [
-    "Wij zijn een nieuw samengesteld gezin met drie kinderen en een hele beestenboel. Het Kippenkamp is geen kwekerij op grote schaal: bij ons telt het geluk van de dieren en de tevredenheid van onze klanten, niet het aantal.",
+    "Wij zijn een gezin met drie kinderen en een hele beestenboel. Het Kippenkamp is geen kwekerij op grote schaal: bij ons telt het geluk van de dieren en de tevredenheid van onze klanten, niet het aantal.",
     "Onze kuikens groeien binnen in huis op, midden in het gezinsleven. Zo zijn ze niet bang van mensen en komen ze als echte huisdieren bij je terecht.",
     "Zoek je een rustige tuinkip, eitjes in bijzondere kleuren of je eerste kwartels? Vertel wat je zoekt, dan helpen we je graag verder."
   ],
@@ -48,7 +48,7 @@ const SITE = {
     { titel: "Onze passie", tekst: "We houden van kippen en kwartels: van hun karakter, hun kleuren en de eitjes die ze leggen, in bruin, blauw, groen of olijfkleurig." },
     { titel: "Geen massabedrijf", tekst: "Bij ons telt het geluk van de dieren en de tevredenheid van onze klanten, niet het aantal. We houden het klein, zodat elk dier de aandacht krijgt die het verdient." },
     { titel: "Waar de naam vandaan komt", tekst: "Het Kippenkamp komt heel eenvoudig van de Kampweg, de straat waar we wonen. En kippen spreekt voor zich." },
-    { titel: "Een gezin met een beestenboel", tekst: "We zijn een nieuw samengesteld gezin met drie kinderen en een hele beestenboel. Naast kippen en kwartels hebben we ook konijnen, vogels en een hond." },
+    { titel: "Een gezin met een beestenboel", tekst: "We zijn een gezin met drie kinderen en een hele beestenboel. Naast kippen en kwartels hebben we ook konijnen, vogels en een hond." },
     { titel: "Dieren door elkaar", tekst: "Sommige van onze konijnen leven samen met kippen, en onze hond vertoeft soms gezellig tussen de kipjes." },
     { titel: "Kuikens die in huis opgroeien", tekst: "Onze kuikens groeien groot binnen in huis en worden echt betrokken bij het gezinsleven. Zo hebben ze geen schrik van mensen." },
     { titel: "Bijzondere rassen", tekst: "We kiezen voor rassen met een eigen gezicht, zoals Orpington, Marans, Ameraucana en olijfleggers. Het volledige overzicht staat bij het aanbod." },

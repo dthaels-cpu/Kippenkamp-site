@@ -392,3 +392,18 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
   .hero.has-photo::before { background: linear-gradient(180deg, rgba(47,58,28,0) 0, rgba(47,58,28,0) 45vw, #2f3a1c 72vw); }
   .hero.has-photo .wrap { padding-top: 62vw; padding-bottom: 48px; }
 }
+
+/* Rassen-dropdown in het hoofdmenu */
+.main-nav .has-sub { position: relative; }
+.main-nav .sub-toggle { font: inherit; font-weight: 500; color: var(--text); background: none; border: 0; cursor: pointer; padding: 10px 11px; border-radius: 999px; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.main-nav .sub-toggle::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .2s; }
+.main-nav .sub-toggle:hover, .main-nav .sub-toggle.actief { background: var(--cream); }
+.main-nav .has-sub.open .sub-toggle::after { transform: rotate(-135deg) translateY(-2px); }
+.main-nav .submenu { display: none; position: absolute; top: calc(100% + 6px); left: 0; min-width: 250px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); padding: 8px; z-index: 60; flex-direction: column; align-items: stretch; }
+.main-nav .has-sub.open .submenu { display: flex; }
+.main-nav .submenu a { border-radius: 10px; padding: 10px 12px; }
+@media (max-width: 1240px) {
+  .js .main-nav .sub-toggle { width: 100%; justify-content: space-between; padding: 14px 14px; font-size: 1.1rem; border-radius: 999px; }
+  .js .main-nav .submenu { position: static; box-shadow: none; border: 0; border-left: 3px solid var(--line); border-radius: 0; margin: 2px 0 6px 14px; padding: 0 0 0 6px; min-width: 0; }
+  .js .main-nav .submenu a { padding: 11px 12px; font-size: 1rem; }
+}

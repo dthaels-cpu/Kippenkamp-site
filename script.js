@@ -41,6 +41,29 @@
     });
   }
 
+  /* ---------- Rassen-dropdown in het menu ---------- */
+  (function () {
+    var lijstUl = $("#hoofdmenu ul");
+    if (!lijstUl || typeof PRODUCTEN === "undefined") return;
+    var huidigId = (location.pathname.split("/").pop() || "").indexOf("ras") === 0
+      ? (function (v) { return (typeof RAS_ALIAS !== "undefined" && RAS_ALIAS[v]) || v; })(new URLSearchParams(location.search).get("id") || "") : "";
+    var li = document.createElement("li");
+    li.className = "has-sub";
+    li.innerHTML = '<button type="button" class="sub-toggle" aria-expanded="false" aria-haspopup="true">Rassen</button>' +
+      '<ul class="submenu">' + PRODUCTEN.map(function (r) {
+        return '<li><a href="ras.html?id=' + encodeURIComponent(r.id) + '"' + (r.id === huidigId ? ' aria-current="page"' : "") + ">" + esc(r.naam) + "</a></li>";
+      }).join("") + "</ul>";
+    var over = $$("a", lijstUl).filter(function (a) { return /over-ons/.test(a.getAttribute("href") || ""); })[0];
+    var ref = over ? over.parentNode : null;
+    lijstUl.insertBefore(li, ref);
+    var knop = $(".sub-toggle", li);
+    var zet = function (open) { li.classList.toggle("open", open); knop.setAttribute("aria-expanded", open ? "true" : "false"); };
+    knop.addEventListener("click", function (e) { e.stopPropagation(); zet(!li.classList.contains("open")); });
+    document.addEventListener("click", function (e) { if (!li.contains(e.target)) zet(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") zet(false); });
+    if (huidigId) knop.classList.add("actief");
+  })();
+
   /* ---------- Menu op mobiel ---------- */
   var toggle = $(".menu-toggle");
   var nav = $("#hoofdmenu");
@@ -218,6 +241,14 @@
     if (hero && BEELDEN.hero) {
       hero.style.setProperty("--hero-foto", 'url("' + BEELDEN.hero + '")');
       hero.classList.add("has-photo");
+    }
+    var rassenHome = $("#rassen-home");
+    if (rassenHome) {
+      rassenHome.innerHTML = [["kwartel", "Kwartels"], ["kip", "Kippen"]].map(function (gr) {
+        var deel = PRODUCTEN.filter(function (r) { return r.soort === gr[0]; });
+        if (!deel.length) return "";
+        return '<section class="groep"><h3 class="groep-titel">' + gr[1] + '</h3><div class="grid rassen">' + deel.map(function (r) { return rasKaart(r, ""); }).join("") + "</div></section>";
+      }).join("");
     }
     var catEl = $("#categorieen");
     if (catEl) {
