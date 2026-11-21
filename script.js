@@ -328,7 +328,7 @@
     };
     var toon = function (id) {
       var cat = cats.filter(function (c) { return c.id === id; })[0];
-      var metType = cat && cat.type === "volwassen"; // Broedeieren en Kuikens tonen allebei alle rassen; kiezen doe je op de rassenpagina
+      var metType = false; // alle categorieën tonen alle rassen; kiezen doe je op de rassenpagina
       var items = metType ? rassenMet(cat.type) : PRODUCTEN;
       markeerMenu(cat ? cat.id : "");
       var groepen = [["kwartel", "Kwartels"], ["kip", "Kippen"]];
