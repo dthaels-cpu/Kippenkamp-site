@@ -127,9 +127,9 @@ const BEELDEN = {
 const RAS_ALIAS = { ciladon: "celadon", "orpington-goud-zwartgezoomd": "orpington", "orpington-kleurmix": "orpington" };
 
 const CATEGORIEEN = [
-  { id: "broedeieren", titel: "Broedeieren", tekst: "Voor wie graag zelf de broedmachine laat draaien en het hele avontuur van ei tot kuiken wil beleven.", type: "broedei", plaatshouder: "ei" },
-  { id: "kuikens", titel: "Kuikens", tekst: "Kleine bolletjes dons die uitgroeien tot prachtige, imposante kippen.", type: "kuiken", plaatshouder: "kuiken" },
-  { id: "volwassen", titel: "Volwassen kippen en kwartels", tekst: "Voor wie liever meteen een paar mooie dieren aan zijn of haar toom toevoegt.", type: "volwassen", plaatshouder: "kip" }
+  { id: "broedeieren", titel: "Broedeieren", tekst: "Voor wie graag zelf de broedmachine laat draaien en het hele avontuur van ei tot kuiken wil beleven.", type: "broedei", plaatshouder: "ei", kort: "Zelf aan de slag met de broedmachine." },
+  { id: "kuikens", titel: "Kuikens", tekst: "Kleine bolletjes dons die uitgroeien tot prachtige, imposante kippen.", type: "kuiken", plaatshouder: "kuiken", kort: "Kleine bolletjes dons die uitgroeien tot mooie kippen." },
+  { id: "volwassen", titel: "Volwassen kippen en kwartels", tekst: "Voor wie liever meteen een paar mooie dieren aan zijn of haar toom toevoegt.", type: "volwassen", plaatshouder: "kip", kort: "Jonge en volwassen dieren voor je eigen groep." }
 ];
 
 /* -----------------------------------------------------

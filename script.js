@@ -251,16 +251,9 @@
       }).join("");
     }
     var catEl = $("#categorieen");
-    if (catEl) {
+    if (catEl) {   // korte, duidelijke opsomming van wat we hebben (niet klikbaar: de klant kiest hieronder een ras)
       catEl.innerHTML = CATEGORIEEN.map(function (c) {
-        var rassen = rassenMet(c.type);
-        var href = rassen.length ? "aanbod.html#" + c.id : "contact.html?onderwerp=" + c.id;
-        var beeld = (BEELDEN.categorie && BEELDEN.categorie[c.id]) || PLAATSHOUDER[c.plaatshouder];
-        return '<article class="cat"><div class="pic"><img src="' + esc(beeld) + '" alt="" loading="lazy" decoding="async" width="800" height="600" data-fallback="' + PLAATSHOUDER[c.plaatshouder] + '"></div>' +
-          '<div class="body"><h3><a class="stretch" href="' + href + '">' + esc(c.titel) + "</a></h3>" +
-          "<p>" + esc(c.tekst) + "</p>" +
-          (rassen.length ? '<p class="names">' + rassen.map(function (p) { return esc(p.naam); }).join(" · ") + "</p>" : "") +
-          '<span class="more" aria-hidden="true">' + (rassen.length ? "Bekijk de rassen" : "Vraag ernaar") + " →</span></div></article>";
+        return '<div class="aanbod-punt"><h3>' + esc(c.titel) + "</h3><p>" + esc(c.kort || "") + "</p></div>";
       }).join("");
     }
     var waarom = $("#waarom");
@@ -279,16 +272,24 @@
         '<div class="slides">' + kampFotos.map(function (f, i) {
           return '<div class="slide' + (i === 0 ? " actief" : "") + '" role="group" aria-roledescription="dia" aria-label="Foto ' + (i + 1) + " van " + n + '">' +
             '<button type="button" class="strip-foto" data-lijst="' + lijstId + '" data-i="' + i + '" aria-label="Bekijk foto ' + (i + 1) + ' groot' + (f.tekst ? ": " + esc(f.tekst) : "") + '">' +
-            '<span class="bg" style="background-image:url(\'' + esc(f.src) + '\')"></span>' +
-            '<img src="' + esc(f.src) + '" alt="' + esc(f.tekst || "Ons kamp") + '"' + (i === 0 ? "" : ' loading="lazy"') + ' decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></div>';
+            '<span class="bg"' + (i === 0 ? ' style="background-image:url(\'' + esc(f.src) + '\')"' : ' data-bg="' + esc(f.src) + '"') + '></span>' +
+            '<img ' + (i === 0 ? 'src="' : 'data-src="') + esc(f.src) + '" alt="' + esc(f.tekst || "Ons kamp") + '" decoding="async" data-fallback="' + PLAATSHOUDER.kip + '"></button></div>';
         }).join("") + "</div>" +
         (n > 1 ? '<button type="button" class="sl-btn sl-prev" aria-label="Vorige foto">‹</button><button type="button" class="sl-btn sl-next" aria-label="Volgende foto">›</button>' : "") +
         '</div><p class="sl-tekst" aria-live="polite" hidden></p>' +
         (n > 1 ? '<div class="sl-dots">' + kampFotos.map(function (f, i) { return '<button type="button" data-i="' + i + '" aria-label="Ga naar foto ' + (i + 1) + '"></button>'; }).join("") + "</div>" : "");
       var slider = $(".slider", kampEl), slides = $$(".slide", kampEl), dots = $$(".sl-dots button", kampEl), tekstEl = $(".sl-tekst", kampEl);
       var huidig = 0, pauze = false, timer = null;
+      var laad = function (k) {   // foto's pas laden als ze bijna aan de beurt zijn: de pagina blijft snel
+        var sl = slides[(k + n) % n];
+        if (!sl) return;
+        var im = $("img[data-src]", sl), bg = $(".bg[data-bg]", sl);
+        if (im) { im.src = im.getAttribute("data-src"); im.removeAttribute("data-src"); }
+        if (bg) { bg.style.backgroundImage = "url('" + bg.getAttribute("data-bg") + "')"; bg.removeAttribute("data-bg"); }
+      };
       var ga = function (i) {
         huidig = (i + n) % n;
+        laad(huidig); laad(huidig + 1); laad(huidig - 1);
         slides.forEach(function (s, k) { s.classList.toggle("actief", k === huidig); });
         dots.forEach(function (d, k) { d.setAttribute("aria-current", k === huidig ? "true" : "false"); });
         tekstEl.textContent = kampFotos[huidig].bijschrift || "";   // onderschrift alleen als een foto een eigen "bijschrift" heeft
