@@ -349,7 +349,7 @@ const PRODUCTEN = [
     id: "easter-eggers", soort: "kip", uitgelicht: false,
     naam: "Easter eggers",
     omschrijving: "Maak kennis met onze Easter Eggers: donkere schoonheden en verrassende eikleuren!",
-    kenmerken: ["Donkere hennen", "Verrassende eikleuren", "Broedeieren met Ermine Ameraucana-haan"], eikleur: "Roze met bloom, olijfgroen en chocoladebruin; met onze haan ook mintgroen en pastelgroen", ffotos: [{ src: "images/eieren-kleurenrij.jpg", tekst: "Eierschalen van onze Easter Eggers in een rij, van bruin tot olijfgroen en blauwgroen" }],
+    kenmerken: ["Donkere hennen", "Verrassende eikleuren", "Broedeieren met Ermine Ameraucana-haan"], eikleur: "Roze met bloom, olijfgroen en chocoladebruin; met onze haan ook mintgroen en pastelgroen", fotos: [{ src: "images/eieren-kleurenrij.jpg", tekst: "Eierschalen van onze Easter Eggers in een rij, van bruin tot olijfgroen en blauwgroen" }],
     uitleg: [
       "Bij Het Kippenkamp houden we wel van een beetje spanning in het legnest! Onze Easter Eggers hebben zelf een stoere, donkere uitstraling, van diepzwart tot dieren die qua bouw en kleur op een Marans lijken, maar zorgen juist in het eierdoosje voor allerlei verrassingen.",
       "## Bijzondere herkomst, bijzonder ei ✨",
