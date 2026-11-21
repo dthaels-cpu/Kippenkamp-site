@@ -25,7 +25,7 @@ const SITE = {
   plaats: "Wuustwezel",              // bv. "Wuustwezel"
 
   // ---- TEKSTEN ----
-  heroTekst: "Bij ons thuis lopen kippen, kwartels, konijnen en een hond gezellig door elkaar. Onze kuikens groeien op in huis, midden in het gezin. Bij ons vind je broedeieren, kuikens en volwassen dieren van bijzondere rassen. Kies hieronder het ras dat je aanspreekt.",
+  heroTekst: "Welkom bij ons thuis! Hier vind je broedeieren, kuikens en volwassen kippen en kwartels van bijzondere rassen. Kies hieronder het ras dat je aanspreekt.",
 
   introTitel: "Een gezin met een hart voor kippen, kwartels en alles wat erbij rondloopt",
   intro: [
@@ -177,10 +177,10 @@ const PRODUCTEN = [
   {
     id: "celadon", soort: "kwartel", uitgelicht: false,
     naam: "Japanse celadon",
-    omschrijving: "Kwartels met eitjes in een zacht blauwgroen tintje.",
-    kenmerken: ["Blauwgroene eitjes", "Kleine kwartel"], eikleur: "Blauwgroen", fotos: [],
+    omschrijving: "Kwartels met blauwe eitjes.",
+    kenmerken: ["Blauwe eitjes", "Kleine kwartel"], eikleur: "Blauw", fotos: [],
     uitleg: [
-      "Japanse celadon-kwartels zijn bekend om hun eitjes in een zacht blauwgroen tintje. Dat is bijzonder, want de meeste kwartels leggen bruin gevlekte eitjes.",
+      "Japanse celadon-kwartels zijn bekend om hun blauwe eitjes. Dat is bijzonder, want de meeste kwartels leggen bruin gevlekte eitjes.",
       "Net als andere kwartels blijven ze klein en nemen ze weinig ruimte in."
     ],
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "", fotos: [{ src: "images/celadon.jpg", tekst: "Japanse celadon-broedeieren met een kuiken" }] },

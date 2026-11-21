@@ -244,7 +244,7 @@
     }
     var rassenHome = $("#rassen-home");
     if (rassenHome) {
-      rassenHome.innerHTML = [["kwartel", "Kwartels"], ["kip", "Kippen"]].map(function (gr) {
+      rassenHome.innerHTML = [["kip", "Kippen"], ["kwartel", "Kwartels"]].map(function (gr) {
         var deel = PRODUCTEN.filter(function (r) { return r.soort === gr[0]; });
         if (!deel.length) return "";
         return '<section class="groep"><h3 class="groep-titel">' + gr[1] + '</h3><div class="grid rassen">' + deel.map(function (r) { return rasKaart(r, ""); }).join("") + "</div></section>";
