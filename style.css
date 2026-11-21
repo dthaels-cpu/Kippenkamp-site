@@ -414,3 +414,9 @@ input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="
 .aanbod-punt h3 { margin: 0 0 6px; font-size: 1.2rem; }
 .aanbod-punt p { margin: 0; color: var(--muted); }
 @media (max-width: 760px) { .aanbod-kort { grid-template-columns: 1fr; } }
+
+/* Over ons */
+.over-tekst { max-width: 760px; }
+.over-tekst h2 { margin-bottom: 18px; }
+.kader { list-style: none; margin: 22px 0; padding: 22px 24px; background: var(--cream); border: 1px solid var(--line); border-radius: 16px; display: grid; gap: 14px; }
+.kader li { margin: 0; padding-left: 0; }
