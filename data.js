@@ -349,12 +349,20 @@ const PRODUCTEN = [
   {
     id: "easter-eggers", soort: "kip", uitgelicht: false,
     naam: "Easter eggers",
-    omschrijving: "Kleurrijke kippen die eieren leggen in verschillende tinten.",
-    kenmerken: ["Gekleurde eieren", "Elke kip anders"], eikleur: "Verschillende tinten", fotos: [],
+    omschrijving: "Maak kennis met onze Easter Eggers: donkere schoonheden en verrassende eikleuren!",
+    kenmerken: ["Donkere hennen", "Verrassende eikleuren", "Broedeieren met Ermine Ameraucana-haan"], eikleur: "Roze met bloom, olijfgroen en chocoladebruin; met onze haan ook mintgroen en pastelgroen", fotos: [],
     uitleg: [
-      "Easter eggers zijn geen vast ras, maar kippen die gekleurde eieren leggen, meestal in blauw of groen en soms in andere tinten. Elke kip legt haar eigen kleur en ziet er net iets anders uit.",
-      "Daardoor is elke Easter egger uniek."
+      "Bij Het Kippenkamp houden we wel van een beetje spanning in het legnest! Onze Easter Eggers hebben zelf een stoere, donkere uitstraling, van diepzwart tot dieren die qua bouw en kleur op een Marans lijken, maar zorgen juist in het eierdoosje voor allerlei verrassingen.",
+      "## Bijzondere herkomst, bijzonder ei ✨",
+      "Het mooie aan onze groep is dat de hennen zelf uit heel verschillende eieren zijn gekomen en nu stuk voor stuk hun eigen unieke tinten leggen:",
+      "• Onze zwarte hen uit een roos ei legt zelf een roos ei met bloom, dat zachte, fluwelige laagje over de schaal dat het ei een heel bijzondere uitstraling geeft.\n• Onze zwarte hen uit een bruin ei trakteert ons op prachtige olijfgroene eieren.\n• Onze Marans-achtige hennen uit olijfgroene en bruine eieren leggen rijke, diepe chocoladebruine eieren.",
+      "## Dubbele verrassing met onze Ermine Ameraucana-haan 🐓",
+      "Onze Easter Eggers lopen samen met onze Ermine Ameraucana-haan (wit met zwarte vlekjes). Dat maakt de broedeieren uit deze groep extra leuk voor wie zelf aan de slag gaat met de broedmachine:",
+      "• In het eierdoosje: Doordat onze haan het blauwe eikleurgen doorgeeft en onze hennen roze (met bloom), olijfgroene en chocoladebruine eieren leggen, levert deze combinatie een bonte mix op van fris mint- en pastelgroen tot diep olijfgroen, eventueel roze eieren en andere speciale kleurtjes met een zachte bloom-laag.\n• In de ren: Naast effen donkere kuikens geeft onze Ermine-haan bij ongeveer de helft van de nakomelingen zijn leuke zwarte vlekjes en spetters door, vaak gecombineerd met die karakteristieke Ameraucana-baardjes!",
+      "## Van ons legnest tot jouw broedmachine 🐣",
+      "Omdat we kleinschalig en met aandacht werken, is het aanbod van broedeieren, kuikens of jonge dieren afhankelijk van het seizoen en onze eigen fokselectie."
     ],
+    afsluiter: "Onze Easter Eggers: donker en karaktervol op het erf, en elke dag weer een kleurrijk cadeautje in het nest! ❤️",
     broedei: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     kuiken: { prijs: null, beschikbaar: true, status: "", opmerking: "" },
     volwassen: null

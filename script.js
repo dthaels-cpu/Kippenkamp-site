@@ -401,7 +401,14 @@
       var chips = (ras.kenmerken || []).length
         ? '<ul class="chips">' + ras.kenmerken.map(function (k) { return "<li>" + esc(k) + "</li>"; }).join("") + "</ul>"
         : "";
-      var uitleg = (ras.uitleg || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
+      var uitleg = (ras.uitleg || []).map(function (t) {
+        if (t.indexOf("## ") === 0) return "<h3>" + esc(t.slice(3)) + "</h3>";   // tussenkop
+        if (t.indexOf("• ") === 0) return '<ul class="karakter">' + t.split("\n").map(function (r) {
+          var m = r.replace(/^• /, ""), i = m.indexOf(": ");
+          return "<li>" + (i > 0 && i < 60 ? "<strong>" + esc(m.slice(0, i)) + ":</strong> " + esc(m.slice(i + 2)) : esc(m)) + "</li>";
+        }).join("") + "</ul>";   // opsomming
+        return "<p>" + esc(t) + "</p>";
+      }).join("");
       var k = ras.karakter;
       var karakter = k ? "<h3>" + esc(k.titel) + "</h3>" + (k.intro ? "<p>" + esc(k.intro) + "</p>" : "") + '<ul class="karakter">' +
         k.punten.map(function (pt) { return "<li><strong>" + esc(pt[0]) + ":</strong> " + esc(pt[1]) + "</li>"; }).join("") + "</ul>" +
