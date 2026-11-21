@@ -25,7 +25,7 @@ const SITE = {
   plaats: "Wuustwezel",              // bv. "Wuustwezel"
 
   // ---- TEKSTEN ----
-  heroTekst: "Welkom bij ons thuis! Hier vind je broedeieren, kuikens en volwassen kippen en kwartels van bijzondere rassen. Kies hieronder het ras dat je aanspreekt.",
+  heroTekst: "Welkom bij Het Kippenkamp, de kippen van de Kampweg! Hier vind je broedeieren, kuikens en volwassen kippen en kwartels van bijzondere rassen.",
 
   introTitel: "Een gezin met een hart voor kippen, kwartels en alles wat erbij rondloopt",
   intro: [
