@@ -45,10 +45,10 @@ const SITE = {
   // ---- OVER ONS (pagina "Over ons") ----
   overOnsIntro: "Een gezin met een passie voor kippen en kwartels, en een hele beestenboel eromheen.",
   overOns: [
-    { titel: "Onze passie", tekst: "We houden van kippen en kwartels: van hun karakter, hun kleuren en de eitjes die ze leggen, in bruin, blauw, groen of olijfkleurig." },
+    { titel: "Onze passie", tekst: "We houden van kippen en kwartels: van hun karakter, hun kleuren en het kleurenpallet aan eitjes die ze leggen." },
     { titel: "Geen massabedrijf", tekst: "Bij ons telt het geluk van de dieren en de tevredenheid van onze klanten, niet het aantal. We houden het klein, zodat elk dier de aandacht krijgt die het verdient." },
     { titel: "Dieren door elkaar", tekst: "Sommige van onze konijnen leven samen met kippen, en onze hond vertoeft soms gezellig tussen de kipjes." },
-    { titel: "Kuikens die in huis opgroeien", tekst: "Onze kuikens groeien groot binnen in huis en worden echt betrokken bij het gezinsleven. Zo hebben ze geen schrik van mensen." },
+    { titel: "Kuikens die in huis opgroeien", tekst: "Onze kuikens worden binnen in huis geboren waar ze de eerste weken vertoeven en echt betrokken worden bij het gezinsleven. Zo hebben ze geen schrik van mensen." },
     { titel: "Bijzondere rassen", tekst: "We kiezen voor rassen met een eigen gezicht, zoals Orpington, Marans, Ameraucana en olijfleggers. Het volledige overzicht staat bij het aanbod." },
     { titel: "Eigen dieren", tekst: "Het aanbod komt van onze eigen dieren. Daarom kunnen we je ook echt iets vertellen over de rassen die je overweegt." },
     { titel: "Net begonnen, altijd aan het bijleren", tekst: "We zijn net gestart en leren elke dag bij. Heb je een suggestie, een tip of een opmerking? Die is meer dan welkom." },
