@@ -90,7 +90,6 @@ const BEELDEN = {
   eieren: [                       // "Onze eieren": slideshow op de homepage met de eikleuren die we hebben
     { src: "images/eieren-kleuren-gras.jpg", tekst: "Eieren in verschillende kleuren in het gras" },
     { src: "images/eieren-mand.jpg", tekst: "Een mand vol kip- en kwarteleieren in alle kleuren" },
-    { src: "images/eieren-kleurenrij.jpg", tekst: "Eierschalen in een rij, van bruin tot olijfgroen en blauwgroen" },
     { src: "images/eieren-schaal.jpg", tekst: "Onze eierschaal vol kleuren" },
     { src: "images/eieren-gespikkeld.jpg", tekst: "Een gespikkeld ei" },
     { src: "images/eieren-in-handen.jpg", tekst: "Eieren in verschillende kleuren in twee handen" },
@@ -350,7 +349,7 @@ const PRODUCTEN = [
     id: "easter-eggers", soort: "kip", uitgelicht: false,
     naam: "Easter eggers",
     omschrijving: "Maak kennis met onze Easter Eggers: donkere schoonheden en verrassende eikleuren!",
-    kenmerken: ["Donkere hennen", "Verrassende eikleuren", "Broedeieren met Ermine Ameraucana-haan"], eikleur: "Roze met bloom, olijfgroen en chocoladebruin; met onze haan ook mintgroen en pastelgroen", fotos: [],
+    kenmerken: ["Donkere hennen", "Verrassende eikleuren", "Broedeieren met Ermine Ameraucana-haan"], eikleur: "Roze met bloom, olijfgroen en chocoladebruin; met onze haan ook mintgroen en pastelgroen", ffotos: [{ src: "images/eieren-kleurenrij.jpg", tekst: "Eierschalen van onze Easter Eggers in een rij, van bruin tot olijfgroen en blauwgroen" }],
     uitleg: [
       "Bij Het Kippenkamp houden we wel van een beetje spanning in het legnest! Onze Easter Eggers hebben zelf een stoere, donkere uitstraling, van diepzwart tot dieren die qua bouw en kleur op een Marans lijken, maar zorgen juist in het eierdoosje voor allerlei verrassingen.",
       "## Bijzondere herkomst, bijzonder ei ✨",
